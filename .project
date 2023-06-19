@@ -6,12 +6,57 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+<<<<<<< Updated upstream
+=======
+>>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
+>>>>>>> Stashed changes
+=======
+>>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+=======
+>>>>>>> Stashed changes
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+	<filteredResources>
+		<filter>
+			<id>1682915864054</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+<<<<<<< Updated upstream
+=======
+>>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
+>>>>>>> Stashed changes
+=======
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+>>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
 </projectDescription>
