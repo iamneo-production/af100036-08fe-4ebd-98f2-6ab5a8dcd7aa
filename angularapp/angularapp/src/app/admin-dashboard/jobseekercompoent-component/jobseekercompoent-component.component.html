@@ -1,1 +1,50 @@
-<p>jobseekercompoent-component works!</p>
+<div class="job-seeker-container">
+    <div *ngFor="let jobSeeker of jobSeekers" class="job-seeker-item">
+      <div class="job-seeker-field">
+        <span class="field-label"><i class="fas fa-id-card"></i></span>
+        <span class="field-value">{{ jobSeeker.id }}</span>
+      </div>
+      <div class="job-seeker-field">
+        <span class="field-label"><i class="fas fa-user"></i></span>
+        <span class="field-value">{{ jobSeeker.name }}</span>
+      </div>
+      <div class="job-seeker-field">
+        <span class="field-label"><i class="fas fa-clipboard-list"></i></span>
+        <span class="field-value">{{ jobSeeker.skills.join(', ') }}</span>
+      </div>
+      <div class="job-seeker-field">
+        <span class="field-label"><i class="fas fa-briefcase"></i></span>
+        <span class="field-value">{{ jobSeeker.experience }}</span>
+      </div>
+      <div class="job-seeker-field">
+        <span class="field-label"><i class="fas fa-map-marker-alt"></i></span>
+        <span class="field-value">{{ jobSeeker.location }}</span>
+      </div>
+      <div class="job-seeker-actions">
+        <button (click)="deleteJobSeeker(jobSeeker.id)"><i class="fas fa-trash"></i></button>
+        <button (click)="showUpdateJobSeekerForm(jobSeeker)"><i class="fas fa-edit"></i></button>
+      </div>
+   
+      <div *ngIf="this.updatedJobSeeker.id === jobSeeker.id" class="section-content">
+      
+    <div *ngIf="showJobSeekerUpdateForm" class="section-content">
+      <h3>Update Job Seeker</h3>
+      <form (submit)="updateJobSeeker()" class="job-seeker-update-form">
+        <div class="form-field">
+          <label for="jobSeekerName">Name:</label>
+          <input type="text" id="jobSeekerName" [(ngModel)]="updatedJobSeeker.name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="jobSeekerExperience">Experience:</label>
+          <input type="text" id="jobSeekerExperience" [(ngModel)]="updatedJobSeeker.experience" name="experience" required>
+        </div>
+        <div class="form-field">
+          <label for="jobSeekerLocation">Location:</label>
+          <input type="text" id="jobSeekerLocation" [(ngModel)]="updatedJobSeeker.location" name="location" required>
+        </div>
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  </div>
