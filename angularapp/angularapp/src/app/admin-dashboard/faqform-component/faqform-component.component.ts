@@ -12,6 +12,11 @@ export class FaqformComponentComponent implements OnInit {
   faqs: Faq[] = [];
   newFaq: Faq = { id: 0, question: '', answer: '' };
 
+<<<<<<< HEAD
+=======
+ 
+
+>>>>>>> 250bfa6b017bc462d32ffffa06898361b0afa395
   
 
   showFaq(): void {

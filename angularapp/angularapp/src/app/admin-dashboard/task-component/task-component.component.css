@@ -58,8 +58,12 @@
      .task-form label {
        font-weight: bold;
      }
+<<<<<<< HEAD
 
 
+=======
+     
+>>>>>>> 250bfa6b017bc462d32ffffa06898361b0afa395
      .task-form input[type="text"],
      .task-form textarea {
        width: 100%;
