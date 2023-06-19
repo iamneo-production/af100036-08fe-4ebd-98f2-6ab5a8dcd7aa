@@ -12,8 +12,6 @@ export class FaqformComponentComponent implements OnInit {
   faqs: Faq[] = [];
   newFaq: Faq = { id: 0, question: '', answer: '' };
 
- 
-
   
 
   showFaq(): void {
