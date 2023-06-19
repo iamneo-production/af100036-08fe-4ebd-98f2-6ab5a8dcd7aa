@@ -1,3 +1,11 @@
 {
+<<<<<<< Updated upstream
     "maven.view": "hierarchical"
+=======
+<<<<<<< HEAD
+    "java.configuration.updateBuildConfiguration": "automatic"
+=======
+    "maven.view": "hierarchical"
+>>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
+>>>>>>> Stashed changes
 }
