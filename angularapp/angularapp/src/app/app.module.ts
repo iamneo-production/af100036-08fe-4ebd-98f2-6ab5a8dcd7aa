@@ -16,7 +16,12 @@ import { JobcompoentComponentComponent } from './admin-dashboard/jobcompoent-com
 import { JobseekercompoentComponentComponent } from './admin-dashboard/jobseekercompoent-component/jobseekercompoent-component.component';
 import { EmployercomponentComponent } from './admin-dashboard/employercomponent/employercomponent.component';
 import { FaqformComponentComponent } from './admin-dashboard/faqform-component/faqform-component.component';
+import { SidebarComponentComponent } from './admin-dashboard/sidebar-component/sidebar-component.component';
+import { TaskComponentComponent } from './admin-dashboard/task-component/task-component.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,14 +36,18 @@ import { FaqformComponentComponent } from './admin-dashboard/faqform-component/f
     AddemployerformComponentComponent,
     AdminDashboardComponent,
     EmployercomponentComponent,
-    FaqformComponentComponent
+    FaqformComponentComponent,
+    SidebarComponentComponent,
+    TaskComponentComponent
   
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,    
+    NgChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

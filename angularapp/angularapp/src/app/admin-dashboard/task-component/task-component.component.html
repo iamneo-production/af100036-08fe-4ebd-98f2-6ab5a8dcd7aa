@@ -1,1 +1,45 @@
-<p>task-component works!</p>
+<div class="task-management align-right">
+    <h3>Tasks</h3>
+    <p>This table lists the tasks with their titles, descriptions, and available actions.</p>
+    <table>
+        <caption>List of tasks and their details</caption>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+              <button (click)="deleteTask(task.id)">
+                <em class="material-icons">&#10003; mark as completed</em>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+    <button (click)="toggleFormVisibility()"class="toggle-button">
+        <em class="material-icons">{{ showForm ? 'Close' : 'Add Task' }}</em>
+      </button>
+         
+    <div *ngIf="showForm" class="task-form">
+   
+        <div>
+         
+          <label>Title:</label>
+          <input type="text" [(ngModel)]="newTask.title" />
+        </div>
+        <div>
+          <label>Description:</label>
+          <textarea [(ngModel)]="newTask.description"></textarea>
+        </div>
+        <button (click)="createTask()">Create Task</button>
+      </div>
+  
+  </div>
+  

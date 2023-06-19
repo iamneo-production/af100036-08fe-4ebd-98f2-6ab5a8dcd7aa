@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Employer } from 'src/app/Employer.module';
 import { AdminDashboardService } from 'src/app/admin-dashboard.service';
 
@@ -32,7 +32,3 @@ export class AddemployerformComponentComponent {
   }
   
   }
-
-function Input(): (target: AddemployerformComponentComponent, propertyKey: "queryParams") => void {
-  throw new Error('Function not implemented.');
-}
