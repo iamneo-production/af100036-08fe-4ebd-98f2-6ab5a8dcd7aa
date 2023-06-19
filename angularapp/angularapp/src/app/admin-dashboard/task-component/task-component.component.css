@@ -58,7 +58,8 @@
      .task-form label {
        font-weight: bold;
      }
-     
+
+
      .task-form input[type="text"],
      .task-form textarea {
        width: 100%;
