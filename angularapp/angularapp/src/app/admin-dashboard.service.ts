@@ -148,4 +148,16 @@ export class AdminDashboardService {
   deleteFAQ(id: number): Observable<void> {
     return this.http.delete<void>(`http://localhost:8080/admins/faq/${id}`);
   }
+  
+  getAllTasks(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/admins/tasks');
+  }
+
+  createTask(task: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/admins/tasks', task);
+  }
+
+  deleteTask(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/admins/tasks/${id}`);
+  }
 }
