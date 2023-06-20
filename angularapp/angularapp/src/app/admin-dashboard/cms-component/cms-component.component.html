@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div class="container">
+  <div *ngIf="posts.length > 0">
+    <h2>Posts</h2>
+    <div class="post-container" *ngFor="let post of posts"  (click)="togglePostContent(post)">
+      <div class="image-container">
+        <img [src]="getPostImage(post)" alt="Post Image" class="post-image" />
+      </div>
+      <div class="title-container">
+        {{ post.title }}
+      </div>
+      <div class="edit-icon">
+        <em class="fa fa-edit" (click)="editPost(post)"></em>
+      </div>
+    </div>
+  </div>
+  
+<div *ngFor="let post of posts">
+  <div *ngIf="post.showContent" class="content-container">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+  </div>
+</div>
+
+</div>
+
+<div *ngIf="editMode && selectedPost"  class="edit-form" >
+  <h3>Edit Post</h3>
+  <form (submit)="updatePost(selectedPostChanges)">
+    <div>
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="selectedPostChanges.title" name="editTitle">
+    </div>
+    <div>
+      <label>Content:</label>
+      <textarea [(ngModel)]="selectedPostChanges.content" name="editContent"></textarea>
+    </div>
+    <div>
+      <label>Image:</label>
+      <input type="file" (change)="uploadFile($event)" name="editImage">
+    </div>
+    <div>
+      <button type="submit">Update Post</button>
+    </div>
+  </form>
+</div>
