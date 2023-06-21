@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div *ngIf="!isAccessedFromEmployer" class="searchbox">
+  <label for="title">Title:</label>
+  <input id="title" type="text" [(ngModel)]="title">
+  <label for="location">Location:</label>
+  <input id="location" type="text" [(ngModel)]="location">
+  <label for="sortBy">Sort By:</label>
+  <select id="sortBy" [(ngModel)]="sortBy">
+    <option value="salary">Salary</option>
+    <option value="live">Live Jobs</option>
+  </select>
+  <button (click)="sortJobs()">Sort</button>
+  <button (click)="searchJobs()">Search</button>
+</div>
+<div class="job-wrapper">
+  
+  <div class="job-container" [ngClass]="{'accessed-from-employer': isAccessedFromEmployer}">
+    <div *ngIf="noJobsPosted">No job Posted</div>
+
+  <div  class="job-item"  *ngFor="let job of (showDeletedJobs ? deletedjobs : jobs) "   [ngClass]="{'expired': job.deleted,
+  'accessed-from-employer': isAccessedFromEmployer}">
+   <div   (click)="openJobDetails(job.id)">
+    <button class="report-button" (click)="reportJob(job.id)">
+    
+      <em class="fas fa-exclamation-triangle"></em>
+    </button>
+   
+    <div class="job-field">
+      <span class="field-label">< em class="fas fa-building"></span>
+      {{job.employer.name}}
+    </div>
+    <div class="job-field">
+      <span class="field-label"><em class="fas fa-file-alt"></em></span>
+      <span class="field-value">{{ job.title }}</span>
+    </div>
+    <div class="job-field">
+      <span class="field-label"><em class="fas fa-map-marker-alt"></em></span>
+      <span class="field-value">{{ job.location }}</span>
+    </div>
+    <div class="job-field">
+      <span class="field-label"><em class="fas fa-dollar-sign"></em></span>
+      <span class="field-value">{{ job.salary }}</span>
+    </div>
+    <div class="job-field">
+      <span class="field-label"><em class="fas fa-clipboard-list"></em></span>
+      <span class="field-value">{{ job.requirements }}</span>
+    </div>
+    <div class="job-field">
+      <span class="field-label"><em class="fas fa-briefcase"></em></span>
+      <span class="field-value">{{ job.jobType }}</span>
+      <div class="expired-label" *ngIf="job.deleted">
+        Expired
+      </div>
+     
+   </div>
+  
+  <div class="job-actions">
+
+    <button (click)="deleteJob(job.id)"><em class="fas fa-trash"></em></button>
+    <button (click)="showUpdateJobForm(job)"><em class="fas fa-edit"></em></button>
+   
+  </div>
+</div>
+  <button class="apply-button" (click)="applyForJob(job.id)">Apply</button>
+  
+ 
+  <div *ngIf="this.updatedJob.id === job.id" class="section-content">
+    <div *ngIf="showJobUpdateForm" class="section-content">
+      <h3>Update Job</h3>
+      <form (submit)="updateJob()" class="job-update-form">
+          <div class="form-field">
+            <label for="jobTitle">Title:</label>
+            <input type="text" id="jobTitle" [(ngModel)]="updatedJob.title" name="title" required>
+          </div>
+          <div class="form-field">
+            <label for="jobDescription">Description:</label>
+            <textarea id="jobDescription" [(ngModel)]="updatedJob.description" name="description" required></textarea>
+          </div>
+          <div class="form-field">
+            <label for="jobLocation">Location:</label>
+            <input type="text" id="jobLocation" [(ngModel)]="updatedJob.location" name="location" required>
+          </div>
+          <div class="form-field">
+            <label for="jobSalary">Salary:</label>
+            <input type="number" id="jobSalary" [(ngModel)]="updatedJob.salary" name="salary" required>
+          </div>
+          <div class="form-field">
+            <label for="jobRequirements">Requirements:</label>
+            <textarea id="jobRequirements" [(ngModel)]="updatedJob.requirements" name="requirements" required></textarea>
+          </div>
+          <div class="form-field">
+            <label for="jobType">Job Type:</label>
+            <input type="text" id="jobType" [(ngModel)]="updatedJob.jobType" name="jobType" required>
+          </div>
+          <button type="submit">Update</button>
+       
+        </form>
+      </div>
+      
+      </div>
+      
+ 
+ </div>
+ 
+ </div>
+ <div *ngFor="let job of jobs">
+  <div *ngIf="showApplyForm &&  selectedJobId && !isAccessedFromEmployer" class="job-details-container">
+   <!--<app-job-application *ngIf="job.id === selectedJobId" [jobId]="selectedJobId" [jobSeekerId]="queryParams.jobseekerid"></app-job-application>--> 
+  </div>
+  <div *ngIf="!isAccessedFromEmployer && showJobDetails && job.id === selectedJobId" class="job-details-container">
+   <!--<app-job-details [jobId]="selectedJobId"></app-job-details>--> 
+  </div>
+</div>
+

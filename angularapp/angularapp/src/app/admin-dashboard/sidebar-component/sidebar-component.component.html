@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div class="sidebar" [class.active]="isSidebarOpen">
+
+<div class="side-panel-heading" (click)="toggleSection('jobs')" [class.active]="isSectionActive('jobs')">Jobs <span class="arrow" [class.rotate]="isSectionActive('jobs')">▼</span></div>
+<div class="sub-options" id="jobsSubOptions" [class.active]="isSectionActive('jobs')">
+  <div class="sub-option" (click)="emitAddJobEvent(); $event.stopPropagation()">Add Jobs</div>
+  <div class="sub-option" *ngIf="isSectionActive('jobs')" (click)="showReportedJobs(); $event.stopPropagation()">Reported Jobs</div>
+</div>
+
+
+<div class="side-panel-heading" (click)="toggleSection('employers')" [class.active]="isSectionActive('employers')">Employers <span class="arrow" [class.rotate]="isSectionActive('employers')">▼</span></div>
+<div class="sub-options" id="employersSubOptions" [class.active]="isSectionActive('employers')">
+  <div class="sub-option" (click)="emitAddEmployerEvent(); $event.stopPropagation()">Add Employers</div>
+  <div class="sub-option" *ngIf="isSectionActive('employers')"(click)="showReportedEmployers(); $event.stopPropagation()">Reported Employers</div>
+  <div class="sub-option" *ngIf="isSectionActive('employers')"(click)="emitshowEmployerAnalytics(); $event.stopPropagation()">Employer Analytics</div>
+</div>
+
+<div class="side-panel-heading" (click)="toggleSection('jobSeekers')" [class.active]="isSectionActive('jobSeekers')">Job Seekers <span class="arrow" [class.rotate]="isSectionActive('jobSeekers')">▼</span></div>
+<div class="sub-options" id="jobSeekersSubOptions" [class.active]="isSectionActive('jobSeekers')">
+  <div class="sub-option"  *ngIf="isSectionActive('jobSeekers')"(click)="emitAddJobSeekersEvent(); $event.stopPropagation()">Add Job Seeker</div>
+  <div class="sub-option"  *ngIf="isSectionActive('jobSeekers')" (click)="showReportedJobSeekers(); $event.stopPropagation()">Reported Job Seekers</div>
+
+</div>
+
+<div class="side-panel-heading" (click)="toggleSection('CMS')" [class.active]="isSectionActive('CMS')">Content Management<span class="arrow" [class.rotate]="isSectionActive('CMS')">▼</span></div>
+<div class="sub-options" id="CMSOptions" [class.active]="isSectionActive('CMS')">
+  <div class="sub-option" *ngIf="isSectionActive('CMS')" (click)="toggleFaq(); $event.stopPropagation()">FAQ management</div>
+  <div class="sub-option" (click)="openContentManagementForm()">Content management</div>
+
+  
+</div>
