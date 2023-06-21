@@ -16,70 +16,70 @@ export class AdminDashboardService {
   constructor(private http: HttpClient) {}
  
   getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>('http://localhost:8080/admins/jobs/chart');
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/chart');
   }
 
   getEmployers(): Observable<Employer[]> {
-    return this.http.get<Employer[]>('http://localhost:8080/admins/employers');
+    return this.http.get<Employer[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employers');
   }
 
   getJobSeekers(): Observable<JobSeeker[]> {
-    return this.http.get<JobSeeker[]>('http://localhost:8080/admins/job-seekers');
+    return this.http.get<JobSeeker[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job-seekers');
   }
 
   deleteJob(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8080/admins/jobs/${id}`);
+    return this.http.delete<void>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/${id}`);
   }
 
   deleteEmployer(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8080/admins/employers/${id}`);
+    return this.http.delete<void>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employers/${id}`);
   }
 
   deleteJobSeeker(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8080/admins/job-seekers/${id}`);
+    return this.http.delete<void>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job-seekers/${id}`);
   }
 
   updateJob(job: Job): Observable<Job> {
-    return this.http.put<Job>(`http://localhost:8080/admins/jobs/${job.id}`, job);
+    return this.http.put<Job>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/${job.id}`, job);
   }
 
   updateEmployer(employer: Employer): Observable<Employer> {
-    return this.http.put<Employer>(`http://localhost:8080/admins/employers/${employer.id}`, employer);
+    return this.http.put<Employer>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employers/${employer.id}`, employer);
   }
 
   updateJobSeeker(jobSeeker: JobSeeker): Observable<JobSeeker> {
-    return this.http.put<JobSeeker>(`http://localhost:8080/admins/job-seekers/${jobSeeker.id}`, jobSeeker);
+    return this.http.put<JobSeeker>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job-seekers/${jobSeeker.id}`, jobSeeker);
   }
 
   addJob(job: Job): Observable<Job> {
-    return this.http.post<Job>('http://localhost:8080/admins/jobs', job);
+    return this.http.post<Job>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs', job);
   }
 
   addEmployer(employer: Employer): Observable<Employer> {
-    return this.http.post<Employer>('http://localhost:8080/admins/employers', employer);
+    return this.http.post<Employer>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employers', employer);
   }
 
   addJobSeeker(jobSeeker: JobSeeker): Observable<JobSeeker> {
-    return this.http.post<JobSeeker>('http://localhost:8080/admins/job-seekers', jobSeeker);
+    return this.http.post<JobSeeker>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job-seekers', jobSeeker);
   }
 
   getAllDeletedJob(): Observable<Job[]> {
-    return this.http.get<Job[]>('http://localhost:8080/admins/job/deleted');
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job/deleted');
   }
 
   getAllDeletedJobSeekers(): Observable<JobSeeker[]> {
-    return this.http.get<JobSeeker[]>('http://localhost:8080/admins/job-seekers/deleted');
+    return this.http.get<JobSeeker[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job-seekers/deleted');
   }
 
   getAllDeletedEmployers(): Observable<Employer[]> {
-    return this.http.get<Employer[]>('http://localhost:8080/admins/employer/deleted');
+    return this.http.get<Employer[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employer/deleted');
   }
 
 
 
 
   getJobsByEmployer(employerId: number): Observable<Job[] | null> {
-    return this.http.get<Job[]>(`http://localhost:8080/admins/employers/${employerId}/jobs`).pipe(
+    return this.http.get<Job[]>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/employers/${employerId}/jobs`).pipe(
       map((jobs: Job[]) => {
         if (jobs.length !== 0) {
           return jobs;
@@ -102,23 +102,23 @@ export class AdminDashboardService {
       params = params.append('location', location);
     }
   
-    return this.http.get<Job[]>('http://localhost:8080/admins/jobs/search', { params });
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/search', { params });
   }
 
   sortJobs(sortBy: string): Observable<Job[]> {
     const params = new HttpParams().set('sortBy', sortBy.toLowerCase());
   
-    return this.http.get<Job[]>('http://localhost:8080/admins/jobs/sort', { params });
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/sort', { params });
   }
 
   reportJob(jobId: number): Observable<any> {
-    const url = `http://localhost:8080/admins/jobs/report/${jobId}`;
+    const url = `https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/report/${jobId}`;
     
     return this.http.post(url, {}, { responseType: 'text' });
   }
 
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/admins/cms/posts');
+    return this.http.get<any[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/cms/posts');
   }
 
   updatePost(post: any): Observable<any> {
@@ -129,35 +129,35 @@ export class AdminDashboardService {
     formData.append('title', post.title);
     formData.append('content', post.content);
 
-    const updateUrl = `http://localhost:8080/admins/cms/posts/${post.id}`;
+    const updateUrl = `https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/cms/posts/${post.id}`;
     return this.http.put(updateUrl, formData, { responseType: 'text' });
   }
   getAllFAQs(): Observable<Faq[]> {
-    return this.http.get<Faq[]>('http://localhost:8080/admins/faq');
+    return this.http.get<Faq[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/faq');
   }
 
   addFAQ(newFaq: Faq): Observable<Faq> {
-    return this.http.post<Faq>('http://localhost:8080/admins/faq/add', newFaq);
+    return this.http.post<Faq>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/faq/add', newFaq);
   }
 
   updateFAQ(id: number, updatedFaq: Faq): Observable<Faq> {
     const updatedFaqData = { question: updatedFaq.question, answer: updatedFaq.answer };
-    return this.http.put<Faq>(`http://localhost:8080/admins/faq/${id}`, updatedFaqData);
+    return this.http.put<Faq>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/faq/${id}`, updatedFaqData);
   }
 
   deleteFAQ(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8080/admins/faq/${id}`);
+    return this.http.delete<void>(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/faq/${id}`);
   }
   
   getAllTasks(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/admins/tasks');
+    return this.http.get<any[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/tasks');
   }
 
   createTask(task: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/admins/tasks', task);
+    return this.http.post<any>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/tasks', task);
   }
 
   deleteTask(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:8080/admins/tasks/${id}`);
+    return this.http.delete(`https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/tasks/${id}`);
   }
 }
