@@ -104,7 +104,7 @@ export class AdminDashboardComponent implements OnInit {
     formData.append('title', this.newPost.title);
     formData.append('content', this.newPost.content);
   
-    const addUrl = 'http://localhost:8080/admins/cms/upload';
+    const addUrl = 'https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/cms/upload';
     this.http.post(addUrl, formData, { responseType: 'text' }).subscribe(
       (response) => {
         console.log('Post added successfully');
