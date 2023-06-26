@@ -1,0 +1,43 @@
+<div class="topnav">
+</div>
+<body>
+  <form>
+<div class="page">
+<h1>Employer Profile</h1>
+  
+
+<br>
+  <br>
+  <div class="form-outline">
+    <label><b>Name</b></label><br>
+   <input type="text" id="name"  [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}" class="form-control"/>
+  </div>
+  <br>
+
+  <br>
+  <div class="form-outline">
+    <label><b>skills</b></label><br>
+    <input type="text" id="skills"  [(ngModel)]="user.skills" [ngModelOptions]="{standalone: true}" class="form-control">
+   </div>
+  <br>
+  <div class="form-outline">
+    <label><b>Description</b></label><br>
+    <textarea class="form-control" id="Description" rows="4" placeholder="Description" [(ngModel)]="user.description" [ngModelOptions]="{standalone: true}"></textarea>
+  </div>
+  <br>
+  <div class="form-outline">
+    <label><b>Experience</b></label><br>
+    <input type="text" id="Experience" [(ngModel)]="user.experience" [ngModelOptions]="{standalone: true}" class="form-control" />
+   </div>
+   <br>
+  <div class="form-outline">
+    <label><b>Location</b></label><br>
+    <input type="text" id="Location"  [(ngModel)]="user.location" [ngModelOptions]="{standalone: true}" class="form-control" />
+   </div>
+<div class="input-group mb-3">
+  </div>
+  <button (click)="updateUser()">Update</button>
+  </div>
+
+</form>
+</body>
