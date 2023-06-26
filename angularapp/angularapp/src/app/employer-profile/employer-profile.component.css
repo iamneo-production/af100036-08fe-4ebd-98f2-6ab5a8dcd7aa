@@ -1,0 +1,21 @@
+.topnav {
+    border-top: 20px solid green;
+  }
+.form-control{
+    width: 50%;
+}
+.page{
+    margin-left:30%;
+}
+
+h1{
+    font-size: 50px;
+}
+#pimage{
+    height: 200px;
+    width: 200px;
+    border-radius: 60px;
+}
+.prof{
+    font-size:20px;
+}
