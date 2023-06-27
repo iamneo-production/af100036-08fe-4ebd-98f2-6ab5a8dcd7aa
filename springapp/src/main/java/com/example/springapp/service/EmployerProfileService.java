@@ -1,8 +1,10 @@
+package com.example.springapp.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.userModel;
-import com.example.demo.repo.UserRepo;
+import com.example.springapp.model.EmployerProfileModel;
+import com.example.springapp.repository.EmployerProfileRepository;
 
 
 @Service

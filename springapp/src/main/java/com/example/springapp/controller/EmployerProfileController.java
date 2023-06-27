@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.userModel;
-import com.example.demo.service.UserService;
+import com.example.springapp.model.EmployerProfileModel;
+import com.example.springapp.service.EmployerProfileService;
 
 @CrossOrigin(origins = "https://8081-dfafedbbfdeabadfadacaeaebfceaeaadbdbabf.project.examly.io/")
 @RestController
