@@ -24,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { JobApplicationComponent } from './job-application/job-application.component';
 
+import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
+import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { JobApplicationComponent } from './job-application/job-application.compo
     FaqformComponentComponent,
     SidebarComponentComponent,
     TaskComponentComponent,
-    JobApplicationComponent
+    JobApplicationComponent,
+    JobseekerprofileComponent,
+    JobseekereditprofileComponent
   
   ],
   imports: [

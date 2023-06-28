@@ -1,0 +1,55 @@
+<div *ngIf="isFormVisible">
+    <form (submit)="upload()">
+      <div class="container-fluid">
+      <div class="col-sm-12 form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="updatedjobseeker.name" name="name" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="skills">Skills:</label>
+        <input type="text" class="form-control" id="skills" [(ngModel)]="skillsInput" name="skills" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="experience">Experience:</label>
+        <input type="number" class="form-control" id="experience" [(ngModel)]="updatedjobseeker.experience" name="experience" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="mobile" [(ngModel)]="updatedjobseeker.mobile" name="mobile" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="updatedjobseeker.email" name="email" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="gender" [(ngModel)]="updatedjobseeker.gender" name="gender" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" [(ngModel)]="updatedjobseeker.location" name="location" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="maritalStatus">Marital Status:</label>
+        <input type="text" class="form-control" id="maritalStatus" [(ngModel)]="updatedjobseeker.maritalStatus" name="maritalStatus" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="hometown">Hometown:</label>
+        <input type="text" class="form-control" id="hometown" [(ngModel)]="updatedjobseeker.hometown" name="hometown" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="nationality">Nationality:</label>
+        <input type="text" class="form-control" id="nationality" [(ngModel)]="updatedjobseeker.nationality" name="nationality" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="lastJobDesignation">Last Job Designation:</label>
+        <input type="text" class="form-control" id="lastJobDesignation" [(ngModel)]="updatedjobseeker.lastJobDesignation" name="lastJobDesignation" required>
+      </div>
+      <div class="col-sm-12 form-group">
+        <label for="reasonsForLeaving">Reasons for Leaving Last Job:</label>
+        <input type="text" class="form-control" id="reasonsForLeaving" [(ngModel)]="updatedjobseeker.reasonsForLeaving" name="reasonsForLeaving" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+    </div>
