@@ -19,9 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springapp.model.JobSeeker;
 import com.example.springapp.repository.JobSeekerRepository;
-import com.example.springapp.model.Task;
-import com.example.springapp.repository.TaskRepository;
+import com.example.springapp.model.User;
+import com.example.springapp.repository.UserRepository;
+@RestController
+@RequestMapping("/details")
 public class JobseekerdetailsController {
+        @Autowired
+        private JobSeekerRepository jobSeekerRepository;
+        @Autowired
+        private UserRepository userRepository;
     @GetMapping("/job-seekers/{id}")
     public ResponseEntity<JobSeeker> getJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
             throws ResourceNotFoundException {
