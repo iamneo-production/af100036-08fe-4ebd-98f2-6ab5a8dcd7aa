@@ -1,0 +1,97 @@
+<p>job-application works!</p>
+<div *ngIf="!isAccessedFromAdmin">
+<form (ngSubmit)="applyForJob()" class="job-application-form" [formGroup]="PersonalInfoFormComponent">
+
+  
+  
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" class="form-control" autocomplete="off" formControlName="firstName" required>
+    <!-- (ngClass)="{'is-invalid':submitted && applicationForm.controls.firstName.errors}"/> 
+    <span class="help-block"
+    *ngIf="!applicationForm.get('firstName').valid  && applicationForm.get('firstName').touched">Please enter a valid name !</span>  -->
+  </div>
+  
+  <div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input type="text" id="middleName" name="middleName" class="form-control" autocomplete="off" formControlName="middleName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" class="form-control" autocomplete="off" formControlName="lastName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" autocomplete="off" formControlName="email" required>
+  
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
+    <input type="radio" id="female" value="female" formControlName="gender" required>Female
+    <input type="radio" id="male" value="male" formControlName="gender" required>Male
+  </div>
+  
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" formControlName="phone" required pattern="[0-9]{10}">
+    <small>Please enter a 10-digit phone number.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="coverLetter">Cover Letter</label>
+    <input type="coverLetter" id="coverLetter" formControlName="coverLetter" required>
+  </div>
+
+  <h3>Date Of Birth</h3>
+  <div class="birthdate">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="number" id="date" formControlName="date" required>
+    </div>
+    <div class="form-group">
+      <label for="month">Month</label>
+      <input type="number" id="month" formControlName="month" required>
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="number" id="year" formControlName="year" required>
+    </div>
+  </div>
+
+  <h3>Address</h3>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <select type="text" id="country" name="country" formControlName="country" class="form-group" required>
+      <option *ngFor="let c of countryList" [value]="c.countryname">
+        {{c.countryname}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input type="text" id="street" formControlName="street" required>
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city" required>
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" id="state" formControlName="state" required>
+  </div>
+  <div class="form-group">
+    <label for="postalCode">PostalCode</label>
+    <input type="number" id="postalCode" formControlName="postalCode" required>
+  </div>
+  
+  <div class="row col-sm-10">
+    <div class="form-group">
+      <button class="btn btn-info" type="submit">Submit</button>
+    </div>
+    <button class="btn btn-warning" type="reset">Reset</button>
+  </div>
+</form>
+<div *ngIf="successMessage">{{ successMessage }}</div>

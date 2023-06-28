@@ -1,0 +1,215 @@
+<div class="header">
+    <h1>Admin Dashboard</h1>
+  </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  
+  <div class="sidebars" [class.open]="isSidebarOpen" (click)="toggleSidebar($event)">
+    <em class="fas" [ngClass]="{'fa-bars': true}"></em>
+  </div>
+  <div class="container">
+    
+  
+    <app-sidebar-component
+      *ngIf="isSidebarOpen"
+      (addJob)="showJobForm()"
+      (addEmployerform)="showsEmployerForm()"
+      (showfaq)="showFaq()"
+      [showSection]="showSection"
+      (sectionToggled)="toggleSection($event)"
+      (showReportedJobsEvent)="loadReportedJobs()"
+      (showReportedEmployersEvent)="loadReportedEmployers()"
+      (showEmployerAnalytics)="showEmployerAnalytics()"
+      (addJobSeeker)="showsJobSeekerForm()"
+      (addContentFormClicked)="openAddContentForm()"
+    (showReportedJobSeekersEvent)="loadReportedJobSeekers()"
+  
+    ></app-sidebar-component>
+  
+  <div class="chart-wrapper">
+    <div class="chart-container" *ngIf="showChart">
+      <div class="chart">
+       
+        <canvas baseChart
+          [datasets]="[{ data: [jobs.length, deletedjobs.length], label: 'Data' }]"
+          [labels]="jobchartLabels"
+          [options]="chartOptions"
+          [type]="'pie'">
+        </canvas>
+      </div>
+    </div>
+      
+    <div class="chart-container" *ngIf="showChart">
+      <div class="chart">
+        <canvas baseChart
+          [datasets]="[{ data: [employers.length, deletedEmployer.length], label: 'Data' }]"
+          [labels]="employerchartLabels"
+          [options]="chartOptions"
+          [type]="'pie'">
+        </canvas>
+      </div>
+    </div>
+      
+    <div class="chart-container" *ngIf="showChart">
+      <div class="chart">
+        <canvas baseChart
+          [datasets]="[{ data: [jobSeekers.length, deletedJobSeekers.length], label: 'Data' }]"
+          [labels]="jobseekerschartLabels"
+          [options]="chartOptions"
+          [type]="'pie'">
+        </canvas>
+      
+      </div>
+    </div>
+    
+    </div>
+  
+    
+    <div *ngIf="showReportedJobs">
+        <div *ngIf="reportedJobs" class="section-content">
+          <table>
+            <caption>List of reported jobs and their actions</caption>
+            <thead>
+              <tr>
+                <th>Job Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let job of reportedJobs">
+                <ng-container *ngIf="!job.deleted">
+                  <td>{{ job.title }}</td>
+                  <td>
+                    <button (click)="deleteJob(job.id)">Delete</button>
+                    <button (click)="unreportJob(job)">Unreport</button>
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div *ngIf="showReportedEmployers">
+        <div *ngIf="reportedJobs" class="section-content">
+          <table>
+            <caption>List of reported employers and their actions</caption>
+            <thead>
+              <tr>
+                <th>Employer Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let job of reportedJobs">
+                <ng-container *ngIf="!job.employer.deleted">
+                  <td>{{ job.employer.name }}</td>
+                  <td>
+                    <button (click)="deleteEmployer(job.employer.id)">Delete</button>
+                    <button (click)="unreportEmployer(job)">Unreport</button>
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div *ngIf="showReportedJobSeekers && !showJobForm">
+        <div *ngIf="reportedJobSeekers" class="section-content">
+          <table>
+            <caption>List of reported job seekers and their actions</caption>
+            <thead>
+              <tr>
+                <th>Job Seeker Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let jobSeeker of reportedJobSeekers">
+                <ng-container *ngIf="!jobSeeker.deleted">
+                  <td>{{ jobSeeker.name }}</td>
+                  <td>
+                    <button (click)="deleteJobSeeker(jobSeeker.id)">Delete</button>
+                    <button (click)="unreportJobSeeker(jobSeeker)">Unreport</button>
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+  <div>
+    <div *ngIf="showsJobForm ">
+      <app-addjobform-component [queryParams]="queryParams"></app-addjobform-component >
+    </div>
+  </div>
+  
+  
+  <div *ngIf="!showEmployerForm && !showEmployersAnalyticsPage && !showReportedEmployers && showSection === 'employers'" class="section-content">
+    <app-employercomponent></app-employercomponent>
+  </div>
+  
+  <div *ngIf="showEmployerForm &&  !showReportedEmployers">
+    <app-addemployerform-component></app-addemployerform-component>
+  </div>
+  
+  <div *ngIf="showEmployersAnalyticsPage" class="section-content">
+    <app-employeranalytics-component></app-employeranalytics-component>
+  </div>
+  
+  
+  <div class="section-content" *ngIf="!showAddPostForm &&!showfaq && showSection === 'CMS'">
+    <app-cms-component></app-cms-component>
+  </div>
+  <div *ngIf="!showAddPostForm && showfaq" class="faq">
+    <app-faqform-component></app-faqform-component>
+  </div>
+  <div class="chart-wrapper" *ngIf="showAddPostForm">
+    <h2>Add New Post</h2>
+    <form (submit)="addPost()">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newPost.title" required>
+      </div>
+      <div>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" [(ngModel)]="newPost.content" required></textarea>
+      </div>
+      <div>
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" (change)="uploadFile($event)" accept="image/*">
+      </div>
+      <button type="submit">Add Post</button>
+    </form>
+  </div>
+  
+  
+  <div *ngIf="!showReportedJobSeekers&& !showJobSeekerForm && showSection === 'jobSeekers'" class="section-content">
+    <app-jobcompoent-component></app-jobcompoent-component>
+  </div>
+  <div *ngIf="showJobSeekerForm">
+    <app-addjobseekerform-component  (showsJobSeekerForm)="showsJobSeekerForm()"></app-addjobseekerform-component >
+  </div>
+  <div class="job-applied" *ngIf="showChart">
+    <div style="width: 800px; height: 400px;">
+      <canvas baseChart
+        [datasets]="[{ data: jobChartmonthsData, label: 'Jobs Posted' }]"
+        [labels]="jobchartmonthsLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        [type]="chartTypes"></canvas>
+    </div>
+  </div>
+  <div *ngIf="!showsJobForm && !showReportedJobs && showSection === 'jobs'" class="section-content">
+    <app-jobcompoent-component [queryParams]="queryParams"></app-jobcompoent-component>
+  </div>
+  <div class="app-task" *ngIf="showTask">
+  
+    <app-task-component></app-task-component>
+  
+  </div>
+  </div>
+  
+  
+  
