@@ -186,13 +186,13 @@
   
   
   <div *ngIf="!showReportedJobSeekers&& !showJobSeekerForm && showSection === 'jobSeekers'" class="section-content">
-    <app-jobcompoent-component></app-jobcompoent-component>
+    <app-jobseekercompoent-component></app-jobseekercompoent-component>
   </div>
   <div *ngIf="showJobSeekerForm">
     <app-addjobseekerform-component  (showsJobSeekerForm)="showsJobSeekerForm()"></app-addjobseekerform-component >
   </div>
   <div class="job-applied" *ngIf="showChart">
-    <div style="width: 800px; height: 400px;">
+    <div>
       <canvas baseChart
         [datasets]="[{ data: jobChartmonthsData, label: 'Jobs Posted' }]"
         [labels]="jobchartmonthsLabels"
@@ -204,12 +204,12 @@
   <div *ngIf="!showsJobForm && !showReportedJobs && showSection === 'jobs'" class="section-content">
     <app-jobcompoent-component [queryParams]="queryParams"></app-jobcompoent-component>
   </div>
+  
+  </div>
+  
+  
   <div class="app-task" *ngIf="showTask">
   
     <app-task-component></app-task-component>
   
   </div>
-  </div>
-  
-  
-  

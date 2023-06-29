@@ -3,7 +3,7 @@
   
     position: fixed;
     top: 0px;
-      left: 5px;
+      
       bottom: 0;
     
       padding: 20px;
@@ -34,7 +34,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 80px;
-    margin-left: 300px;
+    margin-left: 200px;
   }
   
   .chart-container {
@@ -69,7 +69,7 @@
     margin-top: 50px;
     border-collapse: collapse;
     align-items: center;
-    margin-left: 500px;
+    margin-left: 100px;
   }
   
   th,
@@ -105,16 +105,17 @@
   
   .app-task {
      
-    top: 50px;
-  
+    top: 60px;
+margin-left:200px;
     position: fixed;
    
   }
   .job-applied {
-  
+    width: 800px; 
+    height: 400px;
   position:fixed;
-   margin-left: 300px;
-    margin-top: 200px;
+   margin-left: 150px;
+    margin-top: 250px;
     margin-bottom: 20px;
   }
   .selected-applied {

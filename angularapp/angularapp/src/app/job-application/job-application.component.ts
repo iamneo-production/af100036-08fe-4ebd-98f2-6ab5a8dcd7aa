@@ -62,7 +62,7 @@ console.log(this.jobSeekerId)
    
      const formData = this.PersonalInfoFormComponent.value;
 console.log(formData);
-     this.http.post('https://8081-fcdfebffadacaeaebfceaeaadbdbabf.project.examly.io/api/job-applications/apply', formData, { responseType: 'text' }).subscribe(
+     this.http.post('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/api/job-applications/apply', formData, { responseType: 'text' }).subscribe(
        (response: any) => {
          console.log('Job application submitted successfully.');
          this.successMessage = 'Thank You For Applying For The Job';
