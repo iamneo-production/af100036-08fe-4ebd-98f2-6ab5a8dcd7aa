@@ -26,6 +26,13 @@ import { JobApplicationComponent } from './job-application/job-application.compo
 
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -45,7 +52,9 @@ import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditp
     TaskComponentComponent,
     JobApplicationComponent,
     JobseekerprofileComponent,
-    JobseekereditprofileComponent
+    JobseekereditprofileComponent,
+    SignupComponent,
+    LoginComponent,
   
   ],
   imports: [
@@ -54,7 +63,13 @@ import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditp
     ReactiveFormsModule,
     AppRoutingModule,    
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

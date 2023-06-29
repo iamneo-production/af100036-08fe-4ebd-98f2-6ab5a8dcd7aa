@@ -1,0 +1,15 @@
+.signupimage {
+    height: 150px; 
+    max-width: 150px;
+    border-radius: 50%;
+}
+
+.full-width{
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.registerbutton{
+    margin-right: 20px;
+}
+
