@@ -1,0 +1,149 @@
+<div class="container-fluid">
+    <nav class=" mt-1 navbar navbar-expand-lg bg-primary navbar-dark danger-color rounded">
+      <!-- Brand -->
+      <a class="navbar-brand "
+        id="logo"><B>JOB PORTAL</B></a>
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Dropdown -->
+        <li class="nav-item">
+          <a routerLink="/dashboard/jobs" class="nav-link p-3"> <i class="fa fa-briefcase"></i> Dashboard</a>
+        </li>
+       
+        <li class="nav-item">
+          <a (click)="logout()" style="cursor: pointer;" class="nav-link p-3"> <i class="fa fa-sign-out"></i> Logout</a>
+        </li>
+        
+    
+      </ul>
+    </nav>
+  </div>
+  
+  
+  <div class="container mt-3 bg-light">
+    <div class="row">
+      
+       
+      <div class="col-sm-8 p-2">
+        <div class="col-sm-12">
+          <h1>Profile Details</h1>
+          <hr>
+        </div>
+        <div class="col-sm-12">
+          <div class="container">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#basic">Basic Details</a>
+              </li>
+            
+           
+            </ul>
+  
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div  class="container tab-pane active"><br>
+                <div class="col-sm-12">
+                  <label for="username"><b>UserName:</b></label><br>
+                  <input type="text" name="username" id="username" class="form-control" value={{profileinfo.name}}
+                    disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="mail"><b>E-Mail:</b></label><br>
+                  <input type="text" name="mail" id="mail" class="form-control" value={{profileinfo.email}} disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="mobile"><b>Mobile:</b></label><br>
+                  <input type="text" name="mobile" id="mobile" class="form-control" value={{profileinfo.mobile}} disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="gender"><b>Gender:</b></label><br>
+                  <input type="text" name="gender" id="gender" class="form-control" value={{profileinfo.gender}} disabled>
+                </div>
+             
+                <div class="col-sm-12">
+                  <label for="mstatus"><b>MaritalStatus:</b></label><br>
+                  <input type="text" name="mstatus" id="mstatus" class="form-control" value={{profileinfo.maritalStatus}}
+                    disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="hometown"><b>HomeTown</b></label><br>
+                  <input type="text" name="hometown" id="hometown" class="form-control" value={{profileinfo.hometown}}
+                    disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="nationality"><b>Nationality:</b></label><br>
+                  <input type="text" name="nationality" id="nationality" class="form-control"
+                    value={{profileinfo.nationality}} disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="currentlocation"><b>CurrentLocation:</b></label><br>
+                  <input type="text" name="currentlocation" id="currentlocation" class="form-control"
+                    value={{profileinfo.location}} disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="experience"><b>Experience:</b></label><br>
+                  <input type="text" name="experience" id="experience" class="form-control"
+                    value={{profileinfo.experience}} disabled>
+                </div>
+           
+                <div class="col-sm-12">
+                  <label for="lastjobDesig"><b>LastJob Role:</b></label><br>
+                  <input type="text" name="lastjobDesig" id="lastjobDesig" class="form-control"
+                    value={{profileinfo.lastjob}} disabled>
+                </div>
+                <div class="col-sm-12">
+                  <label for="department"><b>Skills</b></label><br>
+                  <input type="text" name="department" id="department" class="form-control"
+                    [value]="profileinfo.skills.join(', ')" disabled>
+                </div>
+                
+                <div class="col-sm-12">
+                  <label for="reasonsforleaving"><b>Reason For Leaving Last Job:</b></label><br>
+                  <input type="text" name="reasonsforleaving" id="reasonsforleaving" class="form-control"
+                    value={{profileinfo.reasonsForLeaving}} disabled>
+                </div>
+                <div *ngIf="isAdmin" (click)="showUpdateJobSeekerForm()" lass="nav-link p-3"  class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit Profile</div>
+                
+              
+              </div>
+                    
+              </div>
+                <div class="col-sm-12">
+                  <div *ngIf="showJobSeekerUpdateForm" class="section-content" class="card">
+                    <app-jobseekereditprofile
+                        [jobseekerId]="jobSeekerId"
+                        (jobseekerUpdated)="updateJobSeeker($event)"
+                        [isFormVisible]="isFormVisible"
+                      
+                        (isFormVisibleChange)="isFormVisible = $event"
+
+                    ></app-jobseekereditprofile>
+                     
+
+                  </div>
+                  <br/><br/>
+                  <div class="card">
+                    <div class="card-header bg-primary text-center">
+                      <h6>Applied Jobs</h6>
+                    </div>
+                    <div class="card-body text-center">
+                      <ul>
+                        <div *ngFor="let application of profileinfo.applications">
+                          <strong>Job Title:</strong> {{ application.job.title }}<br>
+                          <strong>Employer:</strong> {{ application.job.employer.name }}
+                        </div>
+                      </ul>                   
+  
+  
+    
+                    </div>
+  
+  
+                            </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
