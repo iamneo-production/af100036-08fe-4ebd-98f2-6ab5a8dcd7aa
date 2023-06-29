@@ -1,23 +1,35 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Employer } from 'src/app/Employer.module';
 
 @Component({
   selector: 'app-editemployer-profile',
   templateUrl: './editemployer-profile.component.html',
   styleUrls: ['./editemployer-profile.component.css']
 })
-export class EditemployerProfileComponent {
-  user: any={};
-  @Input() employeeId: number=3;
-  
-  constructor(private http: HttpClient) { }
-  
-  updateUser(): void {
-    const url = `https://8080-dfafedbbfdeabadfadacaeaebfceaeaadbdbabf.project.examly.io//employer/${this.employeeId}`;
-    this.http.put(url, this.user)
-      .subscribe(updatedUser => {
-        console.log('User updated:', updatedUser);
-      });
+export class EditemployerProfileComponent implements OnInit{
+  @Input() employerId: number = 0;
+  updatedEmployer:any={};
+  @Output() employerUpdated: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+
+  ngOnInit(): void {
+   this.upload();
   }
+  upload() {
+    const url = `http://localhost:8080/admins/employers/${this.employerId}`;
+    this.http.put<Employer>(url, this.updatedEmployer).subscribe(
+      (response) => {
+
+        this.employerUpdated.emit(this.updatedEmployer);
+      },
+      (error) => {
+        console.error('PUT request error:', error);
+      }
+    );
+  }
+  
   
 }

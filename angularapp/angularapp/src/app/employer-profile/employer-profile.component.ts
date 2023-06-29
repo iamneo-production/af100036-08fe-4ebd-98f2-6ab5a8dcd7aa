@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employer-profile',
@@ -7,30 +8,38 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./employer-profile.component.css']
 })
 export class EmployerProfileComponent implements OnInit {
+  showEmployerUpdateForm: boolean = false;
+  showUpdateEmployerForm(): void {
+    this.showEmployerUpdateForm = true;
+  }
+ @Input() isAdmin: boolean = true; 
+  @Input() employerId: number=0;
+  updateEmployer(updatedEmployer: any) {
 
-  selectimage($event: Event) {
-  throw new Error('Method not implemented.');
+    this.user = updatedEmployer;
   }
-  upload() {
-  throw new Error('Method not implemented.');
-  }
-    ngOnInit(): void {
-      this.getUser();
-      throw new Error('Method not implemented.');
+    selectimage($event: Event) {
+    throw new Error('Method not implemented.');
     }
-    user: any = {};
-   
-    @Input() employeeId: number=3;
-  
-    
-    constructor(private http: HttpClient) { }
-    
-    getUser(): void {
-     const url = `https://8080-dfafedbbfdeabadfadacaeaebfceaeaadbdbabf.project.examly.io//employer/${this.employeeId}`;
-     this.http.get(url)
-       .subscribe(user => {
-         console.log('User:', user);
-         this.user=user;
-       });
+    upload() {
+    throw new Error('Method not implemented.');
     }
+      ngOnInit(): void {
+        this.getUser();
+        throw new Error('Method not implemented.');
+      }
+  user:any={};
+    
+
+      
+      constructor(private http: HttpClient,private router:Router) { }
+      
+      
+      getUser(): void {
+        const url = `http://localhost:8080/admins/employers/${this.employerId}`;
+        this.http.get(url).subscribe((employer) => {
+          console.log(employer);
+          this.user = employer; 
+        });
+      }
   }
