@@ -1,13 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "packageManager": "npm",
-    "analytics": "bee17805-f6d8-4c2c-a632-294f3e660d67"
-  },
   "newProjectRoot": "projects",
   "projects": {
-    "angularapp": {
+    "job-portal-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angularapp",
+            "outputPath": "dist/job-portal-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -29,10 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
-
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -67,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angularapp:build:production"
+              "browserTarget": "job-portal-frontend:build:production"
             },
             "development": {
-              "browserTarget": "angularapp:build:development"
+              "browserTarget": "job-portal-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularapp:build"
+            "browserTarget": "job-portal-frontend:build"
           }
         },
         "test": {
@@ -94,7 +87,6 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -102,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
