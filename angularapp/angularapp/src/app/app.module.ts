@@ -22,6 +22,20 @@ import { TaskComponentComponent } from './admin-dashboard/task-component/task-co
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgChartsModule } from 'ng2-charts';
+<<<<<<< HEAD
+=======
+import { JobApplicationComponent } from './job-application/job-application.component';
+
+import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
+import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+>>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
 
 
 @NgModule({
@@ -38,7 +52,16 @@ import { NgChartsModule } from 'ng2-charts';
     EmployercomponentComponent,
     FaqformComponentComponent,
     SidebarComponentComponent,
+<<<<<<< HEAD
     TaskComponentComponent
+=======
+    TaskComponentComponent,
+    JobApplicationComponent,
+    JobseekerprofileComponent,
+    JobseekereditprofileComponent,
+    SignupComponent,
+    LoginComponent,
+>>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
   
   ],
   imports: [
@@ -47,7 +70,13 @@ import { NgChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     AppRoutingModule,    
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
