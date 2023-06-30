@@ -22,7 +22,6 @@ import { TaskComponentComponent } from './admin-dashboard/task-component/task-co
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgChartsModule } from 'ng2-charts';
-import { JobApplicationComponent } from './job-application/job-application.component';
 
 
 @NgModule({
@@ -39,8 +38,7 @@ import { JobApplicationComponent } from './job-application/job-application.compo
     EmployercomponentComponent,
     FaqformComponentComponent,
     SidebarComponentComponent,
-    TaskComponentComponent,
-    JobApplicationComponent
+    TaskComponentComponent
   
   ],
   imports: [
