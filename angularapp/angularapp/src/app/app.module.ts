@@ -28,6 +28,8 @@ import { JobApplicationComponent } from './job-application/job-application.compo
 
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
+<<<<<<< HEAD
+=======
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,6 +60,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TaskComponentComponent,
     JobApplicationComponent,
     JobseekerprofileComponent,
+<<<<<<< HEAD
+    JobseekereditprofileComponent
+=======
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
