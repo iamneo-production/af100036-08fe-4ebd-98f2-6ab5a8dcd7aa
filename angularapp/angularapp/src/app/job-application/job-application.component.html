@@ -1,0 +1,103 @@
+
+<div *ngIf="!isAccessedFromAdmin">
+
+  <div class="container">
+
+    <h3 class="title">Personal Information</h3>
+      <br>
+          <div class="row">
+            <div class="row col-sm-5">
+<form (ngSubmit)="applyForJob()" class="job-application-form" [formGroup]="PersonalInfoFormComponent">
+
+  
+  
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" class="form-control" autocomplete="off" formControlName="firstName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input type="text" id="middleName" name="middleName" class="form-control" autocomplete="off" formControlName="middleName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" class="form-control" autocomplete="off" formControlName="lastName" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" autocomplete="off" formControlName="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <input type="radio" id="female" value="female" formControlName="gender" required>Female
+    <input type="radio" id="male" value="male" formControlName="gender" required>Male
+  </div>
+  
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" class="form-control" autocomplete="off"  formControlName="phone" required pattern="[0-9]{10}">
+    <small>Please enter a 10-digit phone number.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="coverLetter">Cover Letter</label>
+    <input type="coverLetter" id="coverLetter" name="coverLetter" class="form-control" autocomplete="off" formControlName="coverLetter" required>
+  </div>
+<br>
+  <h3>Date Of Birth</h3>
+  <div class="birthdate">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="number" id="date" name="date" class="form-control" autocomplete="off"  formControlName="date" required>
+    </div>
+    <div class="form-group">
+      <label for="month">Month</label>
+      <input type="number" id="month" name="month" class="form-control" autocomplete="off" formControlName="month" required>
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="number" id="year" name="year" class="form-control" autocomplete="off" formControlName="year" required>
+    </div>
+  </div>
+<br>
+  <h3>Address</h3>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <select type="text" id="country" name="country"  class="form-control" autocomplete="off" formControlName="country" required>
+      <option *ngFor="let c of countryList" [value]="c.countryname">
+        {{c.countryname}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input type="text" id="street" name="street" class="form-control" autocomplete="off"  formControlName="street" required>
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" class="form-control" autocomplete="off"  formControlName="city" required>
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" id="state"  name="state" class="form-control" autocomplete="off" formControlName="state" required>
+  </div>
+  <div class="form-group">
+    <label for="postalCode">PostalCode</label>
+    <input type="number" id="postalCode" name="postalCode" class="form-control" autocomplete="off"  formControlName="postalCode" required>
+  </div>
+  
+  <div class="row col-sm-10">
+    <div class="form-group">
+      <button class="btn btn-info" type="submit">Submit</button>
+      <button class="btn btn-warning" type="reset">Reset</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+</div>
+<div *ngIf="successMessage">{{ successMessage }}</div>
