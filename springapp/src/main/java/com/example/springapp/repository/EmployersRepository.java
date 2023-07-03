@@ -1,6 +1,5 @@
 package com.example.springapp.repository;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -9,23 +8,22 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.example.springapp.model.JobSeeker;
+import com.example.springapp.model.Employers;
 import com.example.springapp.model.User;
 
+public interface  EmployersRepository extends JpaRepository<Employers, Integer> {
 
-public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
-
-    Optional<JobSeeker> findById(JobSeeker jobSeeker);
-   
-    @Query("SELECT j FROM JobSeeker j")
+    Optional<Employers> findById(Long id);
+    @Query("SELECT e FROM Employer e")
     @Filter(name = "deletedFilter", condition = "deleted = :deleted")
-    List<JobSeeker> findAll(@Param("deleted") boolean deleted);
-
-    List<JobSeeker> findByReported(boolean b);
-
-    JobSeeker getJobSeekerByUser(User authenticatedUser);
-
-
+    List<Employers> findAll(@Param("deleted") boolean deleted);
+    Employers getEmployerByUser(User authenticatedUser);
+    Employers findByUser(User authenticatedUser);
+  
+   
 
 
+  
+
+    
 }
