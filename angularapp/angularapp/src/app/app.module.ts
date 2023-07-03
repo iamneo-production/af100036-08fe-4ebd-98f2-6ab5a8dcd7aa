@@ -33,6 +33,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { EmployerPageComponent } from './employer-dashboard/employer-dashboard.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
+    EmployerPageComponent
   
   ],
   imports: [
