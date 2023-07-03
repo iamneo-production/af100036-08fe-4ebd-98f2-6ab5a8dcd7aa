@@ -52,6 +52,8 @@ public class Employers {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -65,5 +67,5 @@ public class Employers {
 
     @OneToMany(mappedBy = "employer", cascade ={ CascadeType.REMOVE, CascadeType.ALL,CascadeType.PERSIST})
     @JsonIgnoreProperties("employer")
-    private List<Job> jobs;
+    private List<Job> jobs;
 }
