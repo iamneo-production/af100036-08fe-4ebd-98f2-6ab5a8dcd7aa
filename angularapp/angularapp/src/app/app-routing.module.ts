@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { JobApplicationComponent } from './job-application/job-application.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { JobSearchComponent } from './job-search/job-search.component';
 const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
@@ -31,8 +32,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
- 
  }
+ export const UserRoutingComponents=[
+  JobSearchComponent
+];
 
  
 
