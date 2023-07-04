@@ -4,11 +4,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { JobApplicationComponent } from './job-application/job-application.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { JobDetailsComponent } from './job-details/job-details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
   
     { path: 'job-application', component: JobApplicationComponent },
+    {path:'job-details',component:JobDetailsComponent},
 
 
     {
