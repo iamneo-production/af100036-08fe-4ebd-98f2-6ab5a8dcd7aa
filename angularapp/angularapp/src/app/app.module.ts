@@ -49,7 +49,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EmployercomponentComponent,
     FaqformComponentComponent,
     SidebarComponentComponent,
-    TaskComponentComponent
+    TaskComponentComponent,
     TaskComponentComponent,
     JobApplicationComponent,
     JobseekerprofileComponent,
@@ -70,7 +70,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
