@@ -1,0 +1,166 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body>
+    <div class="navbar">
+      <div class="navbar-items">
+        <a (click)="redirectToUserPage()">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Products</a>
+        <a href="#">Services</a>
+      </div>
+      <div class="admin-buttons">
+
+        <button class="select-button">
+          <mat-select>
+            <mat-option *ngFor="let item of select" [value]="item.value">
+              {{item.viewValue}}
+            </mat-option>
+          </mat-select>
+          
+            
+        <a><i class="material-icons" >dashboard</i><span>Dashboard</span> </a>
+        
+        </button>
+        <a (click)="GoToLoginPage()"><i class="material-icons">logout</i> Logout</a>
+      </div>
+    </div>
+  
+    <div class="search-container">
+ 
+
+      <form class="search-bar">
+        <input type="text" placeholder="Search by job, skills, location..." [(ngModel)]="inputValue" name="inputField">
+        <button (click)="toggleTables()" type="submit">Search</button>
+      </form>
+    </div>
+
+
+    <br><br><br><br><br><br>
+
+
+
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="Job List">
+
+    <div class="table-container">
+      <table *ngIf="showTable1" class="table">
+        <thead class="table-head">
+          <tr>
+            <th class="product-column">Job code</th>
+            <th class="price-column">Job title</th>
+            <th class="price-column">Company</th>
+            <th class="location-column">Location</th>
+            <th class="skills-column">Skills required</th>
+            <th class="action-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products" class="table-rows">
+            <td class="product-column">{{ product.productCode }}</td>
+            <td class="product-column" type="text">
+              <a (click)="GoToHomePage(product.productCode)" class="product-link" style="white-space: pre-wrap;">{{ product.productName }}</a>
+            </td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.company }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product. jobLocation }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.brand }}</td>
+            <td class="action-column">
+              <div class="action-container">            
+              <div class="buy-btn-container"><button class="buy-btn" (click)="GoToHomePage(product.productCode)">APPLY</button></div>           
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+      <table *ngIf="showTable2" class="tableTwo" cellspacing="0">
+        <thead class="table-head">
+          <tr>
+            <th class="product-column">Job code</th>
+            <th class="price-column">Job title</th>
+            <th class="price-column">Company</th>
+            <th class="location-column">Location</th>
+            <th class="skills-column">Skills required</th>
+            <th class="action-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of searchedProducts" class="table-rows">
+            <td class="product-column">{{ product.productCode }}</td>
+            <td class="product-column" type="text">
+              <a (click)="GoToHomePage(product.productCode)" class="product-link" style="white-space: pre-wrap;">{{ product.productName }}</a>
+            </td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.company }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product. jobLocation }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.brand }}</td>
+            <td class="action-column">
+              <div class="action-container">            
+                <div class="buy-btn-container"><button class="buy-btn" (click)="GoToHomePage(product.productCode)">APPLY</button></div>           
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </mat-tab>
+  <mat-tab label="Jobs Applied">                      <!-- section 2-----------------------------------  //// -->
+
+    <div class="table-container">
+      <table class="appliedJobstable" >
+        <thead class="table-head">
+          <tr>
+            
+            <th class="price-column">Job title</th>
+            <th class="price-column">Company</th>
+            <th class="location-column">Location</th>
+            <th class="skills-column">Skills required</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of jobApplied" class="table-rows">
+            
+            <td class="product-column" type="text">
+              <a (click)="GoToHomePage(product.id)" class="product-link" style="white-space: pre-wrap;">{{ product.jobTitle }}</a>
+            </td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.company }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product. jobLocation }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.skillsRequired }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br><br>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+     
+    </div>
+
+  </mat-tab>  
+</mat-tab-group>
+
+
+  
+</body>
+
+  
+    
+  
+
+
+
+
+
+
+
+
+

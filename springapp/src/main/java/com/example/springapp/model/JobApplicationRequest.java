@@ -72,6 +72,10 @@ public class JobApplicationRequest {
     private Long postalCode;
 
    
+<<<<<<< HEAD
 }
 
     
+=======
+}
+>>>>>>> 256236ed1ccf0cecf7a97b5113749d73fd003962
