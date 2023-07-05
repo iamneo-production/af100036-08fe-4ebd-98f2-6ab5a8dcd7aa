@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.example.springapp.controller;
-=======
-package main.java.com.example.springapp.controller;
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.http.HttpStatus;
@@ -30,8 +26,4 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15

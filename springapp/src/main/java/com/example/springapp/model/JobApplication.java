@@ -89,7 +89,8 @@ public class JobApplication {
 
     @Column
     private Long postalCode;
-
+    @Column
+    private Boolean selected;
    
 
 }
