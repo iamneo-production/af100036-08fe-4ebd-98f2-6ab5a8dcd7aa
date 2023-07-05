@@ -14,14 +14,14 @@ import { Job } from '../Job.module';
   templateUrl: './employer-dashboard.component.html',
   styleUrls: ['./employer-dashboard.component.css']
 })
-export class EmployerPageComponent implements OnInit{
+export class EmployerDashboardComponent implements OnInit{
   
   queryParams:any;
   
   showApplications: boolean = false;
   employer:any;
 employerId:number=0;
-  constructor(private adminService: AdminDashboardService,private http: HttpClient,private route: ActivatedRoute) {
+  constructor(private http: HttpClient,private route: ActivatedRoute) {
     
   }
   ngOnInit() {
@@ -50,7 +50,7 @@ employerId:number=0;
   jobs:any=[];
   jobId:number=0;
   selectApplicant(applicationId: number) {
-    this.http.post('http://localhost:8080/admins/selectApplicant', applicationId, { responseType: 'text' })
+    this.http.post('https://8080-adbbfbaafadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/selectApplicant', applicationId, { responseType: 'text' })
         .subscribe(
           (response: string) => {
             
@@ -66,7 +66,7 @@ employerId:number=0;
 
   getApplications(jobId: number): void {
   
-    this.http.get<any[]>(`http://localhost:8080/admins/jobApplications/${jobId}`).subscribe(
+    this.http.get<any[]>(`https://8080-adbbfbaafadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/${jobId}`).subscribe(
       data => {
         this.jobApplications = data;
         this.showApplications=true;
@@ -82,7 +82,7 @@ employerId:number=0;
     
     getJobsByEmployer() {
 
-      this.http.get<Job[]>(`http://localhost:8080/admins/employers/${this.employerId}/jobs`).subscribe(
+      this.http.get<Job[]>(`https://8080-adbbfbaafadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/employers/${this.employerId}/jobs`).subscribe(
         (jobs: Job[]) => {
           if (jobs.length !== 0) {
             this.jobs = jobs;
@@ -110,7 +110,7 @@ employerId:number=0;
     }
     
   reportJobSeeker(jobSeekerId: number) {
-    const endpoint = `http://localhost:8080/admins/job-seekers/report/${jobSeekerId}`;
+    const endpoint = `https://8080-adbbfbaafadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/job-seekers/report/${jobSeekerId}`;
 
     this.http.post(endpoint, {}, { responseType: 'text' }).subscribe(
       () => {

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmployerPageComponent } from './employer-page.component';
+import { EmployerDashboardComponent } from './employer-dashboard.component';
 
-describe('EmployerPageComponent', () => {
-  let component: EmployerPageComponent;
-  let fixture: ComponentFixture<EmployerPageComponent>;
+describe('EmployerDashboardComponent', () => {
+  let component: EmployerDashboardComponent;
+  let fixture: ComponentFixture<EmployerDashboardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EmployerPageComponent]
+      declarations: [EmployerDashboardComponent]
     });
-    fixture = TestBed.createComponent(EmployerPageComponent);
+    fixture = TestBed.createComponent(EmployerDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
