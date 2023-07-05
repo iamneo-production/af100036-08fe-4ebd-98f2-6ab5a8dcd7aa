@@ -32,7 +32,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
 import { JobDetailsComponent } from './job-details/job-details.component';
 
 
@@ -52,14 +51,13 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     FaqformComponentComponent,
     SidebarComponentComponent,
     TaskComponentComponent,
+    TaskComponentComponent,
     JobApplicationComponent,
     JobseekerprofileComponent,
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
-
     JobDetailsComponent
-
   
   ],
   imports: [
@@ -68,6 +66,13 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     ReactiveFormsModule,
     AppRoutingModule,    
     NgChartsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
