@@ -1,0 +1,25 @@
+package com.example.springapp.controller;
+
+import com.examly.springapp.exception.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.example.springapp.model.*;
+import com.example.springapp.repository.*;
+import java.util.Optional;
+
+@CrossOrigin(origins = "https://8081-becfabfadacaeaebfceaeaadbdbabf.project.examly.io")
+@RestController
+@RequestMapping("/job-details")
+public class JobDetailscontroller {
+    @Autowired
+    private JobRepository jobRepository;
+
+    @GetMapping("/jobs/{id}")
+    public ResponseEntity<Job> getJobById(@PathVariable(value = "id") Long jobId)
+            throws ResourceNotFoundException {
+        Job job = jobRepository.findById(jobId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
+        return ResponseEntity.ok().body(job);
+    } 
+}

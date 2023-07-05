@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <div class="navbar">
  <!-- <a class="navbar-link" [routerLink]="['/s']" [queryParams]="{ employerId: employerId }">Employer Profile</a>
@@ -76,3 +77,284 @@
           </div>
         </div>
       </div></div>
+=======
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body>
+    <div class="navbar">
+      <div class="navbar-items">
+        <a (click)="redirectToUserPage()">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Products</a>
+        <a href="#">Services</a>
+      </div>
+      <div class="admin-buttons">
+        <a ><i class="material-icons" ><mat-icon aria-hidden="false" aria-label="Example employer icon" fontIcon="work"></mat-icon>
+        </i> Employer page </a>
+        <a (click)="GoToLoginPage()"><i class="material-icons">logout</i> Logout</a>
+      </div>
+    </div>
+  
+    <div class="search-container">
+ 
+
+      <form class="search-bar">
+        <input type="text" placeholder="Search by job, skills, location..." [(ngModel)]="inputValue" name="inputField">
+        <button (click)="toggleTables()" type="submit">Search</button>
+      </form>
+    </div>
+
+
+    <br><br><br><br><br><br>
+
+
+
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="Job List">
+
+    <div class="table-container">
+      <table *ngIf="showTable1" class="table">
+        <thead class="table-head">
+          <tr>
+            <th class="product-column">Job code</th>
+            <th class="price-column">Job title</th>
+            <th class="price-column">Company</th>
+            <th class="location-column">Location</th>
+            <th class="skills-column">Skills required</th>
+            <th class="action-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products" class="table-rows">
+            <td class="product-column">{{ product.productCode }}</td>
+            <td class="product-column" type="text">
+              <a (click)="GoToHomePage(product.productCode)" class="product-link" style="white-space: pre-wrap;">{{ product.productName }}</a>
+            </td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.company }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product. jobLocation }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.brand }}</td>
+            <td class="action-column">
+              <div class="action-container">            
+              <div class="buy-btn-container"><button class="buy-btn" (click)="removeJob(product.productCode)">REMOVE</button></div>           
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+      <table *ngIf="showTable2" class="tableTwo" cellspacing="0">
+        <thead class="table-head">
+          <tr>
+            <th class="product-column">Job code</th>
+            <th class="price-column">Job title</th>
+            <th class="price-column">Company</th>
+            <th class="location-column">Location</th>
+            <th class="skills-column">Skills required</th>
+            <th class="action-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of searchedProducts" class="table-rows">
+            <td class="product-column">{{ product.productCode }}</td>
+            <td class="product-column" type="text">
+              <a (click)="GoToHomePage(product.productCode)" class="product-link" style="white-space: pre-wrap;">{{ product.productName }}</a>
+            </td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.company }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product. jobLocation }}</td>
+            <td class="price-column" style="white-space: pre-wrap;">{{ product.brand }}</td>
+            <td class="action-column">
+              <div class="action-container">            
+                <div class="buy-btn-container"><button class="buy-btn" (click)="GoToHomePage(product.productCode)">Remove</button></div>           
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </mat-tab>
+  <mat-tab label="Post a new job">                      <!-- section 2-----------------------------------  //// -->
+
+    <!-- <div class="table-container"> -->
+        <!-- <div class="form-container"> -->
+            <div class="container">
+                <!-- <h2>Login with your email and password:</h2><br><br> -->
+                <form id="login-form" (ngSubmit)="onSubmit()">
+            
+                    <div class="form-group">        
+                        <input type="text" id="job-title" name="job-title" placeholder = "Job title" [(ngModel)]="poster.productName" >
+                   </div>
+                    
+            
+                  <div class="form-group" >
+                    <input type="text" id="company" name="company" placeholder="Company name" [(ngModel)]="poster.company">                    
+                  </div>
+
+                  <div class="form-group" >
+                    <input type="text" id="location" name="location" placeholder="Job location" [(ngModel)]="poster.jobLocation">                    
+                  </div>
+
+                  <div class="form-group" >
+                    <input type="text" id="job-shift" name="job-shift" placeholder="Job shift" [(ngModel)]="poster.shift">                    
+                  </div>
+
+                  <div class="form-group" >
+                    <input type="text" id="skills" name="skills" placeholder="Skills required" [(ngModel)]="poster.brand">                    
+                  </div>
+
+                  <div class="form-group">
+                    <textarea id="description" name="description" placeholder="Description"  [(ngModel)]="poster.description" ></textarea>
+                  </div>
+                  <button type="submit" class="submit-btn" >Post this job</button>
+                  
+                  <br>
+                  <br><br>
+             
+            
+                </form>
+                
+            </div>
+              
+          <!-- </div> -->
+          
+
+      <br><br><br>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+     
+    <!-- </div> -->
+
+  </mat-tab>  
+
+  <mat-tab label="Job applications">                      <!-- section 2-----------------------------------  //// -->
+
+    <!-- <div class="table-container"> -->
+        <!-- <div class="form-container"> -->  
+            <div class="table-container">
+              <table *ngIf="showTable1" class="table">
+                <thead class="table-head">
+                  <tr>
+                    <th class="product-column">Job code</th>
+                    <th class="product-column">Name of candidate</th>
+                    <th class="price-column">Job title</th>
+                    
+                    
+                    <th class="skills-column">Skills </th>
+                    <th class="action-column">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of jobApplied" class="table-rows">
+                    <td class="product-column">{{ product.id }}</td>
+                    <td class="product-column">guest</td>
+                    <td class="product-column" type="text">
+                      <a (click)="GoToHomePage(product.id)" class="product-link" style="white-space: pre-wrap;">{{ product.jobTitle }}</a>
+                    </td>
+                    
+                    
+                    <td class="price-column" style="white-space: pre-wrap;">{{ product.skillsRequired }}</td>
+                    <td class="action-column">
+                      <div class="action-container">            
+                        <div class="buy-btn-container-job-applications"><button class="select-btn" (click)="GoToShortlistPage(product.id)">VIEW</button></div>           
+                                 
+                      <div class=""><button class="buy-btn" (click)="removeAppliedJob(product.id)">REMOVE</button></div>           
+                    </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                
+            </div>
+              
+          <!-- </div> -->
+          
+
+      <br><br><br>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+     
+    <!-- </div> -->
+
+  </mat-tab>  
+
+
+  <mat-tab label="Shortlisted candidates">                      <!-- section 2-----------------------------------  //// -->
+
+    <!-- <div class="table-container"> -->
+        <!-- <div class="form-container"> -->  
+            <div class="table-container">
+              <table *ngIf="showTable1" class="table">
+                <thead class="table-head">
+                  <tr>
+                    
+                    <th class="product-column">Name of candidate</th>
+                    <th class="price-column">Job title</th>
+                    
+                    
+                    <th class="skills-column">Skills </th>
+                    <th class="action-column">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of shortlisted" class="table-rows">
+                  
+                    <td class="product-column">guest</td>
+                    <td class="product-column" type="text">
+                      <a (click)="GoToHomePage(product.id)" class="product-link" style="white-space: pre-wrap;">{{ product.jobTitle }}</a>
+                    </td>
+                    
+                    
+                    <td class="price-column" style="white-space: pre-wrap;">{{ product.skillsRequired }}</td>
+                    <td class="action-column">
+                      <div class="action-container">                        
+                      <div class="buy-btn-container"><button class="buy-btn" (click)="removeJob(product.id)">REMOVE</button></div>           
+                    </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                
+            </div>
+              
+          <!-- </div> -->
+          
+
+      <br><br><br>
+  
+          <!-- //------------------------------------table 2 -------------------------------------------- -->
+  
+     
+    <!-- </div> -->
+
+  </mat-tab>  
+
+
+
+</mat-tab-group>
+
+
+  
+</body>
+
+  
+    
+  
+
+
+
+
+
+
+
+
+
+>>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483

@@ -1,0 +1,41 @@
+<div class="topnav"></div>
+<body>
+  <form>
+    <div class="page">
+      <br>
+      <h1>Employer Profile</h1>
+
+      <input type="file" name="image" (change)="selectimage($event)" /><br>
+      <button type="button" (click)="upload()">Upload</button>
+      <br><br>
+
+      <div class="form-outline">
+        <label><b>Name</b></label><br>
+        <div class="disname">{{user.name}}</div>
+      </div>
+      <br>
+
+      <div class="form-outline">
+        <label><b>Description</b></label><br>
+        <div class="disdescription">{{user.description}}</div>
+      </div>
+      <br>
+
+      <div class="form-outline">
+        <label><b>Location</b></label><br>
+        <div class="dislocation">{{user.location}}</div>
+      </div>
+      <div class="input-group mb-3"></div>
+      <br>
+
+      <button *ngIf="isAdmin" (click)="showUpdateEmployerForm()">Edit</button>
+
+    </div>
+  </form>
+
+  <div *ngIf="showEmployerUpdateForm" class="section-content">
+    <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
+
+
+  </div>
+</body>
