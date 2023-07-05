@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import com.example.springapp.model.JobSeeker;
 import com.example.springapp.repository.JobSeekerRepository;
 import com.example.springapp.model.User;
 import com.example.springapp.repository.UserRepository;
+import com.example.springapp.exception.ResourceNotFoundException;
 @RestController
 @RequestMapping("/details")
 public class JobseekerdetailsController {
@@ -28,6 +29,9 @@ public class JobseekerdetailsController {
         private JobSeekerRepository jobSeekerRepository;
         @Autowired
         private UserRepository userRepository;
+        @Autowired
+private EntityManager entityManager;
+
     @GetMapping("/job-seekers/{id}")
     public ResponseEntity<JobSeeker> getJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
             throws ResourceNotFoundException {
