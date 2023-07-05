@@ -29,8 +29,4 @@ public interface JobRepository extends JpaRepository<Job, Long>,JpaSpecification
   
 
    
-<<<<<<< HEAD
     }
-=======
-    }
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15

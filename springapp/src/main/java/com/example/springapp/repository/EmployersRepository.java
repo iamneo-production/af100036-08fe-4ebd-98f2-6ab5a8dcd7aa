@@ -19,14 +19,4 @@ public interface  EmployersRepository extends JpaRepository<Employers, Integer> 
     List<Employers> findAll(@Param("deleted") boolean deleted);
     Employers getEmployerByUser(User authenticatedUser);
     Employers findByUser(User authenticatedUser);
-<<<<<<< HEAD
-  
-   
-
-
-  
-
-    
-=======
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15
 }

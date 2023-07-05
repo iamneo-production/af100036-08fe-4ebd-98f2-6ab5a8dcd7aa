@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.example.springapp.service;
-=======
-package main.java.com.example.springapp.service;
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15
 
 import com.example.springapp.model.User;
 import com.example.springapp.repository.UserRepository;
@@ -30,8 +26,4 @@ public class UserService {
 
         return userRepository.save(user);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15

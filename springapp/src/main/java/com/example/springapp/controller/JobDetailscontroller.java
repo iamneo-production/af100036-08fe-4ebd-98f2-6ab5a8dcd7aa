@@ -1,6 +1,6 @@
 package com.example.springapp.controller;
 
-import com.examly.springapp.exception.ResourceNotFoundException;
+import com.example.springapp.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
