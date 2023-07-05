@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.example.springapp.model;
+=======
+package main.java.com.example.springapp.model;
+>>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,4 +31,8 @@ public class User {
     private String password;
     @Column
     private String role;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0f5fb4ad52ce7cf4b02b7c7c72814fc4bdfcac15

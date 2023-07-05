@@ -23,9 +23,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgChartsModule } from 'ng2-charts';
 import { JobApplicationComponent } from './job-application/job-application.component';
-
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+<<<<<<< HEAD
+import { EmployerPageComponent } from './employer-dashboard/employer-dashboard.component';
+=======
+import { JobDetailsComponent } from './job-details/job-details.component';
+
+>>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483
 
 
 @NgModule({
@@ -43,9 +55,17 @@ import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditp
     FaqformComponentComponent,
     SidebarComponentComponent,
     TaskComponentComponent,
+    TaskComponentComponent,
     JobApplicationComponent,
     JobseekerprofileComponent,
-    JobseekereditprofileComponent
+    JobseekereditprofileComponent,
+    SignupComponent,
+    LoginComponent,
+<<<<<<< HEAD
+    EmployerPageComponent
+=======
+    JobDetailsComponent
+>>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483
   
   ],
   imports: [
@@ -54,7 +74,20 @@ import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditp
     ReactiveFormsModule,
     AppRoutingModule,    
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
