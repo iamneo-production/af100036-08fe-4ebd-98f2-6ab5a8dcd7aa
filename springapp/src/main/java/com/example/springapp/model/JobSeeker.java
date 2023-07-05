@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
+import javax.persistence.Column;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
@@ -21,15 +21,17 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDateTime;
 
 import java.util.List;
+
+
 @Entity
-@Table(name = "job_seekers")
+@Table(name = "job_seeker")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
 @FilterDef(name = "deletedFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
 @Filter(name = "deletedFilter", condition = "deleted = :isDeleted")
 public class JobSeeker {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
