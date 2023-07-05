@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgChartsModule } from 'ng2-charts';
 import { JobApplicationComponent } from './job-application/job-application.component';
-
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -33,6 +32,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { JobDetailsComponent } from './job-details/job-details.component';
+
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
+    JobDetailsComponent
   
   ],
   imports: [
