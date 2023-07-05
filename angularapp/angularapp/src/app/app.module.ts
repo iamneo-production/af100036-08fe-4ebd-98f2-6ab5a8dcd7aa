@@ -32,8 +32,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+<<<<<<< HEAD
+import { EmployerPageComponent } from './employer-dashboard/employer-dashboard.component';
+=======
 import { JobDetailsComponent } from './job-details/job-details.component';
 
+>>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
+<<<<<<< HEAD
+    EmployerPageComponent
+=======
     JobDetailsComponent
+>>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483
   
   ],
   imports: [
