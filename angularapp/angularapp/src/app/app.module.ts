@@ -34,6 +34,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 <<<<<<< HEAD
 import { EmployerPageComponent } from './employer-dashboard/employer-dashboard.component';
+import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
 =======
 import { JobDetailsComponent } from './job-details/job-details.component';
 
@@ -61,11 +62,8 @@ import { JobDetailsComponent } from './job-details/job-details.component';
     JobseekereditprofileComponent,
     SignupComponent,
     LoginComponent,
-<<<<<<< HEAD
-    EmployerPageComponent
-=======
-    JobDetailsComponent
->>>>>>> ef805b1a2678dd0db5de99f0246fe6b8834f9483
+    JobDetailsComponent,
+    JobseekerdashoardComponent
   
   ],
   imports: [
