@@ -10,7 +10,7 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobSearchComponent } from './job-search/job-search.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
   
     { path: 'job-application', component: JobApplicationComponent },
