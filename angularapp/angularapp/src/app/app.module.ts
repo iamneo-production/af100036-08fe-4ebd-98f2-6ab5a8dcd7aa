@@ -40,6 +40,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 >>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +69,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     SignupComponent,
     LoginComponent,
 >>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
-  
+ 
+
   ],
   imports: [
     BrowserModule,
