@@ -31,6 +31,8 @@ import { EmployerDashboardComponent } from './employer-dashboard/employer-dashbo
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
+import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
+import { EmployerProfileComponent } from './employer-profile/employer-profile.component';
 
 
 
@@ -58,7 +60,9 @@ import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoar
     EmployerDashboardComponent,
     JobDetailsComponent,
     JobseekerdashoardComponent,
-    JobSearchComponent
+    JobSearchComponent,
+   EditemployerProfileComponent,
+EmployerProfileComponent
   
   ],
   imports: [
