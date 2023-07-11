@@ -8,15 +8,21 @@ import { LoginComponent } from './pages/login/login.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 
 import { JobSearchComponent } from './job-search/job-search.component';
+import { EmployerProfileComponent } from './employer-profile/employer-profile.component';
+import { AddjobformComponentComponent } from './admin-dashboard/addjobform-component/addjobform-component.component';
+import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
+import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
+import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+    { path: '', redirectTo: '/signup', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
-  
+    { path: 'jobseekerdashboard', component: JobseekerdashoardComponent },
+    { path: 'employerdashboard', component: EmployerDashboardComponent },
     { path: 'job-application', component: JobApplicationComponent },
     {path:'job-details',component:JobDetailsComponent},
     {path: 'job-serach',component:JobSearchComponent},
-
+{path:'jobseekerdetails',component:JobseekerprofileComponent},
     {
     
       path: 'signup',
@@ -28,8 +34,11 @@ const routes: Routes = [
       component: LoginComponent,
       pathMatch: 'full',
   
-    }
-  
+    },
+
+    {path:'employerprofile',component:EmployerProfileComponent},
+ 
+    {path:'addjob',component:AddjobformComponentComponent}
 ];
 
 @NgModule({

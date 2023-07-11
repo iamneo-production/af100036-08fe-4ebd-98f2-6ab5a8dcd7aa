@@ -7,14 +7,14 @@ import { Job } from './Job.module';
   providedIn: 'root'
 })
 export class JobServiceService {
-  private baseUrl = 'http://localhost:8080/admins/jobs';
+  private baseUrl = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search';
 
   constructor(private http: HttpClient) { }
   getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs/chart');
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search/jobs/chart');
   }
   getAllDeletedJob(): Observable<Job[]> {
-    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/job/deleted');
+    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search/job/deleted');
   }
   searchJobs(title?: string, location?: string): Observable<Job[]> {
     let params = new HttpParams();

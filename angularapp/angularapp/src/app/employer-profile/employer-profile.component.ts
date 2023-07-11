@@ -19,7 +19,7 @@ export class EmployerProfileComponent   implements OnInit{
     }
   
  @Input() isAdmin: boolean = true; 
-  @Input() employerId: number=10;
+  @Input() employerId: number=0;
   updateEmployer(updatedEmployer: any) {
 
     this.user = updatedEmployer;
