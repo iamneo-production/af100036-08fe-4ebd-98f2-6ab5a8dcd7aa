@@ -15,7 +15,7 @@ const routes: Routes = [
   
     { path: 'job-application', component: JobApplicationComponent },
     {path:'job-details',component:JobDetailsComponent},
-
+    {path: 'job-serach',component:JobSearchComponent},
 
     {
     

@@ -11,22 +11,13 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
 >>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
-<<<<<<< HEAD
-=======
 >>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
->>>>>>> 7adbea9242ecac22f69ae80ff9228bc41528e2b4
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
@@ -36,11 +27,6 @@
 =======
 <<<<<<< HEAD
 =======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
 <<<<<<< Updated upstream
 =======
 >>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
@@ -48,11 +34,7 @@
 =======
 >>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
 >>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
-<<<<<<< HEAD
-=======
 >>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
->>>>>>> 7adbea9242ecac22f69ae80ff9228bc41528e2b4
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
@@ -64,11 +46,6 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
@@ -77,35 +54,21 @@
 =======
 >>>>>>> Stashed changes
 >>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
-<<<<<<< HEAD
-=======
 >>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
->>>>>>> 7adbea9242ecac22f69ae80ff9228bc41528e2b4
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
 <<<<<<< HEAD
-			<id>1682926760256</id>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 			<id>1682929289507</id>
 =======
 <<<<<<< HEAD
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
 			<id>1683027060040</id>
 =======
 			<id>1682915864054</id>
 >>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
-<<<<<<< HEAD
-=======
 >>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
->>>>>>> 7adbea9242ecac22f69ae80ff9228bc41528e2b4
 			<name></name>
 			<type>30</type>
 			<matcher>
@@ -118,11 +81,6 @@
 =======
 <<<<<<< HEAD
 =======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
 <<<<<<< Updated upstream
 =======
 >>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
@@ -132,9 +90,5 @@
 	</natures>
 >>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
 >>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
-<<<<<<< HEAD
-=======
 >>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
->>>>>>> 71744c369f2802723c32e83d4c30ecdd8b2c923a
->>>>>>> 7adbea9242ecac22f69ae80ff9228bc41528e2b4
 </projectDescription>

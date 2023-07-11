@@ -22,7 +22,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.HttpStatus;
+import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -153,4 +154,26 @@ public ResponseEntity<?> getJobApplicationsByJobId(@PathVariable Long jobId) {
             return ResponseEntity.notFound().build();
         }
     }
+    
+@GetMapping("/jobApplications/JobSeeker/{jobSeekerId}/appliedJobs")
+public ResponseEntity<List<Job>> getAppliedJobsByJobSeekerId(@PathVariable Long jobSeekerId) {
+    try {
+        Optional<JobSeeker> optionalJobSeeker = jobSeekerRepository.findById(jobSeekerId);
+        if (optionalJobSeeker.isPresent()) {
+            JobSeeker jobSeeker = optionalJobSeeker.get();
+
+            List<Job> appliedJobs = jobSeeker.getApplications().stream()
+                    .map(JobApplication::getJob)
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.ok(appliedJobs);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+}
+
 }
