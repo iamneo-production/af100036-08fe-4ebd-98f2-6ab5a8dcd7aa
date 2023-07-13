@@ -1,5 +1,6 @@
 package com.example.springapp.repository;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
@@ -23,4 +24,12 @@ public interface  EmployerRepository extends JpaRepository<Employer, Integer> {
   
 
     
+=======
+import com.example.springapp.model.Employer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EmployerRepository extends JpaRepository<Employer, Long> {
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 }

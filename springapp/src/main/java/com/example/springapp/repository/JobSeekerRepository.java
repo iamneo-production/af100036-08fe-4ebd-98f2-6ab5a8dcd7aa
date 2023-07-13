@@ -28,7 +28,11 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
 
 
 
+<<<<<<< HEAD
     }
     
    
     
+=======
+}
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf

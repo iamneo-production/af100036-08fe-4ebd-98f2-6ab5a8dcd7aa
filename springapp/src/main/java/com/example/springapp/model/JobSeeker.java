@@ -5,7 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+<<<<<<< HEAD
 
+=======
+import javax.persistence.Column;
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
@@ -21,12 +25,22 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDateTime;
 
 import java.util.List;
+<<<<<<< HEAD
 @Entity
 @Table(name = "job_seekers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+=======
+
+
+@Entity
+@Table(name = "job_seeker")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 @FilterDef(name = "deletedFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
 @Filter(name = "deletedFilter", condition = "deleted = :isDeleted")
 public class JobSeeker {
@@ -49,6 +63,24 @@ public class JobSeeker {
     @Column(name = "location")
     private String location;
 
+<<<<<<< HEAD
+=======
+    @Column(name = "marital_status")
+    private String maritalStatus;
+
+    @Column(name = "hometown")
+    private String hometown;
+
+    @Column(name = "nationality")
+    private String nationality;
+
+    @Column(name = "last_job_designation")
+    private String lastJobDesignation;
+
+    @Column(name = "reasons_for_leaving")
+    private String reasonsForLeaving;
+
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
@@ -63,6 +95,7 @@ public class JobSeeker {
 
     @Column(name = "deleted", nullable = false, updatable = true)
     private Boolean deleted = false;
+<<<<<<< HEAD
     
     @Column(name = "Reported",nullable = false, updatable = true)
     private Boolean reported = false;
@@ -71,4 +104,19 @@ public class JobSeeker {
 @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL)
     private List<JobApplication> applications;
 
+=======
+
+    @Column(name = "reported", nullable = false, updatable = true)
+    private Boolean reported = false;
+
+    @JsonIgnoreProperties("jobSeeker")
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL)
+    private List<JobApplication> applications;
+
+       @Column(name = "mobile")
+    private String mobile;
+        @Column(name = "lastjob")
+    private String lastjob;
+
+>>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 }
