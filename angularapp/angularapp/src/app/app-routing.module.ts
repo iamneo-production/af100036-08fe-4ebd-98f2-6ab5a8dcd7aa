@@ -13,6 +13,7 @@ import { AddjobformComponentComponent } from './admin-dashboard/addjobform-compo
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -22,9 +23,10 @@ const routes: Routes = [
     { path: 'job-application', component: JobApplicationComponent },
     {path:'job-details',component:JobDetailsComponent},
     {path: 'job-serach',component:JobSearchComponent},
-{path:'jobseekerdetails',component:JobseekerprofileComponent},
+    {path:'jobseekerdetails',component:JobseekerprofileComponent},
+    {path: 'landingpage', component: LandingpageComponent},
+
     {
-    
       path: 'signup',
       component: SignupComponent,
       pathMatch: 'full',

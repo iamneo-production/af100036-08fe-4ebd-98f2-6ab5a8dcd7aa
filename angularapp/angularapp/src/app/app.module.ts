@@ -33,6 +33,7 @@ import { JobSearchComponent } from './job-search/job-search.component';
 import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
 import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
 import { EmployerProfileComponent } from './employer-profile/employer-profile.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 
@@ -61,8 +62,9 @@ import { EmployerProfileComponent } from './employer-profile/employer-profile.co
     JobDetailsComponent,
     JobseekerdashoardComponent,
     JobSearchComponent,
-   EditemployerProfileComponent,
-EmployerProfileComponent
+    EditemployerProfileComponent,
+    LandingpageComponent,
+    EmployerProfileComponent
   
   ],
   imports: [
