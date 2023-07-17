@@ -1,93 +1,46 @@
-<!-- <p>signup works!</p> -->
-
-
 <div class="bootstrap-wrapper">
     <div class="container">
-        <div class="row">
+        <div class="row mt20">
             <div class="col-md-6 offset-md-3">
-
-                <div class="container text-center">
-                    <img class="signupimage" src="../../../assets/signup.png" alt="signup">
-                </div>
-
-                <h1 class="text-center">Register Here</h1>
-
-                <form (ngSubmit)="formSubmit()">
-                    <!-- Username field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Username</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.username"
-                        name="username"
-                        matInput placeholder="Enter your username">
-                    </mat-form-field>
-
-                    <!-- Password field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.password"
-                        name="password"
-                        type="password" matInput placeholder="Enter your password">
-                    </mat-form-field>
-
-                    <!-- Firstname field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Firstname</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.firstName"
-                        name="firstName"
-                        matInput placeholder="Enter your Firstname">
-                    </mat-form-field>
-
-                    <!-- Lastname field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Lastname</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.lastName"
-                        name="lastName"
-                        matInput placeholder="Enter your Lastname">
-                    </mat-form-field>
-
-                    <!--  field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.email"
-                        name="email"
-                        type="email" matInput placeholder="Enter your Email">
-                    </mat-form-field>
-
-                    <!-- Phone field -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Phone</mat-label>
-                        <input 
-                        required
-                        [(ngModel)]="user.phone"
-                        name="phone"
-                        type="number" matInput placeholder="Enter your Phone no">
-                    </mat-form-field>    
-                    
-                    
-                    <!-- Register and clear button -->
-                    <div class="container text-center">
-
-                        <button class="registerbutton" type="submit" mat-raised-button color="primary">Register</button>
-                        <button class="clearbutton" mat-raised-button color="accent">Clear</button>
-                        
+                    <div class="parent">
+                      <h2>Signup</h2>
+                        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                          <div class="form-group">
+                            <label for="username">Name:</label>
+                            <input type="text" class="form-control" id="username" name="username" formControlName="name">
+                            <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="error-message">
+                              Name is required
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                            <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-message">
+                              Email is required and must be a valid email address
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+                            <div *ngIf="registrationForm.get('password')?.errors?.['invalidPassword'] && registrationForm.get('password')?.touched" class="error-message">
+                              Password must be at least 8 characters long with at least one special symbol, one capital letter, one small letter, and one number
+                            </div>
+                          </div>
+                          <label for="signupType">Signup Type:</label>
+                          <select id="signupType" name="signupType" formControlName="signupType">
+                            <option value="employer">Employer</option>
+                            <option value="jobseeker">Job Seeker</option>
+                          </select>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <a routerLink="/signin">Sign in</a>
                     </div>
-
-
-
-                </form>
-
-
+  
             </div>
         </div>
     </div>
-</div>
+  </div>
+  
+  <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+  
+  
