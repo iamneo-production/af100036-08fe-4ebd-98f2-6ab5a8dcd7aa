@@ -72,6 +72,11 @@ public class JobSeeker {
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+    
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 
     @LastModifiedDate
     @Column(name = "updated_at")

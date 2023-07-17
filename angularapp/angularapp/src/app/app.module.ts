@@ -21,7 +21,7 @@ import { JobApplicationComponent } from './job-application/job-application.compo
 import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/jobseekerprofile.component';
 import { JobseekereditprofileComponent } from './jobseekerdetails/jobseekereditprofile/jobseekereditprofile.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { LoginComponent } from './pages/login/login.component';
+import { SigninComponent } from './pages/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -57,14 +57,15 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     JobseekerprofileComponent,
     JobseekereditprofileComponent,
     SignupComponent,
-    LoginComponent,
+    SigninComponent,
     EmployerDashboardComponent,
     JobDetailsComponent,
     JobseekerdashoardComponent,
     JobSearchComponent,
     EditemployerProfileComponent,
     LandingpageComponent,
-    EmployerProfileComponent
+    EmployerProfileComponent,
+    SigninComponent
   
   ],
   imports: [
@@ -84,8 +85,6 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule,
-    FormsModule,
     MatSnackBarModule
   ],
   providers: [],
