@@ -1,13 +1,13 @@
 package com.example.springapp.controller;
 
-import com.examly.springapp.model.Employers;
-import com.examly.springapp.model.JobSeeker;
-import com.examly.springapp.model.Role;
-import com.examly.springapp.model.User;
-import com.examly.springapp.repository.EmployersRepository;
-import com.examly.springapp.repository.JobSeekerRepository;
-import com.examly.springapp.repository.UserRepository;
-import com.examly.springapp.service.UserService;
+import com.example.springapp.model.Employers;
+import com.example.springapp.model.JobSeeker;
+import com.example.springapp.model.Role;
+import com.example.springapp.model.User;
+import com.example.springapp.repository.EmployersRepository;
+import com.example.springapp.repository.JobSeekerRepository;
+import com.example.springapp.repository.UserRepository;
+import com.example.springapp.service.UserService;
 
 import javax.validation.Valid;
 
