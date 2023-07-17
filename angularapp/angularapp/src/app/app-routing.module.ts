@@ -15,6 +15,7 @@ import { EmployerDashboardComponent } from './employer-dashboard/employer-dashbo
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SigninComponent } from './pages/signin/signin.component';
 
+
 const routes: Routes = [
     { path: '', redirectTo: '/signup', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },

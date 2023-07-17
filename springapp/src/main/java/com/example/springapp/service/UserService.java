@@ -7,13 +7,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.examly.springapp.model.Employers;
-import com.examly.springapp.model.JobSeeker;
-import com.examly.springapp.model.Role;
-import com.examly.springapp.model.User;
-import com.examly.springapp.repository.EmployersRepository;
-import com.examly.springapp.repository.JobSeekerRepository;
-import com.examly.springapp.repository.UserRepository;
+import com.example.springapp.model.Employers;
+import com.example.springapp.model.JobSeeker;
+import com.example.springapp.model.Role;
+import com.example.springapp.model.User;
+import com.example.springapp.repository.EmployersRepository;
+import com.example.springapp.repository.JobSeekerRepository;
+import com.example.springapp.repository.UserRepository;
 
 
 @Configuration

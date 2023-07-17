@@ -25,7 +25,9 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
 
     JobSeeker getJobSeekerByUser(User authenticatedUser);
 
+    JobSeeker findByUser(User authenticatedUser);
 
+  
 
 
 }
