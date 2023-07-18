@@ -40,7 +40,7 @@ export class SignupComponent {
 
 
   onSubmit() {
-    //const url = `http://localhost:8080/api/signup/${this.signupType}`;
+    //const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/signup/${this.signupType}`;
     // this.http.post(url, this.user).subscribe(response => {
       // console.log('Signup Successful',response);
     // });
@@ -54,7 +54,7 @@ export class SignupComponent {
     const email = this.registrationForm.get('email')?.value;
 
     // Construct the URL with the email as a query parameter
-    const emailUrl = `http://localhost:8080/api/check-email/${email}`;
+    const emailUrl = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/check-email/${email}`;
 
     // Check if the email already exists
     this.http.get<boolean>(emailUrl).subscribe(
@@ -70,7 +70,7 @@ export class SignupComponent {
           const signupType = this.registrationForm.get('signupType')?.value;
 
           // Construct the URL with the signuptype as a query parameter
-          const signupTypeUrl = `http://localhost:8080/api/signup/${signupType}`;
+          const signupTypeUrl = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/signup/${signupType}`;
 
           this.http.post<any>(signupTypeUrl, this.registrationForm.value).subscribe(response => {
             console.log('Signup Successful');

@@ -19,16 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import com.example.springapp.model.JobSeeker;
 import com.example.springapp.repository.JobSeekerRepository;
-import com.example.springapp.model.User;
-import com.example.springapp.repository.UserRepository;
+import com.example.springapp.model.Users;
+import com.example.springapp.repository.UsersRepository;
 import com.example.springapp.exception.ResourceNotFoundException;
 @RestController
 @RequestMapping("/details")
+@CrossOrigin(origins = "https://8081-becfabfadacaeaebfceaeaadbdbabf.project.examly.io")
 public class JobseekerdetailsController {
         @Autowired
         private JobSeekerRepository jobSeekerRepository;
         @Autowired
-        private UserRepository userRepository;
+        private UsersRepository userRepository;
         @Autowired
 private EntityManager entityManager;
 
@@ -47,7 +48,7 @@ private EntityManager entityManager;
     
         JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
-      User user = jobSeeker.getUser();
+      Users user = jobSeeker.getUser();
                 if (user != null) {
         jobSeeker.setUser(null);
        jobSeekerRepository.save(jobSeeker); 

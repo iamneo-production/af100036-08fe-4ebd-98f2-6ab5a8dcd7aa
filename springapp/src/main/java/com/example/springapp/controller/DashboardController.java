@@ -10,7 +10,7 @@ import com.example.springapp.repository.JobRepository;
 import com.example.springapp.repository.EmployersRepository;
 import com.example.springapp.repository.JobApplicationRepository;
 import com.example.springapp.repository.JobSeekerRepository;
-import com.example.springapp.repository.UserRepository;
+import com.example.springapp.repository.UsersRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfceaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 @RestController
 @RequestMapping("/dashboard")
 public class DashboardController {
@@ -43,7 +43,7 @@ public class DashboardController {
     @Autowired
     private JobSeekerRepository jobSeekerRepository;
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository userRepository;
 @Autowired
 private EntityManager entityManager;
  

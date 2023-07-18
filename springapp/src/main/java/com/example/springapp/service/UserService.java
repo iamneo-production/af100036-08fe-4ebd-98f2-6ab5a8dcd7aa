@@ -11,11 +11,12 @@ import com.example.springapp.model.Employers;
 import com.example.springapp.model.JobSeeker;
 import com.example.springapp.model.Role;
 import com.example.springapp.model.User;
+import com.example.springapp.model.Users;
 import com.example.springapp.repository.EmployersRepository;
 import com.example.springapp.repository.JobSeekerRepository;
 import com.example.springapp.repository.UserRepository;
 
-
+import com.example.springapp.repository.UsersRepository;
 @Configuration
 @Service
 public class UserService {
@@ -23,6 +24,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UsersRepository usersRepository;
     @Autowired
     private EmployersRepository employerRepository;
 
@@ -33,14 +36,23 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
     
    
+  
+
+    @Autowired
+    public UserService(UsersRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.usersRepository = usersRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+   
     
 
 
-    public User createUser(User user, Role role) {
+    public Users createUser(Users user, Role role) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
 
-        User savedUser = userRepository.save(user);
+        Users savedUser = usersRepository.save(user);
 
         if (role == Role.EMPLOYER) {
             Employers employer = new Employers();
@@ -58,8 +70,8 @@ public class UserService {
         return savedUser;
     }
 
-    public User authenticateUser(User user) {
-        User existingUser = userRepository.findByEmail(user.getEmail());
+    public Users authenticateUser(Users user) {
+        Users existingUser = usersRepository.findByEmail(user.getEmail());
 
         if (existingUser != null && passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
             return existingUser;
@@ -69,9 +81,5 @@ public class UserService {
     }
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 
 }
