@@ -17,7 +17,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/signup', pathMatch: 'full' },
+    { path: '', redirectTo: '/landingpage', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
     { path: 'jobseekerdashboard', component: JobseekerdashoardComponent },
     { path: 'employerdashboard', component: EmployerDashboardComponent },

@@ -11,7 +11,7 @@ import com.example.springapp.model.Employers;
 import com.example.springapp.repository.EmployersRepository;
 import javax.persistence.EntityManager;
 
-@CrossOrigin(origins = "https://8081-dfafedbbfdeabadfadacaeaebfceaeaadbdbabf.project.examly.io")
+@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 @RestController
 @RequestMapping("/employerdetails")
 public class EmployersController {
@@ -31,6 +31,7 @@ public class EmployersController {
                 .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
         return ResponseEntity.ok().body(employer);
     }
+    
 
     @PutMapping(value = "/{id}", consumes = "application/json")
     public ResponseEntity<Employers> updateEmployer(@PathVariable(value = "id") Long employerId,

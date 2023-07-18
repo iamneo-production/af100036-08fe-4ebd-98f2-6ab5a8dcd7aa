@@ -67,7 +67,7 @@ public class JobSeeker {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)

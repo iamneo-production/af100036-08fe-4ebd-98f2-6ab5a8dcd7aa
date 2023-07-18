@@ -27,19 +27,20 @@ export class SigninComponent implements OnInit {
   onSubmit() {
     if (this.userForm.valid) {
       const user = this.userForm.value;
-      this.http.post<any>('http://localhost:8080/api/signin', user).subscribe(response => {
+      this.http.post<any>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/signin', user).subscribe(response => {
         if (response && response.role === 'JOB_SEEKER') {
           const queryParams = {
+            
             response: JSON.stringify(response.jobseekerid)
           };
           console.log('Signin Successful');
-          this.router.navigate(['/joba'], { queryParams });
+          this.router.navigate(['/jobseekerdashboard'], { queryParams });
         } else if (response && response.role === 'EMPLOYER') {
           const queryParams = {
             response: JSON.stringify(response.employerid)
           };
           console.log('Signin Successful');
-          this.router.navigate(['/dash'], { queryParams });
+          this.router.navigate(['/employerdashboard'], { queryParams });
         } else {
           console.log('Invalid credentials');
         }

@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.springapp.model.JobSeeker;
-import com.example.springapp.model.User;
+import com.example.springapp.model.Users;
 
 
 public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
@@ -23,9 +23,9 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
 
     List<JobSeeker> findByReported(boolean b);
 
-    JobSeeker getJobSeekerByUser(User authenticatedUser);
+    JobSeeker getJobSeekerByUser(Users authenticatedUser);
 
-    JobSeeker findByUser(User authenticatedUser);
+    JobSeeker findByUser(Users authenticatedUser);
 
   
 
