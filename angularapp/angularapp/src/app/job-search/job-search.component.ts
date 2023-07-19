@@ -26,13 +26,14 @@ export class JobSearchComponent implements OnInit {
   constructor(private http: HttpClient,private jobService: JobServiceService,private route: ActivatedRoute)  {}
   @Input() jobSeekerId:number=0;
   ngOnInit() {
-    this.getAllDeletedJob();
-    this.getJobs();
-    
+ 
 
     this.route.queryParams.subscribe((params: { [x: string]: number; }) => {
       this.jobSeekerId = params['jobSeekerId'] || 0;
       console.log(this.jobSeekerId);
+      this.getAllDeletedJob();
+      this.getJobs();
+      
     })
   }
  queryParams: any;
@@ -74,8 +75,9 @@ export class JobSearchComponent implements OnInit {
   getJobs() {
     this.jobService.getJobs().subscribe(jobs => {
       this.jobs = jobs;
-     
+      console.log(this.jobs);
     });
+    console.log(this.jobs);
   }
 
   getAllDeletedJob() {

@@ -27,12 +27,12 @@ export class JobServiceService {
       params = params.set('location', location);
     }
 
-    return this.http.get<Job[]>(`${this.baseUrl}/search`, { params });
+    return this.http.get<Job[]>(`${this.baseUrl}/jobs/search`, { params });
   }
 
   sortJobs(sortBy: string): Observable<Job[]> {
     const params = new HttpParams().set('sortBy', sortBy.toLowerCase());
-    return this.http.get<Job[]>(`${this.baseUrl}/sort`, { params });
+    return this.http.get<Job[]>(`${this.baseUrl}/jobs/sort`, { params });
   }
 
   reportJob(jobId: number): Observable<string> {
