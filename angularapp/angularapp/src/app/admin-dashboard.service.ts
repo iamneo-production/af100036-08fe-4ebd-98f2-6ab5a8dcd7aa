@@ -52,7 +52,7 @@ export class AdminDashboardService {
   }
 
   addJob(job: Job): Observable<Job> {
-    return this.http.post<Job>('https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/jobs', job);
+    return this.http.post<Job>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/jobs', job);
   }
 
   addEmployer(employer: Employer): Observable<Employer> {

@@ -1,5 +1,5 @@
 import { Component,Input,OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobseekerdetailsserviceService } from '../jobseekerdetailsservice.service';
 
 @Component({
@@ -19,7 +19,7 @@ selectedprofile:any;
   }
 
   @Input() isAdmin: boolean = true;
-  @Input() jobSeekerId: number = 4;
+  @Input() jobSeekerId: number = 0;
 
   updateJobSeeker(updatedJobSeeker: any) {
   
@@ -27,10 +27,13 @@ selectedprofile:any;
    
   }
 
-  constructor(private seekerservice: JobseekerdetailsserviceService, private router: Router) {}
+  constructor(private seekerservice: JobseekerdetailsserviceService, private router: Router,private route: ActivatedRoute) {}
 
   ngOnInit() {
-   
+    this.route.queryParams.subscribe(params => {
+      this.jobSeekerId = params['jobSeekerId'] || 0;
+      console.log(this.jobSeekerId);
+    });
     this.getProfile();
   }
 

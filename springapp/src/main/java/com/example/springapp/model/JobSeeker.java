@@ -28,6 +28,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 @FilterDef(name = "deletedFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
 @Filter(name = "deletedFilter", condition = "deleted = :isDeleted")
 public class JobSeeker {
@@ -64,8 +65,8 @@ public class JobSeeker {
 
     @Column(name = "reasons_for_leaving")
     private String reasonsForLeaving;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+   
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private Users user;
 
@@ -73,11 +74,7 @@ public class JobSeeker {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
     
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
-    }
-
+ 
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

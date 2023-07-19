@@ -142,7 +142,7 @@ showsEmployerForm():void{
 }
 
 loadReportedJobs() {
-  const url = 'http://localhost:8080/admins/reported/employers';
+  const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/employers';
 
   this.http.get<any[]>(url).subscribe(
     (jobs) => {
@@ -157,7 +157,7 @@ loadReportedJobs() {
   );
 }
 loadReportedEmployers() {
-  const url = 'http://localhost:8080/admins/reported/employers';
+  const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/employers';
 
   this.http.get<any[]>(url).subscribe(
     (jobs) => {
@@ -321,7 +321,7 @@ showsJobSeekerForm():void
     
   }
   getAllFAQs() {
-    this.http.get<Faq[]>('http://localhost:8080/admins/faq').subscribe(
+    this.http.get<Faq[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/faq').subscribe(
       data => {
         this.faqs = data;
       },
@@ -347,7 +347,7 @@ unreportJob(job: any) {
   );
 }
 unreportEmployer(job: any) {
-  this.http.post(`http://localhost:8080/admins/jobs/unreport/${job.id}`, {}, { responseType: 'text' }).subscribe(
+  this.http.post(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/jobs/unreport/${job.id}`, {}, { responseType: 'text' }).subscribe(
     () => {
       console.log('Job unreported successfully');
      
@@ -375,7 +375,7 @@ deleteJobSeeker(id: number) {
 reportedJobSeekers: JobSeeker[] = [];
 
   loadReportedJobSeekers() {
-    const url = 'http://localhost:8080/admins/reported/jobseekers';
+    const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/jobseekers';
 
     this.http.get<JobSeeker[]>(url).subscribe(
       (jobSeekers) => {
@@ -391,7 +391,7 @@ this.showJobSeekerForm=false;
   }
 
   unreportJobSeeker(jobSeeker: JobSeeker) {
-    const url = `http://localhost:8080/admins/job-seekers/unreport/${jobSeeker.id}`;
+    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/job-seekers/unreport/${jobSeeker.id}`;
 
     this.http.post(url, {}, { responseType: 'text' }).subscribe(
       () => {
