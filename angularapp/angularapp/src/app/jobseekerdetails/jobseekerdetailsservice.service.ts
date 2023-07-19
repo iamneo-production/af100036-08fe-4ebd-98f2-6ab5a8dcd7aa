@@ -11,7 +11,7 @@ export class JobseekerdetailsserviceService {
   constructor(private httpCli: HttpClient) { }
 
   getProfile(jobSeekerId: number): Observable<any> {
-    const url = `${this.baseUrl}/details/job-seekers/${jobSeekerId}`;
+    const url = `${this.baseUrl}/jobseekersdetails/job-seekers/${jobSeekerId}`;
     return this.httpCli.get(url);
   }
 }
