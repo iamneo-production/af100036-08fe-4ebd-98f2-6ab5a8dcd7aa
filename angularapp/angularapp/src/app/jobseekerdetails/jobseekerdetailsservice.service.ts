@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JobseekerdetailsserviceService {
-  private baseUrl = 'https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/'; 
+  private baseUrl = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io'; 
 
   constructor(private httpCli: HttpClient) { }
 
