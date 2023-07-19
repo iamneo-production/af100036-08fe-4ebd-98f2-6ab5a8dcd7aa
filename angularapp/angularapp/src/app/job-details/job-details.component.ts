@@ -33,7 +33,7 @@ export class JobDetailsComponent  implements OnInit {
   }
 
   getJobDetails() {
-    this.http.get(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-details/${this.jobId}`)
+    this.http.get(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-details/jobs/${this.jobId}`)
       .subscribe(
         (response: any) => {
           this.job = response;
