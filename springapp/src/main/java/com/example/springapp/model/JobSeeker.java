@@ -21,14 +21,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDateTime;
 
 import java.util.List;
-<<<<<<< HEAD
-@Entity
-@Table(name = "job_seekers")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-=======
 
 
 @Entity
@@ -36,11 +28,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-<<<<<<< HEAD
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
-=======
+
 @EntityListeners(AuditingEntityListener.class)
->>>>>>> 75850cd1a8c504fa36a8c92282678baa4f690fe1
+
 @FilterDef(name = "deletedFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
 @Filter(name = "deletedFilter", condition = "deleted = :isDeleted")
 public class JobSeeker {
@@ -63,8 +53,7 @@ public class JobSeeker {
     @Column(name = "location")
     private String location;
 
-<<<<<<< HEAD
-=======
+
     @Column(name = "marital_status")
     private String maritalStatus;
 
@@ -79,14 +68,8 @@ public class JobSeeker {
 
     @Column(name = "reasons_for_leaving")
     private String reasonsForLeaving;
-<<<<<<< HEAD
-
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
-    @ManyToOne(cascade = CascadeType.ALL)
-=======
    
     @ManyToOne
->>>>>>> 75850cd1a8c504fa36a8c92282678baa4f690fe1
     @JoinColumn(name = "user_id")
     private Users user;
 
@@ -101,16 +84,6 @@ public class JobSeeker {
 
     @Column(name = "deleted", nullable = false, updatable = true)
     private Boolean deleted = false;
-<<<<<<< HEAD
-    
-    @Column(name = "Reported",nullable = false, updatable = true)
-    private Boolean reported = false;
-
-@JsonIgnoreProperties("jobSeeker")
-@OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL)
-    private List<JobApplication> applications;
-
-=======
 
     @Column(name = "reported", nullable = false, updatable = true)
     private Boolean reported = false;
@@ -124,5 +97,4 @@ public class JobSeeker {
         @Column(name = "lastjob")
     private String lastjob;
 
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 }
