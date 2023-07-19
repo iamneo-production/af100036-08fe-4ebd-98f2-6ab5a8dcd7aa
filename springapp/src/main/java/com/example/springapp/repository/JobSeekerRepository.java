@@ -24,6 +24,8 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
     List<JobSeeker> findByReported(boolean b);
  
 
+    JobSeeker getJobSeekerByUser(Users authenticatedUser);
+
     JobSeeker findByUser(Users authenticatedUser);
 
   

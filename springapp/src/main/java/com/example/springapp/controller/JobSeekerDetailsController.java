@@ -44,6 +44,7 @@ public class JobSeekerDetailsController {
             throws ResourceNotFoundException {
         JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
+<<<<<<< HEAD:springapp/src/main/java/com/example/springapp/controller/JobSeekerDetailsController.java
         Users user = jobSeeker.getUser();
         if (user != null) {
             jobSeeker.setUser(null);
@@ -51,6 +52,15 @@ public class JobSeekerDetailsController {
             userRepository.delete(user);
         }
         jobSeeker.setDeleted(true);
+=======
+      Users user = jobSeeker.getUser();
+                if (user != null) {
+        jobSeeker.setUser(null);
+       jobSeekerRepository.save(jobSeeker); 
+   userRepository.delete(user); 
+    }
+        jobSeeker.setDeleted(true); 
+>>>>>>> d81eca4ffd7bcd5469cbeebb86de34bf505a7f71:springapp/src/main/java/com/example/springapp/controller/JobseekerdetailsController.java
         jobSeekerRepository.save(jobSeeker);
         return ResponseEntity.ok().build();
     }
