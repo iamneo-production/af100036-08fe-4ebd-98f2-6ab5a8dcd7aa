@@ -46,7 +46,7 @@ export class EmployerProfileComponent   implements OnInit{
       
       
       getUser(): void {
-        const url = `http://localhost:8080/employerdetails/${this.employerId}`;
+        const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/employerdetails/${this.employerId}`;
         this.http.get(url).subscribe((employer) => {
           console.log(employer);
           this.user = employer; 

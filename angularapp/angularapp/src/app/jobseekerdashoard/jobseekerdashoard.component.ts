@@ -38,7 +38,7 @@ jobseekerId:number=0;
  
   getJobsByJobSeeker() {
 
-    this.http.get<Job[]>(`https://8080-adbbfbaafadacaeaebfceaeaadbdbabf.project.examly.io/dashboard/jobApplications/JobSeeker/${this.jobseekerId}/appliedJobs`).subscribe(
+    this.http.get<Job[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/JobSeeker/${this.jobseekerId}/appliedJobs`).subscribe(
       (jobs: Job[]) => {
         if (jobs.length !== 0) {
           this.jobs = jobs;
@@ -60,7 +60,7 @@ jobseekerId:number=0;
 
 
   withdrawApplication(): void {
-    const url = `https://8080-adbbfbaafadacaeaebfceaeaadbdbabf.project.examly.io/api/job-applications/withdrawapplication/${this.jobId}/${this.jobseekerId}`;
+    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/job-applications/withdrawapplication/${this.jobId}/${this.jobseekerId}`;
   
     this.http.delete(url)
       .subscribe(
@@ -82,7 +82,7 @@ jobseekerId:number=0;
   
   getApplications(jobId: number): void {
   
-    this.http.get<any[]>(`https://8080-adbbfbaafadacaeaebfceaeaadbdbabf.project.examly.io/dashboard/jobApplications/${jobId}`).subscribe(
+    this.http.get<any[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/${jobId}`).subscribe(
       data => {
         this.jobId=jobId;
         this.jobApplications = data;

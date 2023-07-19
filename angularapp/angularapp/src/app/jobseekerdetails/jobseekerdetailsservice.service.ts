@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JobseekerdetailsserviceService {
-  private baseUrl = 'https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/'; 
+  private baseUrl = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io'; 
 
   constructor(private httpCli: HttpClient) { }
 
   getProfile(jobSeekerId: number): Observable<any> {
-    const url = `${this.baseUrl}/details/job-seekers/${jobSeekerId}`;
+    const url = `${this.baseUrl}/jobseekersdetails/job-seekers/${jobSeekerId}`;
     return this.httpCli.get(url);
   }
 }

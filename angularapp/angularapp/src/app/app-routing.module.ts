@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { JobApplicationComponent } from './job-application/job-application.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { LoginComponent } from './pages/login/login.component';
 
 import { JobDetailsComponent } from './job-details/job-details.component';
 
@@ -14,9 +13,11 @@ import { JobseekerprofileComponent } from './jobseekerdetails/jobseekerprofile/j
 import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoard.component';
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { SigninComponent } from './pages/signin/signin.component';
+
 
 const routes: Routes = [
-    { path: '', redirectTo: '/signup', pathMatch: 'full' },
+    { path: '', redirectTo: '/landingpage', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
     { path: 'jobseekerdashboard', component: JobseekerdashoardComponent },
     { path: 'employerdashboard', component: EmployerDashboardComponent },
@@ -32,8 +33,8 @@ const routes: Routes = [
       pathMatch: 'full',
     },
     {
-      path: 'login',
-      component: LoginComponent,
+      path: 'signin',
+      component: SigninComponent,
       pathMatch: 'full',
   
     },

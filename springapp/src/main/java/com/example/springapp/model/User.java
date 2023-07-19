@@ -1,25 +1,3 @@
-<<<<<<< HEAD
- package com.example.springapp.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-
-import javax.persistence.*;
-
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-
-
-@Entity
-@Table(name = "users")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-=======
 package com.example.springapp.model;
 
 import javax.persistence.Entity;
@@ -37,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 public class User {
 
     @Id
@@ -81,5 +58,9 @@ public class User {
     private String password;
     @Column
     private String role;
+<<<<<<< HEAD
 }
 >>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
+=======
+}
+>>>>>>> 75850cd1a8c504fa36a8c92282678baa4f690fe1

@@ -5,11 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-<<<<<<< HEAD
-
-=======
 import javax.persistence.Column;
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
@@ -40,7 +36,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+<<<<<<< HEAD
 >>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
+=======
+@EntityListeners(AuditingEntityListener.class)
+>>>>>>> 75850cd1a8c504fa36a8c92282678baa4f690fe1
 @FilterDef(name = "deletedFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
 @Filter(name = "deletedFilter", condition = "deleted = :isDeleted")
 public class JobSeeker {
@@ -79,16 +79,22 @@ public class JobSeeker {
 
     @Column(name = "reasons_for_leaving")
     private String reasonsForLeaving;
+<<<<<<< HEAD
 
 >>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
     @ManyToOne(cascade = CascadeType.ALL)
+=======
+   
+    @ManyToOne
+>>>>>>> 75850cd1a8c504fa36a8c92282678baa4f690fe1
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
+    
+ 
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;

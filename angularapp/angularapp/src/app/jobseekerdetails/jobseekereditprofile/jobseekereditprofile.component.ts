@@ -40,7 +40,7 @@ export class JobseekereditprofileComponent implements OnInit {
   @Output() isFormVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   upload() {
-    const url = `https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/details/job-seekers/${this.jobseekerId}`;
+    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/jobseekersdetails/job-seekers/${this.jobseekerId}`;
     const skills: string[] = this.skillsInput.split(',');
 
     this.updatedjobseeker.skills = skills;

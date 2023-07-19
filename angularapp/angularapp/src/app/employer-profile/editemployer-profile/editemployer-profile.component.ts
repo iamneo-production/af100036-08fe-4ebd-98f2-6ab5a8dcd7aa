@@ -26,7 +26,7 @@ export class EditemployerProfileComponent implements OnInit {
     this.updatedEmployer=this.input;
   }
   upload() {
-    const url = `http://localhost:8080/admins/employerdetails/${this.employerId}`;
+    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/employerdetails/${this.employerId}`;
     this.http.put<Employer>(url, this.updatedEmployer).subscribe(
       (response) => {
         this.isFormVisible = false;

@@ -3,8 +3,8 @@
 <div class="navbar">
  
   <a class="navbar-link" [routerLink]="['/signin']">Sign Out</a>
-
-  <a class="navbar-link" [routerLink]="['/joba']" [queryParams]="{ jobSeekerId: jobSeekerId}">My Profile</a>
+  <a class="navbar-link" [routerLink]="['/jobseekerdashboard']" [queryParams]="{ jobSeekerId: jobSeekerId}">Dashboard</a>
+  <a class="navbar-link" [routerLink]="['/jobseekerdetails']" [queryParams]="{ jobSeekerId: jobSeekerId}">My Profile</a>
   
   <h1>Job Search Page</h1>
 
@@ -80,7 +80,7 @@
     <app-job-application *ngIf="job.id === selectedJobId" [jobId]="selectedJobId" [jobSeekerId]="jobSeekerId"></app-job-application>
   </div>
   <div *ngIf="showJobDetails && job.id === selectedJobId" class="job-details-container">
-    <app-job-details [jobId]="selectedJobId" [jobSeekerId]="jobSeekerId"></app-job-details>
+    <app-job-details [jobId]="job.id" [jobSeekerId]="jobSeekerId"></app-job-details>
     
   </div>
 </div>

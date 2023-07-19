@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.springapp.model.Employers;
-import com.example.springapp.model.User;
+import com.example.springapp.model.Users;
 
 public interface  EmployersRepository extends JpaRepository<Employers, Integer> {
 
@@ -17,6 +17,6 @@ public interface  EmployersRepository extends JpaRepository<Employers, Integer> 
     @Query("SELECT e FROM Employer e")
     @Filter(name = "deletedFilter", condition = "deleted = :deleted")
     List<Employers> findAll(@Param("deleted") boolean deleted);
-    Employers getEmployerByUser(User authenticatedUser);
-    Employers findByUser(User authenticatedUser);
+    Employers getEmployerByUser(Users authenticatedUser);
+    Employers findByUser(Users authenticatedUser);
 }
