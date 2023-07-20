@@ -10,6 +10,8 @@ import { Employer } from 'src/app/Employer.module';
 })
 export class EditemployerProfileComponent implements OnInit {
   @Input() employerId: number = 0;
+  selectedImage!: File | null;
+  profileImageUrl!: string | null;
   updatedEmployer:any={};
   @Input () input:any={};
   @Input()isFormVisible: boolean = true;

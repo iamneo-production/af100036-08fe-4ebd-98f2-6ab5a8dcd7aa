@@ -36,7 +36,7 @@ import { EmployerProfileComponent } from './employer-profile/employer-profile.co
 import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
