@@ -6,23 +6,69 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
+>>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
+>>>>>>> Stashed changes
+=======
+>>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
+>>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
+>>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+=======
+>>>>>>> Stashed changes
+>>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
+>>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1684492128757</id>
+<<<<<<< HEAD
+			<id>1682929289507</id>
+=======
+<<<<<<< HEAD
+			<id>1683027060040</id>
+=======
+			<id>1682915864054</id>
+>>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
+>>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
 			<name></name>
 			<type>30</type>
 			<matcher>
@@ -31,4 +77,18 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> e367aaba9df85b7a1973673f8d7eb11d0717a98b
+>>>>>>> Stashed changes
+=======
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+>>>>>>> baeeb12b5cecfb175117f4dd322c5dfe70c4ef03
+>>>>>>> cfd948be7d7200120ab5253acd2f1dd068b35429
+>>>>>>> da28ea8c2a15c176f3a9f864adb4f8ba5f7fba45
 </projectDescription>
