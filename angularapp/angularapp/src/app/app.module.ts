@@ -39,7 +39,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 >>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
 
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ import { MatIcon } from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-    MatSnackBarModule,MatIcon
+    MatSnackBarModule,MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
