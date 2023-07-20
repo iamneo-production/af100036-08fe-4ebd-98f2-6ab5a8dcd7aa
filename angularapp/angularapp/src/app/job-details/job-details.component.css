@@ -1,0 +1,121 @@
+.container{
+    background-image: url('src\assets\images\full-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.title{
+  text-align: center;
+  padding-top: 20px;
+  font-size: medium;
+  animation: titleAnimation 2s linear infinite;
+}
+@keyframes titleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container1{
+  display: flex;
+}
+
+.card {
+    width: 50%;
+    margin-left: 40px;
+    height: 400px;
+    margin-top: 20px;
+  }
+  
+  .card-image {
+    height: 100%;
+    background-image: url('src\assets\images\job bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-details {
+    padding-left: 40px;
+    padding-top: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    border: 1px solid #8d8888b7;
+    border-radius: 3px;
+    width: 300px;
+  }
+  
+
+  .apply-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 40px;
+    margin-top: 5px;
+    background-color: #3273d4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    animation: pulseAnimation 2s infinite;
+  }
+  
+  @keyframes pulseAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+.card1{
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 400px;
+    margin-left: 100px;
+    height: 390px;
+    margin-top: 20px;
+}
+.card-img-top{
+    width: 100%;
+}
+.card-title{
+       font-size: larger;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.card-text {
+  display: inline-block;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+}
+.card-text input[type="text"] {
+  border: none;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
