@@ -24,6 +24,12 @@ public class Employer {
     @Column
     private String location;
 
+    @column
+    private String email;
+
+    @column
+    private String gender;
+
     @Column
     private Long userId;
 
@@ -36,7 +42,10 @@ public class Employer {
         this.name = name;
         this.description = description;
         this.location = location;
+        this.email=email;
+        this.gender=gender;
         this.userId = userId;
+        
     }
 
   

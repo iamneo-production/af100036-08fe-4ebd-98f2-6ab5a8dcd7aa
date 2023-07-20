@@ -46,6 +46,7 @@ public class Employers {
 
     @Column(name = "email")
     private String email;
+    
     @Column(name = "gender")
     private String gender;
 
