@@ -37,6 +37,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +59,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     JobseekerprofileComponent,
     JobseekereditprofileComponent,
     SignupComponent,
+<<<<<<< HEAD
     SigninComponent,
     EmployerDashboardComponent,
     JobDetailsComponent,
@@ -67,6 +70,12 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     EmployerProfileComponent,
     SigninComponent
   
+=======
+    LoginComponent,
+>>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
+ 
+
+>>>>>>> f9773027124a3873986f61435cd4f1cbd21527bd
   ],
   imports: [
     BrowserModule,

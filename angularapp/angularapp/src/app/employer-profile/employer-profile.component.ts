@@ -9,7 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployerProfileComponent   implements OnInit{
   showEmployerUpdateForm: boolean = false;
-
+  selectedImage!: File | null;
+  profileImageUrl!: string | null;
   isFormVisible: boolean = false;
   selectedprofile:any;
   showUpdateEmployerForm(): void {
