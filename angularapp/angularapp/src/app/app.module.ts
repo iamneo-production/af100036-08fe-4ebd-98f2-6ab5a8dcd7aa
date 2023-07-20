@@ -81,16 +81,13 @@ import { MatIcon } from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-<<<<<<< HEAD
     MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule
-=======
-    MatSnackBarModule,MatIcon
->>>>>>> b66141acb21cd461c68a42ce1c6e810230d15ccf
+
   ],
   providers: [],
   bootstrap: [AppComponent]
