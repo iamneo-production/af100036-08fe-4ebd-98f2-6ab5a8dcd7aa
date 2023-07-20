@@ -58,7 +58,6 @@ import { MatIcon } from '@angular/material/icon';
     JobseekerprofileComponent,
     JobseekereditprofileComponent,
     SignupComponent,
-<<<<<<< HEAD
     SigninComponent,
     EmployerDashboardComponent,
     JobDetailsComponent,
@@ -67,14 +66,8 @@ import { MatIcon } from '@angular/material/icon';
     EditemployerProfileComponent,
     LandingpageComponent,
     EmployerProfileComponent,
-    SigninComponent
-  
-=======
-    LoginComponent,
->>>>>>> ec00c21d6ddc365f592d971a16f7bd143aaaa9c7
- 
-
->>>>>>> f9773027124a3873986f61435cd4f1cbd21527bd
+    SigninComponent,
+    EditemployerProfileComponent
   ],
   imports: [
     BrowserModule,
