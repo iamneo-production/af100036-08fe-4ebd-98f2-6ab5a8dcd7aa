@@ -62,12 +62,11 @@
 <div class="input-group mb-3">
   </div>
   <br>
-</form>
-
+</div>
   <div *ngIf="showEmployerUpdateForm" class="section-content">
     <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
 
 
   </div>
-
+</form>
 </body>

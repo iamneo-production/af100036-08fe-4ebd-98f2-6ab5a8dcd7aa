@@ -26,7 +26,7 @@ export class EmployerProfileComponent   implements OnInit{
     this.user = updatedEmployer;
   }
   
-    selectimage($event: Event) {
+    selectImage($event: Event) {
     throw new Error('Method not implemented.');
     }
     upload() {
