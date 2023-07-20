@@ -36,7 +36,7 @@ import { EmployerProfileComponent } from './employer-profile/employer-profile.co
 import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -82,6 +82,7 @@ import { MatIcon } from '@angular/material/icon';
     MatButtonModule,
     FormsModule,
 <<<<<<< HEAD
+<<<<<<< HEAD
     MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -91,6 +92,9 @@ import { MatIcon } from '@angular/material/icon';
 =======
     MatSnackBarModule,MatIcon
 >>>>>>> b66141acb21cd461c68a42ce1c6e810230d15ccf
+=======
+    MatSnackBarModule,MatIconModule
+>>>>>>> c822483533d8cb5a3bb2976c0ee15fa588da1e90
   ],
   providers: [],
   bootstrap: [AppComponent]

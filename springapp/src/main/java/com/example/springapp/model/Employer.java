@@ -23,6 +23,9 @@ public class Employer {
 
     @Column
     private String location;
+    
+    @column
+    private String dob;
 
     @column
     private String email;
@@ -37,11 +40,12 @@ public class Employer {
     private List<Jobs> jobs;
 
 
-    public Employer(Long id, String name, String description, String location, Long userId) {
+    public Employer(Long id, String name, String description, String location,String dob,String email,String gender,Long userId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.location = location;
+        this.dob=dob;
         this.email=email;
         this.gender=gender;
         this.userId = userId;
