@@ -75,7 +75,7 @@ export class SignupComponent {
           const signupType = this.registrationForm.get('signupType')?.value;
 
           // Construct the URL with the signuptype as a query parameter
-          const signupTypeUrl = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/signup/${signupType}`;
+          const signupTypeUrl = `${this.baseUrl}/api/signup/${signupType}`;
 
           this.http.post<any>(signupTypeUrl, this.registrationForm.value).subscribe(response => {
             console.log('Signup Successful');

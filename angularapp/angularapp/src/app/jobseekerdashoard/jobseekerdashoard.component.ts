@@ -17,8 +17,14 @@ export class JobseekerdashoardComponent implements OnInit{
   showApplications: boolean = false;
 jobId:number=0
 jobseekerId:number=0;
+branch:string='';
+baseURL:string='';
   constructor(private http: HttpClient,private route: ActivatedRoute) {
     
+const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
   }
   ngOnInit() {
   
@@ -38,7 +44,7 @@ jobseekerId:number=0;
  
   getJobsByJobSeeker() {
 
-    this.http.get<Job[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/JobSeeker/${this.jobseekerId}/appliedJobs`).subscribe(
+    this.http.get<Job[]>(`${this.baseURL}/dashboard/jobApplications/JobSeeker/${this.jobseekerId}/appliedJobs`).subscribe(
       (jobs: Job[]) => {
         if (jobs.length !== 0) {
           this.jobs = jobs;
@@ -60,7 +66,7 @@ jobseekerId:number=0;
 
 
   withdrawApplication(): void {
-    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/job-applications/withdrawapplication/${this.jobId}/${this.jobseekerId}`;
+    const url = `${this.baseURL}/api/job-applications/withdrawapplication/${this.jobId}/${this.jobseekerId}`;
   
     this.http.delete(url)
       .subscribe(
@@ -82,7 +88,7 @@ jobseekerId:number=0;
   
   getApplications(jobId: number): void {
   
-    this.http.get<any[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/${jobId}`).subscribe(
+    this.http.get<any[]>(`${this.baseURL}/dashboard/jobApplications/${jobId}`).subscribe(
       data => {
         this.jobId=jobId;
         this.jobApplications = data;
