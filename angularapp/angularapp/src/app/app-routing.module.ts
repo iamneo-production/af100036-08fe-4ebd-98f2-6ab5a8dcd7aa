@@ -14,6 +14,7 @@ import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoar
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,9 @@ const routes: Routes = [
     {path: 'job-serach',component:JobSearchComponent},
     {path:'jobseekerdetails',component:JobseekerprofileComponent},
     {path: 'landingpage', component: LandingpageComponent},
+    {path:'employerprofile',component:EmployerProfileComponent},
+    {path:'editemployerprofile',component:EditemployerProfileComponent},
+
 
     {
       path: 'signup',

@@ -1,41 +1,72 @@
-<div class="topnav"></div>
+<div class="topnav">
+</div>
 <body>
   <form>
-    <div class="page">
-      <br>
-      <h1>Employer Profile</h1>
+<div class="page">
+  <br>
+<h1>Employer Profile</h1>
 
-      <input type="file" name="image" (change)="selectimage($event)" /><br>
-      <button type="button" (click)="upload()">Upload</button>
-      <br><br>
+<br>
+<label class="profile"><b>Profile Picture</b></label>
+<mat-icon class="prof" [ngStyle]="{'background-image': 'url(' + profileImageUrl + ')'}">account_circle</mat-icon>
+<br>
 
-      <div class="form-outline">
-        <label><b>Name</b></label><br>
-        <div class="disname">{{user.name}}</div>
-      </div>
-      <br>
+<input type="file" name="image" (change)="selectImage($event)" /><br>
+<button type="button" (click)="upload()">upload</button>
 
-      <div class="form-outline">
-        <label><b>Description</b></label><br>
-        <div class="disdescription">{{user.description}}</div>
-      </div>
-      <br>
-
-      <div class="form-outline">
-        <label><b>Location</b></label><br>
-        <div class="dislocation">{{user.location}}</div>
-      </div>
-      <div class="input-group mb-3"></div>
-      <br>
-
-      <button *ngIf="isAdmin" (click)="showUpdateEmployerForm()">Edit</button>
-
+<br>
+  <br>
+  <div class="form-outline">
+    <label><b>Name</b></label><br>
+    <div class="disname">
+      {{user.name}}
     </div>
-  </form>
+  </div>
+  <br>
+  
+  <div class="form-outline">
+    <label><b>Description</b></label><br>
+    <div class="disdescription">
+      {{user.description}}
+    </div>
+  </div>
 
+   <br>
+  <div class="form-outline">
+    <label><b>Location</b></label><br>
+    <div class="dislocation">
+      {{user.location}}
+    </div>
+   </div>
+   <br>
+  <div class="form-outline">
+    <label><b>DOB</b></label><br>
+    <div class="disdob">
+      {{user.dob}}
+    </div>
+  </div>
+  <br>
+  <div class="form-outline">
+    <label><b>Email</b></label><br>
+    <div class="disemail">
+      {{user.email}}
+    </div>
+  </div>
+  <br>
+  <div class="form-outline">
+    <label><b>Gender</b></label><br>
+    <div class="disgender">
+      {{user.gender}}
+    </div>
+  </div><br>
+<div class="input-group mb-3">
+  </div>
+  <br>
+</div>
   <div *ngIf="showEmployerUpdateForm" class="section-content">
     <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
 
 
   </div>
+</form>
 </body>
