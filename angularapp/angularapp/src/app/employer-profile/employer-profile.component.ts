@@ -41,13 +41,19 @@ export class EmployerProfileComponent   implements OnInit{
       }
   user:any={};
     
-
+branch:string='';
+baseURL:string='';
       
-      constructor(private http: HttpClient,private router:Router,private route: ActivatedRoute) { }
+      constructor(private http: HttpClient,private router:Router,private route: ActivatedRoute) {
+        const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+      }
       
       
       getUser(): void {
-        const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/employerdetails/${this.employerId}`;
+        const url = `${this.baseURL}/employerdetails/${this.employerId}`;
         this.http.get(url).subscribe((employer) => {
           console.log(employer);
           this.user = employer; 

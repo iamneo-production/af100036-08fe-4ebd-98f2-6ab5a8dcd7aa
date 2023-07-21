@@ -10,7 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 export class JobseekereditprofileComponent implements OnInit {
   @Input() jobseekerId: number = 0;
  
- 
+  branch:string='';
+  baseURL:string='';
+   
+  
+
+  
   
   updatedjobseeker = {
     name: '',
@@ -30,7 +35,13 @@ export class JobseekereditprofileComponent implements OnInit {
   skillsInput: string = '';
   @Input() isFormVisible: boolean = true;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseURL = `https://8080-${this.branch}.project.examly.io/`;
+  }
 
   ngOnInit(): void {
    
@@ -40,7 +51,7 @@ export class JobseekereditprofileComponent implements OnInit {
   @Output() isFormVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   upload() {
-    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/jobseekersdetails/job-seekers/${this.jobseekerId}`;
+    const url = `${this.baseURL}/jobseekersdetails/job-seekers/${this.jobseekerId}`;
     const skills: string[] = this.skillsInput.split(',');
 
     this.updatedjobseeker.skills = skills;

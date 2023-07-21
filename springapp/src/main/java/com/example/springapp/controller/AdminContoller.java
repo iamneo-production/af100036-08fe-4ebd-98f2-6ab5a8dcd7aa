@@ -31,7 +31,6 @@ import com.example.springapp.repository.*;
 
 
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 @RestController
 @RequestMapping("/admins")
 public class AdminContoller {

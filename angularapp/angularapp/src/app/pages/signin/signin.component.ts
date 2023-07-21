@@ -10,12 +10,20 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   userForm!: FormGroup;
-
+  branch:string='';
+  baseUrl:string='';
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) {
+    
+  const start = window.location.href.indexOf('-') + 1;
+  const end = window.location.href.indexOf('.project');
+  this.branch = window.location.href.substring(start, end);
+  this.baseUrl = `https://8080-${this.branch}.project.examly.io`;
+
+  }
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
@@ -27,7 +35,7 @@ export class SigninComponent implements OnInit {
   onSubmit() {
     if (this.userForm.valid) {
       const user = this.userForm.value;
-      this.http.post<any>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/api/signin', user).subscribe(response => {
+      this.http.post<any>(`${this.baseUrl}/api/signin`, user).subscribe(response => {
         if (response && response.role === 'JOB_SEEKER') {
           const queryParams = {
             
