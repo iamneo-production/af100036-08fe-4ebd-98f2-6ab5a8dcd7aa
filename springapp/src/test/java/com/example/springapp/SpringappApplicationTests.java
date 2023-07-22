@@ -54,7 +54,7 @@ class SpringappApplicationTests {
 	 @Autowired
 	 private EmployerService empService;
 	 
-	 Employer emp1= new Employer(1L,"ABC","IT industry","Chennai",2L);
+	 Employer emp1= new Employer(1L,"ABC","IT industry","Chennai","August 1","abc@gmail.com","MALE",2L);
 
      Jobs j1= new Jobs(1L,"Junior Developer","IT company","1 years+","Chennai",emp1);
      
