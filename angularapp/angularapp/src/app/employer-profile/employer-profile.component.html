@@ -11,7 +11,7 @@
 <mat-icon class="prof" [ngStyle]="{'background-image': 'url(' + profileImageUrl + ')'}">account_circle</mat-icon>
 <br>
 
-<input type="file" name="image" (change)="selectimage($event)" /><br>
+<input type="file" name="image" (change)="selectImage($event)" /><br>
 <button type="button" (click)="upload()">upload</button>
 
 <br>
@@ -42,7 +42,7 @@
   <div class="form-outline">
     <label><b>DOB</b></label><br>
     <div class="disdob">
-      {{user.date}}
+      {{user.dob}}
     </div>
   </div>
   <br>
@@ -63,9 +63,10 @@
   </div>
   <br>
 </div>
-</form>
   <div *ngIf="showEmployerUpdateForm" class="section-content">
     <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
 
+
   </div>
+</form>
 </body>

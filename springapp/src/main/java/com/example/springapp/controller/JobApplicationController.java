@@ -25,7 +25,7 @@ import com.example.springapp.model.Job;
 
 import com.example.springapp.model.JobSeeker;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
+
 @RestController
 @RequestMapping("/api/job-applications")
 public class JobApplicationController {

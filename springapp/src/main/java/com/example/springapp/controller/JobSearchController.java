@@ -32,7 +32,7 @@ import com.example.springapp.model.*;
 import com.example.springapp.repository.*;
 
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
+
 @RestController
 @RequestMapping("/job-search")
 public class JobSearchController {

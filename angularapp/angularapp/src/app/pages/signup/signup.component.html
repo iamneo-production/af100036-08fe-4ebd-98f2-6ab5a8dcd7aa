@@ -1,46 +1,69 @@
+<!-- // "./node_modules/bootstrap/dist/css/bootstrap-grid.min.css" -->
 <div class="bootstrap-wrapper">
-    <div class="container">
-        <div class="row mt20">
-            <div class="col-md-6 offset-md-3">
-                    <div class="parent">
-                      <h2>Signup</h2>
-                        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                          <div class="form-group">
-                            <label for="username">Name:</label>
-                            <input type="text" class="form-control" id="username" name="username" formControlName="name">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+                  <div class="form-box">
+                    <h1>Signup</h1>
+                      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                        <div class="input-group">
+                        <div class="form-group">
+                          <div class="input-field">
+                            <i class="fa fa-user"></i>
+                            <!-- <label for="username">Name:</label> -->
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Name" formControlName="name">
                             <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="error-message">
                               Name is required
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                        </div>
+                        <div class="form-group">
+                          <div class="input-field">
+                            <i class="fa fa-envelope"></i>
+                            <!-- <label for="email">Email:</label> -->
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" formControlName="email">
                             <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-message">
                               Email is required and must be a valid email address
                             </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-field">
+                            <i class="fa fa-lock"></i>
+                            <!-- <label for="password">Password:</label> -->
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password">
                             <div *ngIf="registrationForm.get('password')?.errors?.['invalidPassword'] && registrationForm.get('password')?.touched" class="error-message">
                               Password must be at least 8 characters long with at least one special symbol, one capital letter, one small letter, and one number
                             </div>
                           </div>
-                          <label for="signupType">Signup Type:</label>
-                          <select id="signupType" name="signupType" formControlName="signupType">
-                            <option value="employer">Employer</option>
-                            <option value="jobseeker">Job Seeker</option>
-                          </select>
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        <a routerLink="/signin">Sign in</a>
-                    </div>
-  
-            </div>
-        </div>
-    </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="input-field">
+                            <i class="fa fa-user-plus"></i>
+                            <!-- <label for="signupType">Signup Type:</label> -->
+                            <select required id="signupType" name="signupType" formControlName="signupType">
+                              <option value="" disabled selected hidden>Select Signup Type</option>
+                              <option value="employer">Employer</option>
+                              <option value="jobseeker">Job Seeker</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                        
+
+                        <div class="btn-field">
+                          <button type="submit">Signup</button>
+                          <button routerLink="/signin">Signin</button>
+                        </div>
+                      
+                      </form>
+
+                </div>
+          </div>
+      </div>
   </div>
-  
-  <!-- --------------------------------------------------------------------------------------------------------------------------- -->
-  
-  
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+

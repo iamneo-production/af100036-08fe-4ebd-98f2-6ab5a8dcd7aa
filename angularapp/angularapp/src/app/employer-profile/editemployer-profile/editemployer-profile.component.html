@@ -2,10 +2,9 @@
 </div>
 
   <form>
-<div class="page">
+  <div class="page">
 <h1>Employer EditProfile</h1>
-<!--<mat-icon class="prof" [ngStyle]="{'background-image': 'url(' + profileImageUrl + ')'}">account_circle</mat-icon>
--->
+<mat-icon class="prof" [ngStyle]="{'background-image': 'url(' + profileImageUrl + ')'}">account_circle</mat-icon>
 
 <form (submit)="upload()" class="employer-update-form">
   <br>
@@ -29,7 +28,7 @@
    <br>
    <div class="form-outline">
     <label for="dob"><b>DOB</b></label><br>
-    <input type="date" id="date" name="dob" [(ngModel)]="updatedEmployer.dob" name="dob" required>
+    <input type="date" id="dob" name="dob" [(ngModel)]="updatedEmployer.dob" name="dob" required>
   </div>
   <br>
   <div class="form-outline">
