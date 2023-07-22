@@ -24,13 +24,13 @@ public class Employer {
     @Column
     private String location;
     
-    @column
+    @Column
     private String dob;
 
-    @column
+    @Column
     private String email;
 
-    @column
+    @Column
     private String gender;
 
     @Column

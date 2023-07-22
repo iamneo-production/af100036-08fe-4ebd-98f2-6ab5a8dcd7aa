@@ -45,7 +45,7 @@ public class Employers {
     @Column(name = "location")
     private String location;
 
-    @column(name="dob")
+    @Column(name="dob")
     private String dob;
 
     @Column(name = "email")
