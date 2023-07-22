@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
+import org.springframework.boot.web.servlet.ServletComponentScan;
 @Configuration
+@ServletComponentScan
 @ComponentScan
 @EnableAutoConfiguration
 @SpringBootApplication

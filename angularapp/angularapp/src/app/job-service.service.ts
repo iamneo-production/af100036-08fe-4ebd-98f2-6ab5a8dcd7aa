@@ -7,14 +7,23 @@ import { Job } from './Job.module';
   providedIn: 'root'
 })
 export class JobServiceService {
-  private baseUrl = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search';
+  branch:string='';
+baseUrl:string='';
+ 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseUrl = `https://8080-${this.branch}.project.examly.io/job-search`;
+  }
+
+
   getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search/jobs/chart');
+    return this.http.get<Job[]>(`${this.baseUrl}/jobs/chart`);
   }
   getAllDeletedJob(): Observable<Job[]> {
-    return this.http.get<Job[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-search/job/deleted');
+    return this.http.get<Job[]>(`${this.baseUrl}/job/deleted`);
   }
   searchJobs(title?: string, location?: string): Observable<Job[]> {
     let params = new HttpParams();

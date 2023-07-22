@@ -16,7 +16,6 @@ import com.example.springapp.exception.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/jobseekersdetails")
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 public class JobSeekerDetailsController {
     @Autowired
     private JobSeekerRepository jobSeekerRepository;
