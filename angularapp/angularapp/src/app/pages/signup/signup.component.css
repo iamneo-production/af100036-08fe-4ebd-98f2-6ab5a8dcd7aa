@@ -82,6 +82,7 @@ input,select{
 
 
 .btn-field button{
+  margin-top:100px;
   flex-basis: 48%;
   background: #3c00a0;
   color: #fff;

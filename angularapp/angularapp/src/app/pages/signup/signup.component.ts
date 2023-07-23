@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,8 @@ export class SignupComponent {
   
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     const start = window.location.href.indexOf('-') + 1;
   const end = window.location.href.indexOf('.project');
@@ -80,6 +82,7 @@ export class SignupComponent {
           this.http.post<any>(signupTypeUrl, this.registrationForm.value).subscribe(response => {
             console.log('Signup Successful');
             console.log(response);
+            this.router.navigate(['/signin']);
           });
         }
       }),
