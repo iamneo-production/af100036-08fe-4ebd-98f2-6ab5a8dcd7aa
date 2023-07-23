@@ -26,12 +26,6 @@ export class EmployerProfileComponent   implements OnInit{
     this.user = updatedEmployer;
   }
   
-    selectImage($event: Event) {
-    throw new Error('Method not implemented.');
-    }
-    upload() {
-    throw new Error('Method not implemented.');
-    }
       ngOnInit(): void {
         this.route.queryParams.subscribe(params => {
           this.employerId = params['employerId'];
