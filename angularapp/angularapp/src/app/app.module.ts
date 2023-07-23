@@ -34,9 +34,10 @@ import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoar
 import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
 import { EmployerProfileComponent } from './employer-profile/employer-profile.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { MatIcon } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MatIcon } from '@angular/material/icon';
     LandingpageComponent,
     EmployerProfileComponent,
     SigninComponent,
-    EditemployerProfileComponent
+    EditemployerProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
