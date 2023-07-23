@@ -34,9 +34,10 @@ import { JobseekerdashoardComponent } from './jobseekerdashoard/jobseekerdashoar
 import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
 import { EmployerProfileComponent } from './employer-profile/employer-profile.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
+import { MatIcon } from '@angular/material/icon';
 
-import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MatIconModule } from '@angular/material/icon';
     LandingpageComponent,
     EmployerProfileComponent,
     SigninComponent,
-    EditemployerProfileComponent
+    EditemployerProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -81,20 +83,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-<<<<<<< HEAD
-<<<<<<< HEAD
     MatSnackBarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule
-=======
-    MatSnackBarModule,MatIcon
->>>>>>> b66141acb21cd461c68a42ce1c6e810230d15ccf
-=======
-    MatSnackBarModule,MatIconModule
->>>>>>> c822483533d8cb5a3bb2976c0ee15fa588da1e90
+
   ],
   providers: [],
   bootstrap: [AppComponent]

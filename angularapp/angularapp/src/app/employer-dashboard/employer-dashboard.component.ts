@@ -21,8 +21,13 @@ export class EmployerDashboardComponent implements OnInit{
   showApplications: boolean = false;
   employer:any;
 employerId:number=0;
+branch:string='';
+baseURL:string='';
   constructor(private http: HttpClient,private route: ActivatedRoute) {
-    
+    const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
   }
   ngOnInit() {
   
@@ -50,7 +55,7 @@ employerId:number=0;
   jobs:any=[];
   jobId:number=0;
   selectApplicant(applicationId: number) {
-    this.http.post('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/selectApplicant', applicationId, { responseType: 'text' })
+    this.http.post(`${this.baseURL}/dashboard/selectApplicant`, applicationId, { responseType: 'text' })
         .subscribe(
           (response: string) => {
             
@@ -66,7 +71,7 @@ employerId:number=0;
 
   getApplications(jobId: number): void {
   
-    this.http.get<any[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/jobApplications/${jobId}`).subscribe(
+    this.http.get<any[]>(`${this.baseURL}/dashboard/jobApplications/${jobId}`).subscribe(
       data => {
         this.jobApplications = data;
         this.showApplications=true;
@@ -82,7 +87,7 @@ employerId:number=0;
     
     getJobsByEmployer() {
 
-      this.http.get<Job[]>(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/employers/${this.employerId}/jobs`).subscribe(
+      this.http.get<Job[]>(`${this.baseURL}/dashboard/employers/${this.employerId}/jobs`).subscribe(
         (jobs: Job[]) => {
           if (jobs.length !== 0) {
             this.jobs = jobs;
@@ -110,7 +115,7 @@ employerId:number=0;
     }
     
   reportJobSeeker(jobSeekerId: number) {
-    const endpoint = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/dashboard/job-seekers/report/${jobSeekerId}`;
+    const endpoint = `${this.baseURL}/dashboard/job-seekers/report/${jobSeekerId}`;
 
     this.http.post(endpoint, {}, { responseType: 'text' }).subscribe(
       () => {

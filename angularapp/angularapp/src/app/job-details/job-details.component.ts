@@ -14,11 +14,18 @@ export class JobDetailsComponent  implements OnInit {
   selectedJobId: number = 0; 
   showApplyForm: boolean = false; 
   showJobDetails: boolean = true; 
-
+  branch:string='';
+  baseURL:string='';
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute
-  ) { }
+  ) { 
+        
+const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+  }
 
   ngOnInit() {
  
@@ -33,7 +40,7 @@ export class JobDetailsComponent  implements OnInit {
   }
 
   getJobDetails() {
-    this.http.get(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/job-details/jobs/${this.jobId}`)
+    this.http.get(`${this.baseURL}/job-details/jobs/${this.jobId}`)
       .subscribe(
         (response: any) => {
           this.job = response;

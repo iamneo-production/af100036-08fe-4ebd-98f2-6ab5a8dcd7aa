@@ -20,8 +20,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 @RestController
 @RequestMapping("/api")
 @Validated
@@ -54,18 +52,25 @@ private EmployersRepository employerRepository;
 @PostMapping("/signin")
 public ResponseEntity<Users> signInUser(@RequestBody Users user) {
     Users authenticatedUser = userService.authenticateUser(user);
-
+    Role userRole = authenticatedUser.getRole();
     if (authenticatedUser != null) {
         JobSeeker jobseeker = jobSeekerRepository.findByUser(authenticatedUser);
         Employers employer = employerRepository.findByUser(authenticatedUser);
+        if (userRole == Role.ADMIN) {
+            
+            authenticatedUser.setJobseekerid(jobseeker.getId());
+            authenticatedUser.setEmployerid(employer.getId());
 
+       
+        }
+        else{
         if (employer != null) {
             authenticatedUser.setEmployerid(employer.getId());
         } 
         if (jobseeker != null) {
             authenticatedUser.setJobseekerid(jobseeker.getId());
         }
-
+    }
         return new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
     } else {
         return new ResponseEntity<>(authenticatedUser,HttpStatus.UNAUTHORIZED);

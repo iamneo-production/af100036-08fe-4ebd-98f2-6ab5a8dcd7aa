@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import "bootstrap/dist/css/bootstrap.css"; */
 
 
 .nav-item a.active {
@@ -30,10 +31,10 @@
    margin-top: 55%;
    margin-right: 50%;
 }
-@import "bootstrap/dist/css/bootstrap.css";
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
 
 .ml20{
@@ -51,4 +52,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mb20{
     margin-bottom: 20px!important;
 
-}
+} 

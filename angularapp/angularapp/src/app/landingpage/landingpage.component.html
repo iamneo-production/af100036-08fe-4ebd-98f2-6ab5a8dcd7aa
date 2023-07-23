@@ -1,73 +1,107 @@
 <header>
-    <nav>
-      <ul>
-        <li class="nav-auth"><a routerLink="/signin">Sign In</a></li>
-        <li class="nav-auth"><a routerLink="/signup">Register</a></li>
-        <li class="nav-job">@Dreamjob</li>
-      </ul>
-    </nav>
-  </header>
-<div class="container">
-  <div class="card">
-    <img src="assets\images\person image.png" alt="Card Image">
-  </div>
-  <div class="card3">
-    <h1>Get Your Dream Job Today</h1>
-    <p>You don’t have to be great to start, but you have to start to be great.</p>
-    <button class="get-started" >Get Started</button>
-  </div>
-  <div class="card4">
-    <img src="assets\images\top image.jpg" alt="Top Image">
-  </div>
-</div>
-<div class="container1">
-  <div class="card1">
-    <img src="assets\images\ld image2.jpg" alt="Card Image2">
-    <div class="card-content">
-      <h3>Search Your DreamJob </h3>
-      <p>A dream job is a pathway to personal fulfillment and professional satisfaction.
-         It is that perfect blend of passion, skills, and purpose that allows individuals to wake up excited and motivated each day.</p>
+  <!-- Full-width Navbar -->
+  <nav>
+    <div class="logo">
+      <div class="navbar-brand">JOBHUB</div>
     </div>
-  </div>
-  <div class="card2">
-  <img src="assets\images\ld image3.jpg" alt="Card Image3">
-    <div class="card-content">
-    <h3> Join Your Team</h3>
-    <p>Create your Account...
-       Join Your Dreamjob...
-       Achieve Your Dreams... </p>
+    <div class="icon">
+      <span class="toggle">☰</span>
     </div>
-  </div>
-  <div class="container2">
-    <div class="card5">
-      <img src="assets\images\login.png" alt="login Image">
-    </div>
-    <div class="card6">
-      <img src="assets\images\job search.png" alt="login Image">
-    </div>
-    <div class="card7">
-      <img src="assets\images\job description.png" alt="job description">
-    </div>
-    <div class="card8">
-      <img src="assets\images\job application.png" alt="job application">
-    </div>
-  </div>
-</div>
-<div class="card-container">
-  <div class="card9">
-    <div class="card-image"></div>
-    <div class="card-content1">
-      <h3 class="card-title">JOB PORTAL</h3>
-      <p class="card-text">Empowering job seekers and employers alike,</p>
-      <p class="card-text">Our job portal simplifies the recruitment process </p>
-      <p class="card-text">Unlock your career potential with our job portal </p>
-      <p class="card-text">Find, Apply, and Secure your dream job.</p>
-      <p class="card-text">Explore, Apply, and Embark on a rewarding career journey.</p>
-    </div>
-  </div>
-</div>
-<footer>
-  <div class="footer-content">
-    <p>&copy; 2023 Your Company. All rights reserved.</p>
-  </div>
-</footer>
+    <ul class="list-item">
+      <li><a routerLink="/landingpage">Home</a></li>
+      <li><a href="#">Job Search</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a routerLink="/signin">SignIn</a></li>
+      <li><a routerLink="/signup">SignUp</a></li>
+    </ul>
+  </nav>
+  
+        <h1>JobHub</h1>
+        <p class="titleDescription">Explore thousands of job opportunities across various industries.</p>
+        <!-- <a href="#" class="cta-btn">Get Started</a> -->
+    </header>
+  
+  
+  
+  
+  
+    <main>
+      <div class="container">
+        <section class="job-search">
+          <h2>Find Your Dream Job</h2>
+          <p>Search for job openings in your desired field and location. Discover opportunities that match your skills and experience.</p>
+          <a href="#" class="cta-btn">Search Jobs</a>
+        </section>
+  
+        <section class="job-application">
+          <h2>Apply with Ease</h2>
+          <p>Simplify the job application process. Create a profile, upload your resume, and apply for multiple jobs with just a few clicks.</p>
+          <a href="#" class="cta-btn">Apply Now</a>
+        </section>
+  
+        <section class="featured-companies">
+          <h2>Featured Companies</h2>
+          <div class="company-list">
+            <div class="company-card">
+              <img src="company1.png" alt="Company 1 Logo">
+              <h3>Company 1</h3>
+              <p>We are a leading tech company, committed to innovation and growth. Join us to work on cutting-edge projects.</p>
+              <a href="#" class="cta-btn">View Jobs</a>
+            </div>
+            <div class="company-card">
+              <img src="company2.png" alt="Company 2 Logo">
+              <h3>Company 2</h3>
+              <p>Our mission is to make a positive impact on people's lives. Join our team to make a difference.</p>
+              <a href="#" class="cta-btn">View Jobs</a>
+            </div>
+            <!-- Add more company cards here -->
+          </div>
+        </section>
+  
+        <section class="testimonials">
+          <h2>What Our Users Say</h2>
+          <div class="testimonial-list">
+            <div class="testimonial-card">
+              <p>"I found my dream job through Job Portal. The platform is easy to use, and the job recommendations were spot-on."</p>
+              <p><em>- John Doe, Software Engineer</em></p>
+            </div>
+            <div class="testimonial-card">
+              <p>"Job Portal helped me land my first job after graduation. I highly recommend it to anyone looking for job opportunities."</p>
+              <p><em>- Jane Smith, Marketing Specialist</em></p>
+            </div>
+            <!-- Add more testimonial cards here -->
+          </div>
+        </section>
+  
+        <section class="company-partners">
+          <h2>Our Company Partners</h2>
+          <div class="partner-logos">
+            <img src="partner1.png" alt="Partner 1 Logo">
+            <img src="partner2.png" alt="Partner 2 Logo">
+            <!-- Add more partner logos here -->
+          </div>
+        </section>
+      </div>
+    </main>
+  
+    <footer>
+      <p>&copy; 2023 Job Portal. All rights reserved.</p>
+    </footer>
+  
+  
+      <!-- Custom JavaScript for Hamburger Icon -->
+  <script>
+  function myFunction() {
+    var x = document.getElementById("list-item");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  </script>
+  
+  
+  
+  
+  

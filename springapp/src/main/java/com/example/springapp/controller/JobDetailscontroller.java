@@ -8,7 +8,7 @@ import com.example.springapp.model.*;
 import com.example.springapp.repository.*;
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
+
 @RestController
 @RequestMapping("/job-details")
 public class JobDetailscontroller {

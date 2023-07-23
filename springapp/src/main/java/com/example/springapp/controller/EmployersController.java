@@ -11,7 +11,6 @@ import com.example.springapp.model.Employers;
 import com.example.springapp.repository.EmployersRepository;
 import javax.persistence.EntityManager;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
 @RestController
 @RequestMapping("/employerdetails")
 public class EmployersController {
