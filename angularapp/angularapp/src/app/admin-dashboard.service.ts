@@ -2,19 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Job } from './Job.module';
-import{Employer} from './Employer.module'
+import { Employer } from './Employer.module';
 import { JobSeeker } from './JobSeeker.module';
 import { Faq } from './Faq.module';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminDashboardService {
-  branch:string='';
-baseURL:string='';
- 
+  branch: string = '';
+  baseURL: string = '';
 
   constructor(private http: HttpClient) {
     const start = window.location.href.indexOf('-') + 1;
@@ -129,13 +126,6 @@ baseURL:string='';
     return this.http.get<Job[]>(`${this.baseURL}/jobs/sort`, { params });
   }
 
-  // Report job
-  reportJob(jobId: number): Observable<any> {
-    const url = `${this.baseURL}/jobs/report/${jobId}`;
-
-    return this.http.post(url, {}, { responseType: 'text' });
-  }
-
   // Get posts
   getPosts(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseURL}/cms/posts`);
@@ -189,5 +179,41 @@ baseURL:string='';
   deleteTask(id: number): Observable<any> {
     return this.http.delete(`${this.baseURL}/tasks/${id}`);
   }
-}
 
+  // Add post
+  addPost(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.baseURL}/cms/upload`, formData, { responseType: 'json' });
+  }
+
+  // Report job
+  reportJob(jobId: number): Observable<any> {
+    const url = `${this.baseURL}/jobs/report/${jobId}`;
+    return this.http.post(url, {}, { responseType: 'text' });
+  }
+  getReportedJobs(): Observable<Job[]> {
+    return this.http.get<Job[]>(`${this.baseURL}/admins/reported/jobs`);
+  }
+
+  getReportedEmployers(): Observable<Employer[]> {
+    return this.http.get<Employer[]>(`${this.baseURL}/admins/reported/employers`);
+  }
+
+  getReportedJobSeekers(): Observable<JobSeeker[]> {
+    return this.http.get<JobSeeker[]>(`${this.baseURL}/admins/reported/jobseekers`);
+  }
+
+  unreportJob(jobId: number): Observable<any> {
+    const url = `${this.baseURL}/admins/jobs/unreport/${jobId}`;
+    return this.http.post(url, {}, { responseType: 'text' });
+  }
+
+  unreportEmployer(employerId: number): Observable<any> {
+    const url = `${this.baseURL}/admins/employers/unreport/${employerId}`;
+    return this.http.post(url, {}, { responseType: 'text' });
+  }
+
+  unreportJobSeeker(jobSeekerId: number): Observable<any> {
+    const url = `${this.baseURL}/admins/jobseekers/unreport/${jobSeekerId}`;
+    return this.http.post(url, {}, { responseType: 'text' });
+  }
+}

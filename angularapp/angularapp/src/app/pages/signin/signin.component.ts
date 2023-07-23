@@ -36,7 +36,14 @@ export class SigninComponent implements OnInit {
     if (this.userForm.valid) {
       const user = this.userForm.value;
       this.http.post<any>(`${this.baseUrl}/api/signin`, user).subscribe(response => {
-        if (response && response.role === 'JOB_SEEKER') {
+        if (response && response.role === 'ADMIN') {
+          const queryParams = {
+            employerid: response.employerid,
+            jobseekerid: response.jobseekerid,
+          };
+          this.router.navigate(['/admin'], { queryParams });
+        } 
+    else if (response && response.role === 'JOB_SEEKER') {
           const queryParams = {
             
             response: JSON.stringify(response.jobseekerid)
