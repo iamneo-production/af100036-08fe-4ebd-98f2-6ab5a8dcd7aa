@@ -57,11 +57,12 @@
   </div><br>
 <div class="input-group mb-3">
   </div>
+  <button mat-button color="primary" style="background-color:violet" [routerLink]="['/editemployerprofile']" [queryParams]="{ employerId: employerId }">Edit</button> <br> 
+
   <br>
 </div>
   <div *ngIf="showEmployerUpdateForm" class="section-content">
     <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
-
 
   </div>
 </form>
