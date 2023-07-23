@@ -36,7 +36,9 @@ import { EmployerProfileComponent } from './employer-profile/employer-profile.co
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { MatIcon } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 
 @NgModule({
@@ -88,7 +90,7 @@ import { MatIcon } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,MatIconModule
 
   ],
   providers: [],
