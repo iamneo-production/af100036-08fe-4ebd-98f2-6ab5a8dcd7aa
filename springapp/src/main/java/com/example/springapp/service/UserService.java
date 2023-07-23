@@ -15,7 +15,7 @@ import com.example.springapp.model.Users;
 import com.example.springapp.repository.EmployersRepository;
 import com.example.springapp.repository.JobSeekerRepository;
 import com.example.springapp.repository.UserRepository;
-
+import java.util.*;
 import com.example.springapp.repository.UsersRepository;
 @Configuration
 @Service
@@ -49,6 +49,7 @@ public class UserService {
 
 
     public Users createUser(Users user, Role role) {
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
 
@@ -80,6 +81,43 @@ public class UserService {
         }
     }
 
+    public Users createDefaultAdminUser() {
+        
+        String defaultAdminEmail = "admin@example.com";
+        String defaultAdminPassword = "adminPassword";
 
+        Users existingUser = usersRepository.findByEmail(defaultAdminEmail);
+        if (existingUser == null) {
+            Users adminUser = new Users();
+            adminUser.setName("admin"); 
+            adminUser.setEmail(defaultAdminEmail);
+            adminUser.setPassword(passwordEncoder.encode(defaultAdminPassword));
+adminUser.setRole(Role.ADMIN);
+            Set<Role> roles = new HashSet<>();
+            roles.add(Role.ADMIN);
+            roles.add(Role.EMPLOYER);
+            roles.add(Role.JOB_SEEKER);
+            adminUser.setRoles(roles);
+
+            usersRepository.save(adminUser);
+
+       
+            JobSeeker adminJobSeeker = new JobSeeker();
+            adminJobSeeker.setName("admin");
+            adminJobSeeker.setUser(adminUser);
+            jobSeekerRepository.save(adminJobSeeker);
+
+            Employers adminEmployer = new Employers();
+            adminEmployer.setName("admin");
+            adminEmployer.setUser(adminUser);
+            employerRepository.save(adminEmployer);
+            jobSeekerRepository.save(adminJobSeeker);
+            employerRepository.save(adminEmployer);
+
+            return adminUser;
+        }
+
+        return existingUser;
+    }
 
 }
