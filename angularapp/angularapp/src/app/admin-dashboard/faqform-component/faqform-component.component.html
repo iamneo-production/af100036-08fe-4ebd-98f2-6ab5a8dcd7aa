@@ -1,20 +1,40 @@
+<nav>
+  <div class="logo">
+    <div class="navbar-brand">JOBHUB</div>
+  </div>
+  <div class="icon">
+    <span class="toggle">☰</span>
+  </div>
+  <ul class="list-item">
+    <li><a routerLink="/landingpage">Home</a></li>
+    <li><a href="/job-serach">Job Search</a></li>
+    <li><a routerLink="/cms">CMS</a></li>
+     <li><a href="#">Contact</a></li>
+    <li><a href="#">About US</a></li>
+    <li><a routerLink="/signin">SignIn</a></li>
+    <li><a routerLink="/signup">SignUp</a></li>
+   
+  </ul>
+</nav>
 <p class="heading">FAQ</p>
 <div class="faq">
   <div *ngFor="let faq of faqs; let i = index" class="faq-item">
     <input [id]="'faq-' + i" type="checkbox">
     <label [for]="'faq-' + i">
-      <p class="faq-heading">{{ faq.question }}  <button (click)="deleteFAQ(faq.id)">Delete</button></p>
+      <p class="faq-heading">{{ faq.question }}</p>
       <div class="faq-arrow"></div>
       <p class="faq-text">{{ faq.answer }}</p>
+    
+      <button *ngIf="isAdminLoggedIn" (click)="deleteFAQ(faq.id)">Delete</button>
     </label>
     <div>
-  
-     
+
     </div>
   </div>
 
-  <button (click)="showFaq()">Add FAQ</button>
-  <div *ngIf="showfaq">
+  
+  <button *ngIf="isAdminLoggedIn" (click)="showFaq()">Add FAQ</button>
+  <div *ngIf="showfaq && isAdminLoggedIn">
     <form (submit)="addFAQ()">
       <label for="newQuestion">Question:</label>
       <input type="text" id="newQuestion" name="newQuestion" [(ngModel)]="newFaq.question" required>

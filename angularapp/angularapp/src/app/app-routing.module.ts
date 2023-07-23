@@ -15,6 +15,8 @@ import { EmployerDashboardComponent } from './employer-dashboard/employer-dashbo
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { EditemployerProfileComponent } from './employer-profile/editemployer-profile/editemployer-profile.component';
+import { FaqformComponentComponent } from './admin-dashboard/faqform-component/faqform-component.component';
+import { CmsComponentComponent } from './admin-dashboard/cms-component/cms-component.component';
 
 
 const routes: Routes = [
@@ -29,7 +31,8 @@ const routes: Routes = [
     {path: 'landingpage', component: LandingpageComponent},
     {path:'employerprofile',component:EmployerProfileComponent},
     {path:'editemployerprofile',component:EditemployerProfileComponent},
-
+    {path: 'faq', component: FaqformComponentComponent },
+    {path: 'cms', component: CmsComponentComponent},
 
     {
       path: 'signup',

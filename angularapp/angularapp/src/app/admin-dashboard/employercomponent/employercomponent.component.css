@@ -1,134 +1,84 @@
-.employer-wrapper {
-    display: flex;
-   
-  }
+
+.employer-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.expired-label {
+  background-color: #ffcccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff0000;
+}
+.report-icon{
+  margin-left:90%;
+}
+
+.field-label {
+  margin-right: 10px;
+  width: 80px;
+  font-weight: bold;
+  color: #f0f9ff;
+
+}
+
+.field-value {
+  flex: 1;
+  color: #495057;
+  margin-top: 10px;
+}
+/* Style the report button */
+.report-button {
+
+  background: none;
   
-  
-    .employer-item {
-      margin-bottom: 20px;
-      padding: 10px;
-      max-width: 500px;
-  margin-left:245px;
-  margin-right: 20px;
-      background-color: #ffffff;
-      border-radius: 5px;
-      box-shadow:  3px 3px 3px 3px rgba(83, 81, 81, 0.984);
-    }
-    
-    .employer-field {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    
-    .employer-label {
-      margin-right: 10px;
-      width: 80px;
-      font-weight: bold;
-      color: #f0f9ff;
-    }
-    
-    .field-value {
-      flex: 1;
-      color: #495057;
-    }
-    
-    .employer-actions {
-      display: flex;
-      align-items: center;
-    }
-    
-    .employer-actions button {
-      background-color: transparent;
-      border: none;
-      color: #333;
-      margin-right: 5px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .employer-actions button:hover {
-      color: #ff5722;
-    }
-    
-    .employer-description {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #f1f1f1;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .fa-building,
-    .fa-file-alt,
-    .fa-map-marker-alt,
-    .fa-dollar-sign,
-    .fa-clipboard-list,
-    .fa-briefcase {
-      color: #7a7c7d;
-  
-      margin-right: 5px;
-    }
-    
-    .fa-trash
-    {
-      color: #333;
-      margin-left:450px;
-    }
-    
-    .fa-trash:hover,
-    .fa-edit:hover,
-    .fa-eye:hover {
-      color: #ff5722;
-    
-    }
-    .toggle-button {
-      padding: 10px 20px;
-      background-color: #f2f2f2;
-      color: #333;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-left:800px;
-      margin-bottom: 50px;
-    }
-    
-    .toggle-button:hover {
-      background-color: #ddd;
-    }
-    .form-field {
-      margin-bottom: 10px;
-    }
-    
-    
-    .form-field label {
-      display: inline-block;
-      width: 80px;
-      font-weight: bold;
-      color: #000000;
-      margin-right: 10px;
-    }
-    .fa-trash
-      {
-    
-        margin-left:450px;
-      }
-      
-    
-    .form-field input[type="text"] {
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    
-    button[type="submit"] {
-      padding: 5px 10px;
-      background-color: #a8b8a9;
-      color: rgb(0, 0, 0);
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    
-    button[type="submit"]:hover {
-      background-color: #cedfcf;
-    }
+}
+
+.report-button i {
+  color: red;
+  font-size: 1.5em;
+  margin-right: 0px;
+}
+
+
+.employer-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+.employer-actions button {
+  margin-right: 5px;
+}
+
+
+.employer-field {
+  margin-bottom: 5px;
+}
+
+.field-label {
+  margin-right: 5px;
+}
+
+
+.field-value {
+  font-weight: bold;
+  font-size: large;
+}
+
+.fa-building,
+.fa-file-alt,
+.fa-map-marker-alt,
+.fa-dollar-sign,
+.fa-clipboard-list,
+.fa-briefcase ,
+.fa-id-badge,
+.fa-info-circle{
+  color: #000000; 
+  margin-right: 5px;
+  size: 20px;
+}

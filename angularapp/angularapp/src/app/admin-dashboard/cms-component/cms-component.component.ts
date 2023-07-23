@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AdminDashboardService } from 'src/app/admin-dashboard.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { AdminDashboardService } from 'src/app/admin-dashboard.service';
 export class CmsComponentComponent {
   posts: any[] = [];
   
-  
+  @Input()
+  isAdminLoggedIn:boolean=false;
+
   selectedPost: any = null;
   fileToUpload: File | null = null;
   title = '';
