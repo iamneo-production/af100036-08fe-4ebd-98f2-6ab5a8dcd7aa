@@ -9,8 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployerProfileComponent   implements OnInit{
   showEmployerUpdateForm: boolean = false;
-  selectedImage!: File | null;
-  profileImageUrl!: string | null;
+  
   isFormVisible: boolean = false;
   selectedprofile:any;
   showUpdateEmployerForm(): void {
@@ -26,12 +25,6 @@ export class EmployerProfileComponent   implements OnInit{
     this.user = updatedEmployer;
   }
   
-    selectImage($event: Event) {
-    throw new Error('Method not implemented.');
-    }
-    upload() {
-    throw new Error('Method not implemented.');
-    }
       ngOnInit(): void {
         this.route.queryParams.subscribe(params => {
           this.employerId = params['employerId'];
