@@ -1,45 +1,15 @@
 
-  
-  .employer-add-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width:1000px;
-    margin-left: 400px;
+.employer-add-form {
+ 
+  justify-content: center;
+margin-left: 400px;
+margin-right: 100px;
+}
 
-  }
-  
-  .form-field {
-    margin-bottom: 20px;
-    width: 100%;
-    margin-left: 80%;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  textarea {
-    width: 20%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
+.employer-add-form {
+  max-width: 600px;
+}
+button[type="submit"] {
+  margin-top: 20px;
+
+}

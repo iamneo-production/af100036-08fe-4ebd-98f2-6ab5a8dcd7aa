@@ -53,11 +53,11 @@ export class AdminDashboardComponent implements OnInit {
   isSidebarOpen: boolean = false;
 
   chartTypes: ChartType = 'line';
-  jobSeekerId: string="";
-  employerId: string="";
+  jobSeekerId:number=0 ;
+  employerId:number=0  ;
   queryParams: any;
 
-  constructor(private adminService: AdminDashboardService,private http: HttpClient,private route: ActivatedRoute) {
+  constructor(private adminService: AdminDashboardService,private route: ActivatedRoute) {
     
   }
   ngOnInit() {
@@ -67,7 +67,16 @@ export class AdminDashboardComponent implements OnInit {
     this.getJobSeekers();
    this.getAllDeletedJobSeekers();
     this.getAllDeletedEmployers(); 
-   
+    this.route.queryParams.subscribe((params) => {
+      if (params['employerid'] && params['jobseekerid']) {
+        this.employerId = +params['employerid']; 
+        this.jobSeekerId = +params['jobseekerid'];
+        console.log('Employer ID:', this.employerId);
+        console.log('Jobseeker ID:', this.jobSeekerId);
+      } else {
+        console.log('Both employerid and jobseekerid parameters are missing.');
+      }
+    });
   }
   showAddPostForm: boolean = false;
   openAddContentForm() {
@@ -142,9 +151,9 @@ loadReportedJobs() {
   this.adminService.getReportedJobs().subscribe(
     (jobs) => {
       this.reportedJobs = jobs;
-      this.showReportedJobs = true;
-      this.showReportedJobSeekers = false;
-      this.showsJobForm = false;
+      this.showReportedJobs =true;
+      this. showReportedJobSeekers=false;
+     this.showsJobForm=false;
     },
     (error) => {
       console.error('Failed to load reported jobs:', error);
