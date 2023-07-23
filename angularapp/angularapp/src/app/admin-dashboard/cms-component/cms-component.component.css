@@ -25,7 +25,6 @@
   padding-top: 20px;
 }
 
-/* Custom styles for edit form */
 .edit-form {
   margin-top: 20px;
 }
@@ -44,4 +43,54 @@
 
 .btn-primary {
   margin-top: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: arial, tahoma;
+  list-style: none;
+  /*    outline: 1px solid brown;*/
+}
+
+nav {
+  height: 80px;
+  background-color: transparent;
+  /* border-bottom: 1px solid #000000 */
+}
+.logo {
+  padding: 10px;
+  width: auto;
+  float: left;
+}
+
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.list-item {
+  float: right;
+  margin-right: 25px;
+  margin-top: 17px;
+}
+.list-item li {
+  float: left;
+  padding: 13px 13px;
+  font-size: 18px;
+  border-radius: 3px;
+  transition: all .3s ;
+}
+.list-item li a {
+  color: #EEE;
+}
+.list-item li:hover {
+  background-color: rgba(0, 0, 0, 0.234);
 }

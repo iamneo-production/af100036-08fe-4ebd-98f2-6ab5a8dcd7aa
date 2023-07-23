@@ -220,12 +220,11 @@
         </div>
       </div>
 
-      <!-- Jobs Component -->
+     
       <div *ngIf="!showsJobForm && !showReportedJobs && showSection === 'jobs'" class="section-content">
         <app-jobcompoent-component [jobSeekerId]="jobSeekerId"></app-jobcompoent-component>
       </div>
 
-      <!-- Task Component -->
       <div class="app-task" *ngIf="showTask">
         <app-task-component></app-task-component>
       </div>
