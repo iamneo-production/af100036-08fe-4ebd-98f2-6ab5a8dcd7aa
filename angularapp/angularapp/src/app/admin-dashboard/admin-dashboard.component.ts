@@ -53,11 +53,11 @@ export class AdminDashboardComponent implements OnInit {
   isSidebarOpen: boolean = false;
 
   chartTypes: ChartType = 'line';
-  jobSeekerId:number=0 ;
-  employerId:number=0  ;
+  jobSeekerId: string="";
+  employerId: string="";
   queryParams: any;
 
-  constructor(private adminService: AdminDashboardService,private route: ActivatedRoute) {
+  constructor(private adminService: AdminDashboardService,private http: HttpClient,private route: ActivatedRoute) {
     
   }
   ngOnInit() {
@@ -67,16 +67,7 @@ export class AdminDashboardComponent implements OnInit {
     this.getJobSeekers();
    this.getAllDeletedJobSeekers();
     this.getAllDeletedEmployers(); 
-    this.route.queryParams.subscribe((params) => {
-      if (params['employerid'] && params['jobseekerid']) {
-        this.employerId = +params['employerid']; 
-        this.jobSeekerId = +params['jobseekerid'];
-        console.log('Employer ID:', this.employerId);
-        console.log('Jobseeker ID:', this.jobSeekerId);
-      } else {
-        console.log('Both employerid and jobseekerid parameters are missing.');
-      }
-    });
+   
   }
   showAddPostForm: boolean = false;
   openAddContentForm() {
@@ -112,8 +103,9 @@ export class AdminDashboardComponent implements OnInit {
     }
     formData.append('title', this.newPost.title);
     formData.append('content', this.newPost.content);
-
-    this.adminService.addPost(formData).subscribe(
+  
+    const addUrl = 'https://8080-becfabfadacaeaebfceaeaadbdbabf.project.examly.io/admins/cms/upload';
+    this.http.post(addUrl, formData, { responseType: 'text' }).subscribe(
       (response) => {
         console.log('Post added successfully');
         this.clearForm();
@@ -121,6 +113,8 @@ export class AdminDashboardComponent implements OnInit {
       (error) => {
         console.log('Error occurred while adding post:', error);
       }
+    
+    
     );
   }
   
@@ -148,7 +142,9 @@ showsEmployerForm():void{
 }
 
 loadReportedJobs() {
-  this.adminService.getReportedJobs().subscribe(
+  const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/employers';
+
+  this.http.get<any[]>(url).subscribe(
     (jobs) => {
       this.reportedJobs = jobs;
       this.showReportedJobs =true;
@@ -160,14 +156,16 @@ loadReportedJobs() {
     }
   );
 }
-
 loadReportedEmployers() {
-  this.adminService.getReportedEmployers().subscribe(
+  const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/employers';
+
+  this.http.get<any[]>(url).subscribe(
     (jobs) => {
       this.reportedJobs = jobs;
-      this.showEmployerForm = false;
-      this.showEmployersAnalyticsPage = false;
-      this.showReportedEmployers = true;
+      this.showEmployerForm=false;
+      this.showEmployersAnalyticsPage=false;
+
+      this.showReportedEmployers=true;
     },
     (error) => {
       console.error('Failed to load reported jobs:', error);
@@ -323,33 +321,38 @@ showsJobSeekerForm():void
     
   }
   getAllFAQs() {
-    this.adminService.getAllFAQs().subscribe(
-      (data: Faq[]) => {
+    this.http.get<Faq[]>('https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/faq').subscribe(
+      data => {
         this.faqs = data;
       },
-      (error) => {
+      error => {
         console.log('An error occurred while retrieving FAQs:', error);
       }
     );
-  }
+}  
 
 
 unreportJob(job: any) {
-  this.adminService.unreportJob(job.id).subscribe(
+  this.http.post(`http://localhost:8080/admins/jobs/unreport/${job.id}`, {}, { responseType: 'text' }).subscribe(
     () => {
       console.log('Job unreported successfully');
+     
       this.loadReportedJobs();
+   
+  
     },
     (error) => {
       console.error('Failed to unreport job:', error);
     }
   );
 }
-
 unreportEmployer(job: any) {
-  this.adminService.unreportEmployer(job.id).subscribe(
+  this.http.post(`https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/jobs/unreport/${job.id}`, {}, { responseType: 'text' }).subscribe(
     () => {
       console.log('Job unreported successfully');
+     
+      
+   
       this.loadReportedEmployers();
     },
     (error) => {
@@ -371,25 +374,26 @@ deleteJobSeeker(id: number) {
 }
 reportedJobSeekers: JobSeeker[] = [];
 
-
-
   loadReportedJobSeekers() {
-    this.adminService.getReportedJobSeekers().subscribe(
+    const url = 'https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/reported/jobseekers';
+
+    this.http.get<JobSeeker[]>(url).subscribe(
       (jobSeekers) => {
-        this.loadReportedJobSeekers();
         this.reportedJobSeekers = jobSeekers;
         this.showReportedJobSeekers = true;
-        this.showJobSeekerForm = false;
+this.showJobSeekerForm=false;
+
       },
       (error) => {
         console.error('Failed to load reported job seekers:', error);
       }
     );
   }
-  
 
   unreportJobSeeker(jobSeeker: JobSeeker) {
-    this.adminService.unreportJobSeeker(jobSeeker.id).subscribe(
+    const url = `https://8080-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io/admins/job-seekers/unreport/${jobSeeker.id}`;
+
+    this.http.post(url, {}, { responseType: 'text' }).subscribe(
       () => {
         console.log('Job seeker unreported successfully');
         this.loadReportedJobSeekers();
@@ -399,4 +403,5 @@ reportedJobSeekers: JobSeeker[] = [];
       }
     );
   }
+
 }

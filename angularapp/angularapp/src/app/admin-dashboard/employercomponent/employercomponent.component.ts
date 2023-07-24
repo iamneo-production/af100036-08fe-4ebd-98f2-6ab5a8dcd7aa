@@ -1,4 +1,4 @@
-
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { Employer } from 'src/app/Employer.module';

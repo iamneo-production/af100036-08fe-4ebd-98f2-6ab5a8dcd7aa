@@ -15,7 +15,6 @@ export class AddjobformComponentComponent implements OnInit {
   newJob: any = {};
   showsJobForm: boolean = false;
   @Input() queryParams: any;
-  @Input() isAdminUser: boolean=false;
   existingEmployers: Employer[] = [];
 
   constructor(private adminService: AdminDashboardService,private router:Router,private route: ActivatedRoute)  {}
@@ -59,19 +58,9 @@ export class AddjobformComponentComponent implements OnInit {
       };
   
       this.adminService.addJob(payload).subscribe(createdJob => {
-       
-        alert('New Job Added');
         this.jobs.push(createdJob);
         this.newJob = {};
         this.showsJobForm = !this.showsJobForm;
-        if(!this.isAdminUser)
-        {
-          const queryParams = {
-            response: employerId
-          };
-      
-          this.router.navigate(['/employerdashboard'], { queryParams });
-        }
       });
     
   }

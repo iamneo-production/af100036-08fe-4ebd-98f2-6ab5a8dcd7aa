@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Faq } from 'src/app/Faq.module';
 import { AdminDashboardService } from 'src/app/admin-dashboard.service';
 
@@ -11,8 +11,8 @@ export class FaqformComponentComponent implements OnInit {
   showfaq: boolean = false;
   faqs: Faq[] = [];
   newFaq: Faq = { id: 0, question: '', answer: '' };
-@Input()
-  isAdminLoggedIn:boolean=false;
+
+  
 
   showFaq(): void {
     this.showfaq = !this.showfaq;

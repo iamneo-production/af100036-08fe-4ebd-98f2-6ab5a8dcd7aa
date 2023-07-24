@@ -1,25 +1,25 @@
-<div *ngIf="showJobSeekerForm" class="job-seeker-add-form">
-  <form (submit)="addJobSeeker()">
-    <div class="form-group">
-      <label for="jobSeekerName">Name:</label>
-      <input type="text" id="jobSeekerName" class="form-control" [(ngModel)]="newJobSeeker.name" name="name" required>
-    </div>
+<div *ngIf="showJobSeekerForm">
+ 
 
-    <div class="form-group">
-      <label for="jobSeekerSkills">Skills:</label>
-      <input type="text" id="jobSeekerSkills" class="form-control" [(ngModel)]="skillsInput" name="skills" required>
+    <form (submit)="addJobSeeker()" class="job-seeker-add-form">
+        <div class="form-field">
+          <label for="jobSeekerName">Name:</label>
+          <input type="text" id="jobSeekerName" [(ngModel)]="newJobSeeker.name" name="name" required>
+        </div>
+       
+        <div class="form-field">
+          <label for="jobSeekerSkills">Skills:</label>
+          <input type="text" id="jobSeekerSkills" [(ngModel)]="skillsInput" name="skills" required>
+        </div>
+        <div class="form-field">
+          <label for="jobSeekerExperience">Experience:</label>
+          <input type="number" id="jobSeekerExperience" [(ngModel)]="newJobSeeker.experience" name="experience" required>
+        </div>
+        <div class="form-field">
+          <label for="jobSeekerLocation">Location:</label>
+          <input type="text" id="jobSeekerLocation" [(ngModel)]="newJobSeeker.location" name="location" required>
+        </div>
+        <button type="submit">Add Job Seeker</button>
+      </form>
+      
     </div>
-
-    <div class="form-group">
-      <label for="jobSeekerExperience">Experience:</label>
-      <input type="number" id="jobSeekerExperience" class="form-control" [(ngModel)]="newJobSeeker.experience" name="experience" required>
-    </div>
-
-    <div class="form-group">
-      <label for="jobSeekerLocation">Location:</label>
-      <input type="text" id="jobSeekerLocation" class="form-control" [(ngModel)]="newJobSeeker.location" name="location" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add Job Seeker</button>
-  </form>
-</div>
