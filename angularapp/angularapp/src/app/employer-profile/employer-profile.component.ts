@@ -29,7 +29,6 @@ export class EmployerProfileComponent   implements OnInit{
           this.employerId = params['employerId'];
         });
         this.getUser();
-        throw new Error('Method not implemented.');
       }
   user:any={};
     
