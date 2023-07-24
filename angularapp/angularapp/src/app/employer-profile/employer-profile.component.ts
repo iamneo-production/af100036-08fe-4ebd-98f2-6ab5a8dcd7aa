@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployerProfileComponent   implements OnInit{
   showEmployerUpdateForm: boolean = false;
-  
   isFormVisible: boolean = false;
   selectedprofile:any;
   showUpdateEmployerForm(): void {
