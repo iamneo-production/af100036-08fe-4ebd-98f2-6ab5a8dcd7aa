@@ -167,7 +167,7 @@ export class AdminDashboardService {
     return this.http.delete(`${this.baseURL}/tasks/${id}`);
   }
 
-  addPost(formData: FormData): Observable<any> {
+  addPost(formData: any): Observable<any> {
     return this.http.post<any>(`${this.baseURL}/cms/upload`, formData, { responseType: 'json' });
   }
 
@@ -206,7 +206,7 @@ export class AdminDashboardService {
   }
 
   unreportJobSeeker(jobSeekerId: number): Observable<any> {
-    const url = `${this.baseURL}/jobseekers/unreport/${jobSeekerId}`;
+    const url = `${this.baseURL}/job-seekers/unreport/${jobSeekerId}`;
     return this.http.post(url, {}, { responseType: 'text' });
   }
 }

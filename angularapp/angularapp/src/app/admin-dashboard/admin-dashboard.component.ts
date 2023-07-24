@@ -376,6 +376,7 @@ reportedJobSeekers: JobSeeker[] = [];
   loadReportedJobSeekers() {
     this.adminService.getReportedJobSeekers().subscribe(
       (jobSeekers) => {
+        this.loadReportedJobSeekers();
         this.reportedJobSeekers = jobSeekers;
         this.showReportedJobSeekers = true;
         this.showJobSeekerForm = false;

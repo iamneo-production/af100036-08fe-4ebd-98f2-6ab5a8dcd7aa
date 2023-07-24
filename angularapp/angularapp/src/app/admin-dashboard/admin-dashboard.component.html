@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <!-- Reported Jobs -->
+     
       <div *ngIf="showReportedJobs">
         <div *ngIf="reportedJobs" class="section-content">
           <table class="table table-bordered">
@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <!-- Reported Employers -->
+  
       <div *ngIf="showReportedEmployers">
         <div *ngIf="reportedJobs" class="section-content">
           <table class="table table-bordered">
@@ -116,8 +116,7 @@
         </div>
       </div>
 
-      <!-- Reported Job Seekers -->
-      <div *ngIf="showReportedJobSeekers && !showJobForm">
+      <div *ngIf="showReportedJobSeekers">
         <div *ngIf="reportedJobSeekers" class="section-content">
           <table class="table table-bordered">
             <caption>List of reported job seekers and their actions</caption>
@@ -142,39 +141,36 @@
         </div>
       </div>
 
-      <!-- Add Job Form -->
+  
       <div>
         <div *ngIf="showsJobForm">
           <app-addjobform-component [queryParams]="queryParams"></app-addjobform-component>
         </div>
       </div>
 
-      <!-- Employer Component -->
+
       <div *ngIf="!showEmployerForm && !showEmployersAnalyticsPage && !showReportedEmployers && showSection === 'employers'" class="section-content">
         <app-employercomponent></app-employercomponent>
       </div>
 
-      <!-- Add Employer Form -->
+  
       <div *ngIf="showEmployerForm && !showReportedEmployers">
         <app-addemployerform-component></app-addemployerform-component>
       </div>
 
-      <!-- Employer Analytics Component -->
       <div *ngIf="showEmployersAnalyticsPage" class="section-content">
         <app-employeranalytics-component></app-employeranalytics-component>
       </div>
 
-      <!-- CMS Component -->
       <div class="section-content" *ngIf="!showAddPostForm && !showfaq && showSection === 'CMS'">
         <app-cms-component [isAdminLoggedIn]="true"></app-cms-component>
       </div>
 
-      <!-- FAQ Component -->
+      
       <div *ngIf="!showAddPostForm && showfaq" class="faq">
         <app-faqform-component [isAdminLoggedIn]="true"></app-faqform-component>
       </div>
 
-      <!-- Add New Post Form -->
       <div class="chart-wrapper" *ngIf="showAddPostForm">
        
         <form (submit)="addPost()">
@@ -196,18 +192,18 @@
      
       </div>
 
-      <!-- Job Seeker Component -->
+
       <div *ngIf="!showReportedJobSeekers && !showJobSeekerForm && showSection === 'jobSeekers'" class="section-content">
         <app-jobseekercompoent-component></app-jobseekercompoent-component>
       </div>
     
 
-      <!-- Add Job Seeker Form -->
+    
       <div *ngIf="showJobSeekerForm">
         <app-addjobseekerform-component (showsJobSeekerForm)="showsJobSeekerForm()"></app-addjobseekerform-component>
       </div>
 
-      <!-- Job Applied Chart -->
+ 
       <div class="job-applied" *ngIf="showChart">
         <div style="width: 800px; height: 400px; margin-top:200px;margin-left:200px">
           <canvas baseChart
