@@ -58,7 +58,7 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
     this.http.post(`${this.baseURL}/dashboard/selectApplicant`, applicationId, { responseType: 'text' })
         .subscribe(
           (response: string) => {
-            
+            alert(response); 
             console.log(response);
           },
           (error) => {
