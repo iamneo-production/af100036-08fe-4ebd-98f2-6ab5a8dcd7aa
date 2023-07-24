@@ -53,7 +53,6 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
           console.log(employer);
           this.user = employer; 
          
-          
 
           this.selectedprofile = { ...this.user };
         });
