@@ -25,8 +25,12 @@ export class EmployerProfileComponent   implements OnInit{
   }
   
       ngOnInit(): void {
+      
         this.route.queryParams.subscribe(params => {
-          this.employerId = params['employerId'];
+          const employerId = params['employerId'];
+          if (employerId) {
+            this.employerId  = employerId ;
+          }
         });
         this.getUser();
       }
