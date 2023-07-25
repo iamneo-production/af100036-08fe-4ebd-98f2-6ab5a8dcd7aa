@@ -69,5 +69,6 @@ public class JobApplicationDTO {
     @Column
     private Long jobSeekerid;
 
-  
+    @Column
+    private Boolean selected;
 }

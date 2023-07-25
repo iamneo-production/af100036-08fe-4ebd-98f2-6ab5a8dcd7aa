@@ -27,4 +27,3 @@ public class Faq{
   private String answer;
 
 }
-

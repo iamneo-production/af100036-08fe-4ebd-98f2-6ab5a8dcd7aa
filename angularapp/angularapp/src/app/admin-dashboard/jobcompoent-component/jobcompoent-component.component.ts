@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { Employer } from 'src/app/Employer.module';
 import { Job } from 'src/app/Job.module';
@@ -10,28 +10,26 @@ import { AdminDashboardService } from 'src/app/admin-dashboard.service';
   styleUrls: ['./jobcompoent-component.component.css']
 })
 export class JobcompoentComponentComponent implements OnInit {
-  updatedJob: Job = {} as Job;
+  updatedJob: any= {};
   isAccessedFromEmployer: boolean = false;
   showJobUpdateForm = false;
-  deletedjobs: Job[] = [];
-  jobs: Job[] = [];
+  deletedjobs: Job[] = []; 
+  jobs: Job[] = []; 
   selectedJob: Job | null = null; 
   title: string="";
   location: string="";
   jobType: string="";
   salary: number=0;
   sortBy: string=""; 
-  employer:Employer |null =null;
+  employer: any;
   constructor(private adminService: AdminDashboardService) {}
   @Input() employerId: number=0;
   ngOnInit() {
     this.getAllDeletedJob();
     this.getJobs();
-  
-  
-    console.log(this.queryParams);
+    console.log(this.jobSeekerId);
   }
-  @Input() queryParams: any;
+  @Input() jobSeekerId: any;
   newJob: Job = {} as Job;
 
   showJobDetails: boolean = false;
@@ -39,7 +37,6 @@ export class JobcompoentComponentComponent implements OnInit {
   noJobsPosted = false;
 
 
- 
   selectedJobId: number = 0;
   applyForJob(jobId: number): void {
     this.selectedJobId = jobId;
@@ -51,26 +48,22 @@ export class JobcompoentComponentComponent implements OnInit {
     this.selectedJobId = jobId;
     this.showJobDetails = true;
     this.showApplyForm = false;
-
   }
- 
+
 
   showUpdateJobForm(job: Job) {
     if (this.showJobUpdateForm && this.updatedJob.id === job.id) {
-    
       this.showJobUpdateForm = false;
     } else {
-   
       this.showJobUpdateForm = true;
       this.updatedJob = { ...job };
     }
   }
 
- 
+
   getJobs() {
     this.adminService.getJobs().subscribe(jobs => {
       this.jobs = jobs;
-     
     });
   }
 
@@ -90,9 +83,19 @@ export class JobcompoentComponentComponent implements OnInit {
       this.jobs = this.jobs.filter(job => job.id !== id);
     });
   }
-
   updateJob() {
-    this.adminService.updateJob(this.updatedJob).subscribe(updatedJob => {
+    const jobToUpdate: any = {
+      employer: this.updatedJob.employer ? { id: this.updatedJob.employer.id } : undefined,
+      id: this.updatedJob.id,
+      title: this.updatedJob.title,
+      description: this.updatedJob.description,
+      location: this.updatedJob.location,
+      salary: this.updatedJob.salary,
+      requirements: this.updatedJob.requirements,
+      jobType: this.updatedJob.jobType,
+    };
+  
+    this.adminService.updateJob(jobToUpdate).subscribe(updatedJob => {
       const index = this.jobs.findIndex(j => j.id === updatedJob.id);
       if (index !== -1) {
         this.jobs[index] = updatedJob;
@@ -100,14 +103,14 @@ export class JobcompoentComponentComponent implements OnInit {
       this.showJobUpdateForm = false;
     });
   }
-
+  
   addJob() {
     this.adminService.addJob(this.newJob).subscribe(createdJob => {
       this.jobs.push(createdJob);
       this.newJob = {} as Job;
     });
   }
-  
+
   searchJobs(): void {
     this.adminService.searchJobs(this.title, this.location)
       .subscribe(
@@ -120,7 +123,7 @@ export class JobcompoentComponentComponent implements OnInit {
         }
       );
   }
-  
+
   sortJobs() {
     this.adminService.sortJobs(this.sortBy)
       .subscribe(
@@ -133,7 +136,7 @@ export class JobcompoentComponentComponent implements OnInit {
         }
       );
   }
-  
+
 
   reportJob(jobId: number) {
     this.adminService.reportJob(jobId)
@@ -145,4 +148,5 @@ export class JobcompoentComponentComponent implements OnInit {
           console.error('Failed to report job:', error);
         }
       );
-  }}
+  }
+}

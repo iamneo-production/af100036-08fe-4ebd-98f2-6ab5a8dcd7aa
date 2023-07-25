@@ -14,9 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EmployerDTO {
     @Id
+    @Column
     private Long id;
+    @Column
     private String name;
    @Column(name = "description", columnDefinition = "LONGTEXT")
     private String description;
+    @Column
     private String location;
 }

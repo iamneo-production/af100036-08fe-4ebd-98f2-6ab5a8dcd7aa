@@ -20,12 +20,16 @@ public class JobDTO {
     private String title;
     @Column(name = "description", columnDefinition = "LONGTEXT")
     private String description;
+    @Column
     private String location;
+    @Column
     private Integer salary;
+    @Column
     private String requirements;
+    @Column
     private String jobType;
-   
+    
     @ManyToOne
     private EmployerDTO employer;
    
-}
+} 
