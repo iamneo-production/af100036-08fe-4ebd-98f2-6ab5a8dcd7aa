@@ -16,11 +16,7 @@
     "@angular/compiler": "^16.0.0",
     "@angular/core": "^16.0.0",
     "@angular/forms": "^16.0.0",
-<<<<<<< HEAD
-    "@angular/material": "^16.1.2",
-=======
     "@angular/material": "^16.1.1",
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
