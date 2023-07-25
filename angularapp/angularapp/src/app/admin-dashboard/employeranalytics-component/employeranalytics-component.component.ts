@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Employer } from 'src/app/Employer.module';
 import { Job } from 'src/app/Job.module';
@@ -9,86 +8,83 @@ import { AdminDashboardService } from 'src/app/admin-dashboard.service';
   templateUrl: './employeranalytics-component.component.html',
   styleUrls: ['./employeranalytics-component.component.css']
 })
-export class EmployeranalyticsComponentComponent 
-{
-constructor(private adminService: AdminDashboardService,private http: HttpClient) {
-  
-}
-ngOnInit() {
-  
-  this.getEmployers();
+export class EmployeranalyticsComponentComponent {
+  constructor(private adminService: AdminDashboardService) {}
 
-}
-selectedEmployer: Employer | null = null;
+  ngOnInit() {
+    this.getEmployers();
+  }
 
-selectEmployer(employer: Employer): void {
-  this.selectedEmployer = employer;
-}
+  selectedEmployer: Employer | null = null;
 
-jobApplications:any=[];
-employers:Employer[]=[];
-showJobs:boolean=false;
-jobs:any=[];
-jobId:number=0;
-getApplications(jobId: number): void {
-  this.http.get<any[]>(`http://localhost:8080/admins/jobApplications/${jobId}`).subscribe(
-    data => {
-      this.jobApplications = data;
-    },
-    error => {
-      console.log(error);
-    }
-  );
-}
+  selectEmployer(employer: Employer): void {
+    this.selectedEmployer = employer;
+  }
+
+  jobApplications: any[] = [];
+  employers: Employer[] = [];
+  showJobs: boolean = false;
+  jobs: Job[] | null = null;
+
+  jobId: number = 0;
+
+  getApplications(jobId: number): void {
+    this.adminService.getJobApplications(jobId).subscribe(
+      (data: any[]) => {
+        this.jobApplications = data;
+      },
+      (error: any) => { 
+        console.log(error);
+      }
+    );
+  }
 
   getEmployers() {
     this.adminService.getEmployers().subscribe(employers => {
       this.employers = employers;
-       console.log(employers);
-     
+      console.log(employers);
     });
   }
+
   getJobsByEmployer(employerId: number) {
     this.showJobs = true;
-    this.http.get<Job[]>(`http://localhost:8080/admins/employers/${employerId}/jobs`).subscribe(
-      (jobs: Job[]) => {
-        if (jobs.length !== 0) {
+    this.adminService.getJobsByEmployer(employerId).subscribe(
+      (jobs: Job[] | null) => { 
+        if (jobs !== null) { 
           this.jobs = jobs;
           console.log(jobs);
         } else {
           this.jobs = [];
         }
       },
-      error => {
+      (error: any) => { 
         console.log(error);
       }
     );
   }
-  currentApplicationIndex: number = 0; 
+
+  currentApplicationIndex: number = 0;
 
   moveToNextApplication(): void {
     if (this.currentApplicationIndex < this.jobApplications.length - 1) {
       this.currentApplicationIndex++;
     }
   }
+
   moveToPreviousApplication(): void {
     if (this.currentApplicationIndex > 0) {
       this.currentApplicationIndex--;
     }
   }
-  
-reportJobSeeker(jobSeekerId: number) {
-  const endpoint = `http://localhost:8080/admins/job-seekers/report/${jobSeekerId}`;
 
-  this.http.post(endpoint, {}, { responseType: 'text' }).subscribe(
-    () => {
-      console.log('Job seeker reported successfully');
-     
-    },
-    (error) => {
-      console.error('Error reporting job seeker:', error);
-    
-    }
-  );
+  reportJobSeeker(jobSeekerId: number) {
+    this.adminService.reportJobSeeker(jobSeekerId).subscribe(
+      () => {
+        console.log('Job seeker reported successfully');
+      },
+      (error: any) => { 
+        console.error('Error reporting job seeker:', error);
+      }
+    );
+  }
 }
-}    

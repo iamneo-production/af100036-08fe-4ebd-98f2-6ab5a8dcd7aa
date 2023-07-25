@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfcaccdadddfabcfbf.project.examly.io")
+
 @RestController
 @RequestMapping("/dashboard")
 public class DashboardController {
@@ -117,6 +117,7 @@ private JobApplicationDTO convertToDTO(JobApplication jobApplication) {
     jobApplicationDTO.setState(jobApplication.getState());
     jobApplicationDTO.setPostalCode(jobApplication.getPostalCode());
     jobApplicationDTO.setJobSeekerid(jobApplication.getJobSeeker() != null ? jobApplication.getJobSeeker().getId() : 0);
+    jobApplicationDTO.setSelected(jobApplication.getSelected());
     return jobApplicationDTO;
 }
 

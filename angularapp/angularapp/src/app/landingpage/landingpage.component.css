@@ -1,57 +1,225 @@
-.container{
-    display: flex;
-    background-image: url('src\assets\images\full-bg.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+/* Global Styles */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.card {
-    width: 50%;
-    margin-left: 40px;
-    margin-bottom: 20px;
-    height: 470px;
-    margin-top: 80px;
-  }
-  
-  .card-image {
-    height: 100%;
-    background-image: url('src\assets\images\job bg.png');
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .card-details {
-    padding: 20px;
-  }
-  
-  .card-details ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .card-details li {
-    margin-bottom: 10px;
-  }
-  
-  .card-details li strong {
-    font-weight: bold;
-  }
-.card1{
-    display: flex;
-    padding: 10px;
-    background-color: whitesmoke;
-    width: 400px;
-    margin-left: 100px;
-    height: 450px;
-    margin-top: 80px;
+/* Header Styles */
+
+header {
+  background: linear-gradient(to right,#0078BF, #00AEEF);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
 }
-.card-img-top{
+
+
+
+
+
+
+/* Main Content Styles */
+
+main {
+  padding: 20px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Job Search and Job Application Styles */
+
+.job-search,
+.job-application {
+  padding: 40px 20px;
+}
+
+/* Featured Companies Styles */
+
+.featured-companies {
+  padding: 40px 20px;
+}
+
+.company-card {
+  padding: 20px;
+}
+
+/* Testimonials Styles */
+
+.testimonials {
+  padding: 40px 20px;
+}
+
+.testimonial-card {
+  padding: 20px;
+}
+
+/* Company Partners Styles */
+
+.company-partners {
+  padding: 40px 20px;
+}
+
+.partner-logos img {
+  max-width: 100px;
+  margin: 20px;
+}
+
+/* Footer Styles */
+
+footer {
+  background: linear-gradient(to right,#0078BF, #00AEEF);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  height:50px;
+}
+
+/* CTA Button Styles */
+
+.cta-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #0056b3;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 48px;
+  color: #ffffff; /* Blue color for the title */
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Convert text to uppercase */
+  font-weight: bold; /* Bold font weight */
+  letter-spacing: 1px; /* Add letter spacing */
+}
+
+.titleDescription {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+
+
+/* ---------NAVBAR------------------------------------------- */
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: arial, tahoma;
+  list-style: none;
+  /*    outline: 1px solid brown;*/
+}
+
+nav {
+  height: 80px;
+  background-color: transparent;
+  /* border-bottom: 1px solid #000000 */
+}
+.logo {
+  padding: 10px;
+  width: auto;
+  float: left;
+}
+
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.list-item {
+  float: right;
+  margin-right: 25px;
+  margin-top: 17px;
+}
+.list-item li {
+  float: left;
+  padding: 13px 13px;
+  font-size: 18px;
+  border-radius: 3px;
+  transition: all .3s ;
+}
+.list-item li a {
+  color: #EEE;
+}
+.list-item li:hover {
+  background-color: rgba(0, 0, 0, 0.234);
+}
+
+/*   End navigation bar   */
+
+
+
+
+
+/*   Start nav bar for small screens   */
+
+.icon {
+  display: none;
+}
+.toggle {
+  float: right;
+  margin: 25px;
+  color: #EEE;
+  font-size: 30px;
+  /* border: 1px solid #EEE; */
+  padding: 0px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*   End nav bar for small screens   */
+
+/*   Start media query   */
+
+@media (max-width: 1309px) {
+  .icon {
+    display: block;
     width: 100%;
-}
-.card-title{
-       font-size: larger;
-       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 80px;
+    background-color: transparent;
+    /* border-bottom: 1px solid #444; */
+  }
+  .list-item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -4px;
+    background-color: #222;
+    display: none;
+  }
+  .list-item li {
+    text-align: center;
+    display: block;
+    border-bottom: 1px solid #333;
+    float: none;
+  }
 }

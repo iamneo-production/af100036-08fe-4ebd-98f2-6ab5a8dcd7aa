@@ -1,31 +1,47 @@
-<div class="details">
-    <p>JOB DETAILS PAGE</p>
+<div class="container">
+  <div class="title">
+    <h1> JOB DETAILS PAGE </h1>
   </div>
-  <div class="jobdetail">
-    <div *ngIf="job">
-      <label>ID:</label>
-      <input type="number" [(ngModel)]="job.id" disabled>
-      <br>
-      <label>Job Name:</label>
-      <input [(ngModel)]="job.title">
-      <br>
-      <label>Description:</label>
-      <input [(ngModel)]="job.description">
-      <br>
-      <label>Requirements:</label>
-      <input [(ngModel)]="job.requirements">
-      <br>
-      <label>Employee ID:</label>
-      <input [(ngModel)]="job.employer.name" disabled>
-      <br>
-      <label>Job Location:</label>
-      <input [(ngModel)]="job.location">
-      <br>
-      <div class="button1">
-        <button class="apply-button" (click)="applyForJob(job.id)">Apply</button>
-      </div>
+  <div class="container1">
+  <div class="card">
+    <div class="card-image">
+    <div class="card-details">
+      <ul>
+        <li *ngIf="job">
+          <label>ID:
+          <input type="text"[(ngModel)]="job.id" disabled></label>
+          <br>
+          <br>
+          <label>Job Name:
+          <input [(ngModel)]="job.title" ></label>
+          <br>
+          <br>
+          <label>Requirements:
+          <input [(ngModel)]="job.requirements" ></label>
+          <br>
+          <br>
+          <label>Employee ID:
+          <input [(ngModel)]="job.employer.name" disabled ></label>
+          <br>
+          <br>
+          <label>Job Location:
+            <input [(ngModel)]="job.location" ></label>
+        </li>
+      </ul>
+      <div class="apply-button" (click)="applyForJob(job.id)">APPLY</div>
     </div>
   </div>
-  <div *ngIf="showApplyForm && selectedJobId" class="job-details-container">
-    <app-job-application *ngIf="job && job.id === selectedJobId" [jobId]="selectedJobId" [jobSeekerId]=" jobSeekerId"></app-job-application>
   </div>
+   <div class="card1">
+        <img class="card-img-top" src="assets\images\job.jpg" alt="Card image cap">
+      <h5 class="card-title">Description</h5>
+      <p class="card-text">
+        <input type="text" [(ngModel)]="job.description" readonly >
+      </p>
+   </div>
+ </div>
+</div>
+
+<div *ngIf="showApplyForm && selectedJobId" class="job-details-container">
+    <app-job-application *ngIf="job && job.id === selectedJobId" [jobId]="selectedJobId" [jobSeekerId]=" jobSeekerId"></app-job-application>
+</div>

@@ -8,11 +8,7 @@
 
 <br>
 <label class="profile"><b>Profile Picture</b></label>
-<mat-icon class="prof" [ngStyle]="{'background-image': 'url(' + profileImageUrl + ')'}">account_circle</mat-icon>
-<br>
-
-<input type="file" name="image" (change)="selectimage($event)" /><br>
-<button type="button" (click)="upload()">upload</button>
+<mat-icon class="prof">account_circle</mat-icon>
 
 <br>
   <br>
@@ -42,7 +38,7 @@
   <div class="form-outline">
     <label><b>DOB</b></label><br>
     <div class="disdob">
-      {{user.date}}
+      {{user.dob}}
     </div>
   </div>
   <br>
@@ -60,12 +56,13 @@
     </div>
   </div><br>
 <div class="input-group mb-3">
+  <button mat-button color="primary" style="background-color:violet" [routerLink]="['/editemployerprofile']" [queryParams]="{ employerId: employerId }">Edit</button> <br> 
   </div>
   <br>
 </div>
-</form>
   <div *ngIf="showEmployerUpdateForm" class="section-content">
     <app-editemployer-profile [employerId]="employerId" (employerUpdated)="updateEmployer($event)"></app-editemployer-profile>
 
   </div>
+</form>
 </body>

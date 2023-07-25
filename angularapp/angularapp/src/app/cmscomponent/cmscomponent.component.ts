@@ -22,8 +22,14 @@ export class CmscomponentComponent {
     image: null
   };
   editMode: boolean = false;
-
-  constructor(private http: HttpClient) {}
+branch:string='';
+baseURL:string='';
+  constructor(private http: HttpClient) {
+    const start = window.location.href.indexOf('-') + 1;
+    const end = window.location.href.indexOf('.project');
+    this.branch = window.location.href.substring(start, end);
+    this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+  }
 
   ngOnInit() {
     this.getPosts();
@@ -38,7 +44,7 @@ export class CmscomponentComponent {
   }
 
   getPosts() {
-    this.http.get<any[]>('https://8080-fcdfebffadacaeaebfceaeaadbdbabf.project.examly.io/admins/cms/posts').subscribe(
+    this.http.get<any[]>(`${this.baseURL}/admins/cms/posts`).subscribe(
       (response: any[]) => {
         this.posts = response;
         for (const post of this.posts) {

@@ -9,8 +9,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import java.util.*;
 
-import java.util.Objects;
 
 @Entity
 @Table
@@ -49,6 +49,12 @@ public class Users {
     @Column(name = "jobseeker_id")
     private Long jobseekerid;
 
+    @Enumerated(EnumType.STRING)
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+    private Set<Role> roles;
+  
 
     @Override
     public boolean equals(Object o) {

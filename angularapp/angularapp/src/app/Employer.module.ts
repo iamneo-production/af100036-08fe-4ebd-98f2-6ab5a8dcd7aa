@@ -6,6 +6,9 @@ export interface Employer {
   name: string;
   description: string;
   location: string;
+  dob:string;
+  email:string;
+  gender:string;
   jobs: Job[];
   user: any;
   createdAt: string;
