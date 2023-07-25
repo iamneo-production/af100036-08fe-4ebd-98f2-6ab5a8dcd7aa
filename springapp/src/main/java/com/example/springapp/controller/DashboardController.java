@@ -117,7 +117,6 @@ private JobApplicationDTO convertToDTO(JobApplication jobApplication) {
     jobApplicationDTO.setState(jobApplication.getState());
     jobApplicationDTO.setPostalCode(jobApplication.getPostalCode());
     jobApplicationDTO.setJobSeekerid(jobApplication.getJobSeeker() != null ? jobApplication.getJobSeeker().getId() : 0);
-    jobApplicationDTO.setSelected(jobApplication.getSelected());
     return jobApplicationDTO;
 }
 

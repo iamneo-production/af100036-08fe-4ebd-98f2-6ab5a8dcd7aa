@@ -40,7 +40,7 @@ export class JobseekereditprofileComponent implements OnInit {
     const start = window.location.href.indexOf('-') + 1;
     const end = window.location.href.indexOf('.project');
     this.branch = window.location.href.substring(start, end);
-    this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+    this.baseURL = `https://8080-${this.branch}.project.examly.io/`;
   }
 
   ngOnInit(): void {
