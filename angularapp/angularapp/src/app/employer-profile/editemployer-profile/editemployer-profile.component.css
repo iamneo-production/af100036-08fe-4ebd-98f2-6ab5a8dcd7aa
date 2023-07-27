@@ -1,3 +1,86 @@
+<<<<<<< HEAD
 .page{
     margin-left:30%;
 }
+=======
+
+body {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .page {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .prof {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    margin: 0 auto;
+  }
+  
+  .form-outline {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: blueviolet;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Optional: Add some spacing between elements */
+  br {
+    margin-bottom: 10px;
+  }
+  
+>>>>>>> bdf533daf0e7ef2426dadc0c36ec6908affbeeb1

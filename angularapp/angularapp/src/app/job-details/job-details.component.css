@@ -1,0 +1,89 @@
+.container{
+    background-image: linear-gradient(to bottom, #abc8e1, #3b3b8a);
+    width: 100%;
+    max-width: 1500px;
+    height: 100vh;
+}
+.title{
+  text-align: center;
+  padding-top: 20px;
+  font-size: medium;
+  animation: titleAnimation 2s linear infinite;
+}
+.title h1{
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+@keyframes titleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container1{
+  display: flex;
+}
+
+.card {
+    width: 50%;
+    margin-left: 25%;
+    height: 500px;
+    margin-top: 20px;
+  }
+  
+  .card-image {
+    height: 100%;
+    background-image: url('src\assets\images\job bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-details {
+    padding-left: 40px;
+    padding-top: 10px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+  }
+  
+  input{
+    padding: 5px;
+    border: 1px solid #8d8888b7;
+    border-radius: 3px;
+    width: 250px;
+  }
+  
+
+  .apply-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 40px;
+    margin-top: 20px;
+    background-color: #3273d4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    animation: pulseAnimation 2s infinite;
+  }
+  
+  @keyframes pulseAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employer } from 'src/app/Employer.module';
 import { Job } from 'src/app/Job.module';
 import { AdminDashboardService } from 'src/app/admin-dashboard.service';
@@ -14,12 +15,20 @@ export class AddjobformComponentComponent implements OnInit {
   newJob: any = {};
   showsJobForm: boolean = false;
   @Input() queryParams: any;
+  @Input() isAdminUser: boolean=false;
   existingEmployers: Employer[] = [];
 
-  constructor(private adminService: AdminDashboardService) {}
+  constructor(private adminService: AdminDashboardService,private router:Router,private route: ActivatedRoute)  {}
 
   ngOnInit() {
     console.log("add job", this.queryParams);
+    this.route.queryParams.subscribe(params => {
+      const employerId = params['employerId'];
+      if (employerId) {
+        this.newJob.employer = { id: employerId };
+      }
+    });
+    
     this.getEmployers();
   }
 
@@ -37,18 +46,35 @@ export class AddjobformComponentComponent implements OnInit {
     this.showsJobForm = !this.showsJobForm;
   }
   addJob() {
-    console.log('New Job:', this.newJob);
-    const employerId = this.newJob.employer;
-    const selectedEmployer = this.existingEmployers.find(employer => employer.id === employerId);
-    if (selectedEmployer) {
-      this.newJob.employer = selectedEmployer;
+    console.log(this.newJob)
+    if (this.newJob && this.newJob.employer && this.newJob.employer.id) {
+ 
+      const employerId = this.newJob.employer.id;
   
-      this.adminService.addJob(this.newJob).subscribe(createdJob => {
+      const payload = {
+        ...this.newJob,
+        employer: {
+          id: employerId
+        }
+      };
+  
+      this.adminService.addJob(payload).subscribe(createdJob => {
+       
+        alert('New Job Added');
         this.jobs.push(createdJob);
-        this.newJob = {} as Job;
+        this.newJob = {};
         this.showsJobForm = !this.showsJobForm;
+        if(!this.isAdminUser)
+        {
+          const queryParams = {
+            response: employerId
+          };
+      
+          this.router.navigate(['/employerdashboard'], { queryParams });
+        }
       });
-    }
+    
+  }
   }
   
 }

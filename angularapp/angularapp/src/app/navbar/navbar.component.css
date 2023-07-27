@@ -1,0 +1,120 @@
+
+  
+  /* Header Styles */
+  
+  header {
+    background: linear-gradient(to right,#0078BF, #00AEEF);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  
+/* ---------NAVBAR------------------------------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: arial, tahoma;
+    list-style: none;
+    /*    outline: 1px solid brown;*/
+  }
+  
+  nav {
+    height: 80px;
+    background-color: transparent;
+    background: linear-gradient(to right,#0078BF, #00AEEF);
+    color: #fff;
+    text-align: center;
+    padding: 20px 20px;
+    /* border-bottom: 1px solid #000000 */
+
+  }
+  .logo {
+    padding: 10px;
+    width: auto;
+    float: left;
+  }
+  
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+    /* margin-top: 20px; */
+  }
+
+  
+  .list-item {
+    float: right;
+    margin-right: 25px;
+    /* margin-top: 17px; */
+  }
+  .list-item li {
+    float: left;
+    padding: 13px 13px;
+    font-size: 18px;
+    border-radius: 3px;
+    transition: all .3s ;
+  }
+  .list-item li a {
+    color: #EEE;
+  }
+  .list-item li:hover {
+    background-color: rgba(0, 0, 0, 0.234);
+  }
+  
+  /*   End navigation bar   */
+  
+  
+  
+  
+  
+  /*   Start nav bar for small screens   */
+  
+  .icon {
+    display: none;
+  }
+  .toggle {
+    float: right;
+    margin: 25px;
+    color: #EEE;
+    font-size: 30px;
+    /* border: 1px solid #EEE; */
+    padding: 0px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /*   End nav bar for small screens   */
+  
+  /*   Start media query   */
+  
+  @media (max-width: 1309px) {
+    .icon {
+      display: block;
+      width: 100%;
+      height: 80px;
+      background-color: transparent;
+      /* border-bottom: 1px solid #444; */
+    }
+    .list-item {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: -4px;
+      background-color: #222;
+      display: none;
+    }
+    .list-item li {
+      text-align: center;
+      display: block;
+      border-bottom: 1px solid #333;
+      float: none;
+    }
+  }

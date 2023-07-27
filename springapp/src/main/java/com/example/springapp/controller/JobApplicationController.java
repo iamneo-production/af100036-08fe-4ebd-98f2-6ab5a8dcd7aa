@@ -18,17 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.springapp.model.JobApplication;
 import com.example.springapp.model.JobApplicationDTO;
 import com.example.springapp.repository.JobApplicationRepository;
-
+import com.example.springapp.repository.JobRepository;
+import com.example.springapp.repository.JobSeekerRepository;
+import java.util.Optional;
 import com.example.springapp.model.Job;
 
 import com.example.springapp.model.JobSeeker;
 
-@CrossOrigin(origins = "https://8081-becfabfadacaeaebfceaeaadbdbabf.project.examly.io")
+
 @RestController
 @RequestMapping("/api/job-applications")
 public class JobApplicationController {
     @Autowired
     private  JobApplicationRepository jobApplicationRepository;
+    @Autowired
+    private  JobRepository jobRepository;
+    @Autowired
+    private  JobSeekerRepository jobSeekerRepository;
     @PostMapping("/apply")
     public ResponseEntity<String> applyForJob(@RequestBody JobApplicationRequest request) {
         Optional<JobSeeker> optionalJobSeeker = jobSeekerRepository.findById(request.getJobSeekerId());

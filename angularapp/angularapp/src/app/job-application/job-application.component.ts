@@ -10,9 +10,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class JobApplicationComponent {
   @Input() jobId: number=0;
   @Input()  jobSeekerId: number=0;
-
+  branch:string='';
+  baseURL:string='';
   isAccessedFromAdmin: boolean =false;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+     
+const start = window.location.href.indexOf('-') + 1;
+const end = window.location.href.indexOf('.project');
+this.branch = window.location.href.substring(start, end);
+this.baseURL = `https://8080-${this.branch}.project.examly.io`;
+  }
   PersonalInfoFormComponent !: FormGroup;
  
    
@@ -62,7 +69,7 @@ console.log(this.jobSeekerId)
    
      const formData = this.PersonalInfoFormComponent.value;
 console.log(formData);
-     this.http.post('https://8081-fcdfebffadacaeaebfceaeaadbdbabf.project.examly.io/api/job-applications/apply', formData, { responseType: 'text' }).subscribe(
+     this.http.post(`${this.baseURL}/api/job-applications/apply`, formData, { responseType: 'text' }).subscribe(
        (response: any) => {
          console.log('Job application submitted successfully.');
          this.successMessage = 'Thank You For Applying For The Job';

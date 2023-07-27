@@ -1,5 +1,6 @@
 <div class="topnav">
 </div>
+<<<<<<< HEAD
 <body>
   <form>
 <div class="page">
@@ -24,3 +25,51 @@
 </div>
 <button type="submit">Update</button>
 </form>
+=======
+
+  <form>
+  <div class="page">
+<h1>Employer EditProfile</h1>
+<mat-icon class="prof">account_circle</mat-icon>
+
+<form (submit)="upload()" class="employer-update-form">
+  <br>
+  <br>
+  <div class="form-outline">
+    <label><b>Name</b></label><br>
+   <input type="text" id="name"  [(ngModel)]="updatedEmployer.name"  [ngModelOptions]="{standalone: true}" name="name" required>
+  </div>
+  <br>
+
+  <div class="form-outline">
+    <label><b>Description</b></label><br>
+    <textarea class="form-control" id="Description" rows="4" placeholder="Description" [(ngModel)]="updatedEmployer.description"  [ngModelOptions]="{standalone: true}" name="description"></textarea>
+  </div>
+  <br>
+  
+  <div class="form-outline">
+    <label><b>Location</b></label><br>
+    <input type="text" id="Location"  [(ngModel)]="updatedEmployer.location"  [ngModelOptions]="{standalone: true}" name="location" required>
+   </div>
+   <br>
+   <div class="form-outline">
+    <label for="dob"><b>DOB</b></label><br>
+    <input type="date" id="dob" name="dob" [(ngModel)]="updatedEmployer.dob" [ngModelOptions]="{standalone: true}" name="dob" required>
+  </div>
+  <br>
+  <div class="form-outline">
+    <label><b>Email</b></label><br>
+    <input type="email" id="email"  [(ngModel)]="updatedEmployer.email"  [ngModelOptions]="{standalone: true}" name="email" required>
+   </div>
+   <br>
+   <div class="form-outline">
+    <label><b>Gender</b></label><br>
+    <input type="text" id="gender"  [(ngModel)]="updatedEmployer.gender"  [ngModelOptions]="{standalone: true}" name="gender" required>
+   </div>
+  
+<div class="input-group mb-3">
+  <button type="submit">Update</button>
+</div>
+</form>
+</div>
+>>>>>>> bdf533daf0e7ef2426dadc0c36ec6908affbeeb1

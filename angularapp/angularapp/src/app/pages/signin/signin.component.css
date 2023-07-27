@@ -1,0 +1,107 @@
+.container {
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right,#0078BF, #00AEEF);
+  /* background: linear-gradient(to right, #da4453, #89216b); */
+}
+
+
+.form-box{
+  width:90%;
+  max-width: 450px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  padding: 50px 60px 70px;
+  text-align:center;
+  border-radius: 7px;
+}
+
+.form-box h1{
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 60px;
+  color: #3c00a0;
+  position: relative;
+}
+
+.form-box h1::after{
+  content:'';
+  width:30px;
+  height:4px;
+  border-radius: 3px;
+  background: #3c00a0;
+  position: absolute;
+  bottom: -12px;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+
+.input-field{
+  background: #eaeaea;
+  margin: 15px 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  transform: translateY(128%);
+}
+
+
+input,select{
+  width:100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 18px 15px;
+}
+
+
+.input-field i{
+  margin-left: 15px;
+  color: #999;
+}
+
+
+.btn-field{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.btn-field button{
+  flex-basis: 48%;
+  background: #3c00a0;
+  color: #fff;
+  height: 40px;
+  border-radius: 20px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.btn-field button:hover{
+  background: #da4453;
+}
+
+
+.input-group{
+  height: 300px;
+}
+
+
+/* select option{
+  background: #eaeaea;
+} */
+
+
+
+/* ----------------------------------------------- */
+
+

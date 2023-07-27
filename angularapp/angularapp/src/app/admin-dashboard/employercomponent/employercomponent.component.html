@@ -1,65 +1,43 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
-<div class="employer-wrapper">
-  <div class="employer-container" >
-<div *ngFor="let employer of employers" class="employer-item" (click)="openEmployerDetails(employer.id)">
-
-  <div class="employer-field">
-    <span class="field-label"><em class="fas fa-id-badge"></em></span>
-    <span class="field-value">{{ employer.id }}</span>
-  </div>
-  <div class="employer-field">
-    <span class="field-label"><em class="fas fa-building"></em></span>
-    <span class="field-value">{{ employer.name }}</span>
-  </div>
-  <div class="employer-field">
-    <span class="field-label"><em class="fas fa-info-circle"></em></span>
-    <span class="field-value">{{ employer.description }}</span>
-  </div>
-  <div class="employer-field">
-    <span class="field-label"><em class="fas fa-map-marker-alt"></em> </span>
-    <span class="field-value">{{ employer.location }}</span>
-  </div>
-  
-  
-  <div class="employer-actions">
-    <button (click)="deleteEmployer(employer.id)"><em class="fas fa-trash"></em></button>
-    <button (click)="showUpdateEmployerForm(employer)"><em class="fas fa-edit"></em></button>
-    
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="employer-wrapper">
+        <div *ngFor="let employer of employers">
+          <div class="card employer-item" (click)="openEmployerDetails(employer.id)">
+            <div class="card-body">
+          
+              <div class="employer-field">
+                <span class="field-label"><em class="fas fa-id-badge"></em></span>
+                <span class="field-value">{{ employer.id }}</span>
+              </div>
+              <div class="employer-field">
+                <span class="field-label"><em class="fas fa-building"></em></span>
+                <span class="field-value">{{ employer.name }}</span>
+              </div>
+              <div class="employer-field">
+                <span class="field-label"><em class="fas fa-info-circle"></em></span>
+                <span class="field-value">{{ employer.description }}</span>
+              </div>
+              <div class="employer-field">
+                <span class="field-label"><em class="fas fa-map-marker-alt"></em> </span>
+                <span class="field-value">{{ employer.location }}</span>
+              </div>
+            </div>
+            <div class="employer-actions">
+              <button class="btn btn-danger" (click)="deleteEmployer(employer.id)"><em class="fas fa-trash"></em></button>
+              <button class="btn btn-primary" (click)="showUpdateEmployerForm(employer)"><em class="fas fa-edit"></em></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-<div *ngIf="this.updatedEmployer.id === employer.id" class="section-content">
-  <div *ngIf="showEmployerUpdateForm" class="section-content">
-<h3>Update Employer</h3>
-<form (submit)="updateEmployer()" class="employer-update-form">
-<div class="form-field">
-  <label for="employerName">Name:</label>
-  <input type="text" id="employerName" [(ngModel)]="updatedEmployer.name" name="name" required>
-</div>
-<div class="form-field">
-  <label for="employerDescription">Description:</label>
-  <textarea id="employerDescription" [(ngModel)]="updatedEmployer.description" name="description" required></textarea>
-</div>
-<div class="form-field">
-  <label for="employerLocation">Location:</label>
-  <input type="text" id="employerLocation" [(ngModel)]="updatedEmployer.location" name="location" required>
-</div>
-<button type="submit">Update</button>
-</form>
-</div>
-</div>
-</div>
-
-  
-
-</div>
-
-<div *ngFor="let employer of employers">
- 
-  <div class="employer-details-container" >
- <!-- <app-employer-profile *ngIf="showEmployersDetails && employer.id === selectedEmployerId" [employerId]="selectedEmployerId"></app-employer-profile>-->
-
-</div>
-</div>
+    
+    <div class="col-md-6">
+      <div *ngFor="let employer of employers">
+        <div class="employer-details-container">
+          <app-employer-profile *ngIf="showEmployersDetails && employer.id === selectedEmployerId" [employerId]="selectedEmployerId"></app-employer-profile>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
