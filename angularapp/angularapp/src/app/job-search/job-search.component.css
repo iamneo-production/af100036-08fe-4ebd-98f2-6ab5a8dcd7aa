@@ -1,26 +1,18 @@
 .job-wrapper {
   display: flex;
- 
 }
-
-
 .job-item {
-
     margin-bottom: 20px;
     padding: 10px;
     max-width: 600px;
-margin-left:245px;
-margin-right: 20px;
+    margin-left:245px;
+    margin-right: 20px;
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow:  3px 3px 3px 3px rgba(83, 81, 81, 0.984);
   }
   .accessed-from-employer{
-
-   
-margin-left:0px;
-
-   
+     margin-left:0px;
   }
   
   .job-field {
@@ -41,7 +33,6 @@ margin-left:0px;
     color: #495057;
   }
   
-  
   .fa-building,
   .fa-file-alt,
   .fa-map-marker-alt,
@@ -49,7 +40,6 @@ margin-left:0px;
   .fa-clipboard-list,
   .fa-briefcase {
     color: #7a7c7d;
-
     margin-right: 5px;
   }
   
@@ -63,7 +53,6 @@ margin-left:0px;
   .fa-edit:hover,
   .fa-eye:hover {
     color: #ff5722;
-  
   }
   .toggle-button {
     padding: 10px 20px;
@@ -79,16 +68,16 @@ margin-left:0px;
   .toggle-button:hover {
     background-color: #ddd;
   }
-.container{
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90%;
-  position: fixed;
-  background-size: cover;
-  background-position: center;
-  background-image: url('src\assets\images\JobSearch.jpg');
-}
+  .container{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-image: url('src\assets\images\JobSearch.jpg');
+  }
   .searchbox {
     margin-left:400px;
     display: flex;
@@ -124,10 +113,8 @@ margin-left:0px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    
     display: flex;
-   margin-left: 450px;
-
+    margin-left: 450px;
   }
   
   .report-button i {
@@ -141,24 +128,16 @@ margin-left:0px;
     margin-bottom: 10px;
  
   }
- 
-  
   .expired-label {
     color: red;
     font-weight: bold;
-
   }
   .job-details-container {
-
-
-    width: 80%;
- 
-    overflow: auto; 
-  }.job-actions {
+    width: 700px;
+  }
+  .job-actions {
     display: flex;
-  
     align-items: center;
-   
   }
   
   .job-actions button {
@@ -207,7 +186,6 @@ margin-left:0px;
 }
 .fa-trash
   {
-
     margin-left:450px;
   }
   
@@ -229,9 +207,10 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #cedfcf;
-}.navbar {
+}
+.navbar {
   margin-bottom: 50px; 
-margin-right: 40%;
+  margin-right: 40%;
 }
 
 .navbar-link {

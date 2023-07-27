@@ -10,11 +10,11 @@
 
 </div>
 <div  class="searchbox">
-  <label for="title">Title:</label>
+  <label for="title" style="font-weight: bold;">Title:</label>
   <input id="title" type="text" [(ngModel)]="title">
-  <label for="location" >Location:</label>
+  <label for="location" style="font-weight: bold;">Location:</label>
   <input id="location" type="text" [(ngModel)]="location">
-  <label for="sortBy" >Sort By:</label>
+  <label for="sortBy" style="font-weight: bold;">Sort By:</label>
   <select id="sortBy" [(ngModel)]="sortBy">
     <option value="salary">Salary</option>
     <option value="live">Live Jobs</option>
@@ -66,11 +66,7 @@
 
 </div>
   <button class="apply-button" (click)="applyForJob(job.id)">Apply</button>
-  
-      
- 
  </div>
- 
  </div>
  <div *ngFor="let job of jobs">
   <div *ngIf="showApplyForm &&  selectedJobId && !isAccessedFromEmployer" class="job-details-container">
