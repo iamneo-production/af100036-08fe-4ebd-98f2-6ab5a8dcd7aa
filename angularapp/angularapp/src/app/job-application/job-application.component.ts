@@ -22,14 +22,7 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
   }
   PersonalInfoFormComponent !: FormGroup;
  
-   
-   // handleResumeUpload(files: FileList) {
-   //   // Handle file upload for the resume field
-   //   if (files.length > 0) {
-   //     this.personalInfoForm.resume = files[0];
-   //     console.log('Resume uploaded:', this.personalInfoForm.resume);
-   //   }; [Validators.required, Validators.email]
-   // }
+
  
    countryList=[
      {"countryname":"India"},
@@ -48,7 +41,6 @@ console.log(this.jobSeekerId)
      'email': new FormControl(null,[Validators.required, Validators.email]),
      'gender': new FormControl('male'),
      'phone': new FormControl(null),
-     // 'resume': new FormControl(null),
      'coverLetter': new FormControl(null),
      'date': new FormControl(null),
      'month': new FormControl(null),
