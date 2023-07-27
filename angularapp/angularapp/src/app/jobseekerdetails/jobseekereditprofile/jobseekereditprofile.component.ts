@@ -33,7 +33,7 @@ export class JobseekereditprofileComponent implements OnInit {
   };
   
   skillsInput: string = '';
-  @Input() isFormVisible: boolean = true;
+  isFormVisible: boolean = true;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     

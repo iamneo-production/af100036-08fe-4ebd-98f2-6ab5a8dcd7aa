@@ -20,7 +20,7 @@ import { CmsComponentComponent } from './admin-dashboard/cms-component/cms-compo
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/landingpage', pathMatch: 'full' },
+    { path: '', redirectTo: '/signin', pathMatch: 'full' },
     {path: 'admin', component: AdminDashboardComponent },
     { path: 'jobseekerdashboard', component: JobseekerdashoardComponent },
     { path: 'employerdashboard', component: EmployerDashboardComponent },

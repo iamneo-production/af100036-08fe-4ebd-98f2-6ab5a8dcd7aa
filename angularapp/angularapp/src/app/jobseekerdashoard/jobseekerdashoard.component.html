@@ -1,14 +1,31 @@
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<div class="navbar">
- 
-<a class="navbar-link" [routerLink]="['/signin']">Sign Out</a>
+<div class="container-fluid">
+  <nav class=" mt-1 navbar navbar-expand-lg bg-primary navbar-dark danger-color rounded">
+    <!-- Brand -->
+    <a class="navbar-brand "
+      id="logo"><B>JOB PORTAL</B></a>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Dropdown -->
+      <li class="nav-item">
+        <a routerLink="/jobseekerdetails" style="cursor: pointer;" class="nav-link p-3"[queryParams]="{ jobSeekerId: jobseekerId}"> <i class="fa fa-briefcase"></i> My Profile</a>
+      </li>
 
-  <a class="navbar-link" [routerLink]="['/jobseekerdetails']" [queryParams]="{ jobSeekerId: jobseekerId}">My Profile</a>
-  <a class="navbar-link" [routerLink]="['/job-serach']" [queryParams]="{ jobSeekerId: jobseekerId}">Search Jobs</a> 
-  <h1>Job Seeker DashBoard</h1>
-
+      <li class="nav-item">
+        <a routerLink="/job-serach" style="cursor: pointer;" class="nav-link p-3"[queryParams]="{ jobSeekerId: jobseekerId}"> <i class="fa fa-search"></i>Search Jobs</a>
+      </li>
+     
+      <li class="nav-item">
+        <a routerLink="/signin" style="cursor: pointer;" class="nav-link p-3"> <i class="fa fa-sign-out"></i> Logout</a>
+      </li>
+      
+      
+  
+    </ul>
+  </nav>
 </div>
+
+
 
 
 
@@ -22,12 +39,9 @@
           <th>Title</th>
           <th>Description</th>
           <th>Applications</th>
-     
-         
-          
         </tr>
-      
       </thead>
+
       <tbody>
         <tr *ngFor="let job of jobs">
           <td>{{ job.id }}</td>

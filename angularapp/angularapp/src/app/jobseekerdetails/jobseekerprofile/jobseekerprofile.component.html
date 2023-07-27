@@ -7,11 +7,15 @@
       <ul class="navbar-nav ml-auto">
         <!-- Dropdown -->
         <li class="nav-item">
-          <a routerLink="/jobseekerdashboard" class="nav-link p-3"> <i class="fa fa-briefcase"></i> Dashboard</a>
+          <a routerLink="/jobseekerdashboard" class="nav-link p-3"[queryParams]="{ jobSeekerId: jobSeekerId}"> <i class="fa fa-briefcase"></i> Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/job-serach" style="cursor: pointer;" class="nav-link p-3"[queryParams]="{ jobSeekerId: jobSeekerId}"> <i class="fa fa-search"></i> Search Job</a>
         </li>
        
         <li class="nav-item">
-          <a routerLink="/landingpage" style="cursor: pointer;" class="nav-link p-3"> <i class="fa fa-sign-out"></i> Logout</a>
+          <a routerLink="/signin" style="cursor: pointer;" class="nav-link p-3"> <i class="fa fa-sign-out"></i> Logout</a>
         </li>
         
     
@@ -114,8 +118,7 @@
                     <app-jobseekereditprofile
                         [jobseekerId]="jobSeekerId"
                         (jobseekerUpdated)="updateJobSeeker($event)"
-                        [isFormVisible]="isFormVisible"
-                      
+                                             
                         (isFormVisibleChange)="isFormVisible = $event"
 
                     ></app-jobseekereditprofile>
