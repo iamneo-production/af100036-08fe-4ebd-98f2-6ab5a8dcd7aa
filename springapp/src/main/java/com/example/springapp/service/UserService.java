@@ -92,7 +92,7 @@ public class UserService {
             adminUser.setName("admin"); 
             adminUser.setEmail(defaultAdminEmail);
             adminUser.setPassword(passwordEncoder.encode(defaultAdminPassword));
-adminUser.setRole(Role.ADMIN);
+            adminUser.setRole(Role.ADMIN);
             Set<Role> roles = new HashSet<>();
             roles.add(Role.ADMIN);
             roles.add(Role.EMPLOYER);
@@ -110,6 +110,7 @@ adminUser.setRole(Role.ADMIN);
             Employers adminEmployer = new Employers();
             adminEmployer.setName("admin");
             adminEmployer.setUser(adminUser);
+            
             employerRepository.save(adminEmployer);
             jobSeekerRepository.save(adminJobSeeker);
             employerRepository.save(adminEmployer);

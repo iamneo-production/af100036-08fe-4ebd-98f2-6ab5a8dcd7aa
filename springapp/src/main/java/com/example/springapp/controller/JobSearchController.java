@@ -36,7 +36,7 @@ import com.example.springapp.repository.*;
 @RestController
 @RequestMapping("/job-search")
 public class JobSearchController {
-@Autowired
+@Autowired 
     private JobRepository jobRepository;
 @Autowired
     private EntityManager entityManager;
