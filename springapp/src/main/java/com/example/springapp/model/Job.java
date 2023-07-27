@@ -1,31 +1,16 @@
 package com.example.springapp.model;
-<<<<<<< HEAD
-=======
-
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
-<<<<<<< HEAD
-
 import javax.persistence.*;
-
-=======
-import javax.persistence.*;
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-<<<<<<< HEAD
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-=======
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,11 +19,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
-<<<<<<< HEAD
-@Table(name = "Jobs")
-=======
 @Table(name = "Job")
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -74,11 +55,7 @@ public class Job {
 @JsonIgnoreProperties("job")
     @ManyToOne
     @JoinColumn(name = "employer_id")
-<<<<<<< HEAD
-    private Employer employer;
-=======
     private Employers employer;
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 
 
  @JsonIgnoreProperties("job")
@@ -102,8 +79,4 @@ public class Job {
     private Boolean reported = false;
 
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf

@@ -24,17 +24,9 @@ public interface JobRepository extends JpaRepository<Job, Long>,JpaSpecification
     Iterable<Job> searchByTitleAndLocationAndJobTypeAndSalary(Object object, Object object2, Object object3, int i);
     List<Job> findByReported(boolean b);
   
-<<<<<<< HEAD
-=======
   
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf
 
   
 
    
     }
-<<<<<<< HEAD
-    
- 
-=======
->>>>>>> a6a0470e3de50c52c07aeeda9f3cc0855eda5faf

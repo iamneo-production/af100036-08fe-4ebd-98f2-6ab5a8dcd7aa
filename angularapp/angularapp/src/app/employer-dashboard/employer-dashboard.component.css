@@ -523,4 +523,9 @@ r {
       button:hover {
         background-color: #ddd;
         color: #ff5722;
+      }.deleted-job {
+        background-color: #ff0000; 
+        color: #ffffff; 
+        padding: 5px;
+        border-radius: 5px;
       }
