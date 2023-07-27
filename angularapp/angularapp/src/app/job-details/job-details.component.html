@@ -2,12 +2,9 @@
   <div class="title">
     <h1> JOB DETAILS PAGE </h1>
   </div>
-  <div class="container1">
   <div class="card">
     <div class="card-image">
     <div class="card-details">
-      <ul>
-        <li *ngIf="job">
           <label>ID:
           <input type="text"[(ngModel)]="job.id" disabled></label>
           <br>
@@ -16,6 +13,10 @@
           <input [(ngModel)]="job.title" ></label>
           <br>
           <br>
+          <label>Description:
+            <input [(ngModel)]="job.description" ></label>
+            <br>
+            <br>
           <label>Requirements:
           <input [(ngModel)]="job.requirements" ></label>
           <br>
@@ -26,21 +27,12 @@
           <br>
           <label>Job Location:
             <input [(ngModel)]="job.location" ></label>
-        </li>
-      </ul>
+          </div>
       <div class="apply-button" (click)="applyForJob(job.id)">APPLY</div>
     </div>
   </div>
   </div>
-   <div class="card1">
-        <img class="card-img-top" src="assets\images\job.jpg" alt="Card image cap">
-      <h5 class="card-title">Description</h5>
-      <p class="card-text">
-        <input type="text" [(ngModel)]="job.description" readonly >
-      </p>
-   </div>
- </div>
-</div>
+
 
 <div *ngIf="showApplyForm && selectedJobId" class="job-details-container">
     <app-job-application *ngIf="job && job.id === selectedJobId" [jobId]="selectedJobId" [jobSeekerId]=" jobSeekerId"></app-job-application>
