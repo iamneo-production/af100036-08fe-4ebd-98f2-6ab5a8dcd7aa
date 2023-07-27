@@ -61,110 +61,7 @@ private EntityManager entityManager;
    @Autowired
    private  CmsRepository cmsRepository;
    
-  @GetMapping("/jobs")
-public ResponseEntity<List<JobDTO>> getAllJobs() {
-   
-    try {
-        List<Job> jobs = jobRepository.findAll();
-        List<JobDTO> jobDTOs = jobs.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-
-   
-
-        return ResponseEntity.ok(jobDTOs);
-   
-           
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    
-}private JobDTO convertToDTO(Job job) {
-    JobDTO jobDTO = new JobDTO();
-    jobDTO.setId(job.getId());
-    jobDTO.setTitle(job.getTitle());
-    jobDTO.setDescription(job.getDescription());
-    jobDTO.setLocation(job.getLocation());
-    jobDTO.setSalary(job.getSalary());
-    jobDTO.setRequirements(job.getRequirements());
-    jobDTO.setJobType(job.getJobType());
-
-    if (job.getEmployer() != null) {
-        EmployerDTO employerDTO = new EmployerDTO();
-        employerDTO.setId(job.getEmployer().getId());
-        employerDTO.setName(job.getEmployer().getName());
-        employerDTO.setDescription(job.getEmployer().getDescription());
-        employerDTO.setLocation(job.getEmployer().getLocation());
-        jobDTO.setEmployer(employerDTO);
-    }
-
-    return jobDTO;
-}
-
-
-    @GetMapping("/jobs/chart")
-    public  ResponseEntity<List<Job>> getAllJobsevendeleted() {
-        try {
-         
-            List<Job> job = jobRepository.findAll();
-            return ResponseEntity.ok(job);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-    
-    @GetMapping("/jobs/{id}")
-    public ResponseEntity<Job> getJobById(@PathVariable(value = "id") Long jobId)
-            throws ResourceNotFoundException {
-              
-        Job job = jobRepository.findById(jobId)
-                .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
-        return ResponseEntity.ok().body(job);
-    }
-
-    
-@PutMapping("/jobs/{id}")
-public ResponseEntity<Job> updateJob(@PathVariable(value = "id") Long jobId, @RequestBody Job updatedJob)
-    throws ResourceNotFoundException {
-    Job job = jobRepository.findById(jobId)
-        .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
-    
-    BeanUtils.copyProperties(updatedJob, job, "id");
-    
-    final Job updatedJobEntity = jobRepository.save(job);
-    return ResponseEntity.ok(updatedJobEntity);
-}
-
-   
-    @DeleteMapping("/jobs/{id}")
-    public ResponseEntity<?> deleteJobById(@PathVariable(value = "id") Long jobId)
-            throws ResourceNotFoundException {
-         
-               Job job= jobRepository.findById(jobId)
-               .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
-                job.setDeleted(true); 
-                jobRepository.save(job);
-                        
-                return ResponseEntity.ok().build();
-    }
-
-@PostMapping("/jobs")
-public ResponseEntity<Job> addJob(@RequestBody Job newJob) {
-    Long employerId = newJob.getEmployer().getId();
-    Employers existingEmployer = employerRepository.findById(employerId).orElse(null);
-
-    if (existingEmployer != null) {
-        newJob.setEmployer(existingEmployer);
-        final Job addedJob = jobRepository.save(newJob);
-        return ResponseEntity.ok(addedJob);
-    } else {
-        return ResponseEntity.notFound().build();
-    }
-}
-
-
+  
      @PostMapping("/job-seekers")
     public ResponseEntity<JobSeeker> addJobSeekers(@RequestBody JobSeeker newJobSeeker) {
       final JobSeeker addedJobSeeker = jobSeekerRepository.save(newJobSeeker);
@@ -175,55 +72,136 @@ public ResponseEntity<Job> addJob(@RequestBody Job newJob) {
       final Employers addedEmployer = employerRepository.save(newEmployer);
       return ResponseEntity.ok(addedEmployer);
     }
+    
+@GetMapping("/faq")
+public List<Faq> getAllFAQs() {
+  return faqRepository.findAll();
+}
+@PostMapping("/faq/add")
+public Faq addFAQ(@RequestBody Faq faq) {
+  return faqRepository.save(faq);
+}
+@PutMapping("/faq/{id}")
+public Faq updateFAQ(@PathVariable Long id, @RequestBody Faq updatedFaq) {
+  return faqRepository.findById(id)
+    .map(faq -> {
+      faq.setQuestion(updatedFaq.getQuestion());
+      faq.setAnswer(updatedFaq.getAnswer());
   
-    
+      return faqRepository.save(faq);
+    })
+    .orElseThrow(() -> new ResourceNotFoundException("FAQ entry not found with id: " + id));
+}
+@DeleteMapping("/faq/{id}")
+public ResponseEntity<?> deleteFAQ(@PathVariable Long id) {
+  return faqRepository.findById(id)
+    .map(faq -> {
+      faqRepository.delete(faq);
+      return ResponseEntity.ok().build();
+    })
+    .orElseThrow(() -> new ResourceNotFoundException("FAQ entry not found with id: " + id));
+}
 
-    @GetMapping("/employers/{id}")
-    public ResponseEntity<Employers> getEmployerById(@PathVariable(value = "id") Long employerId)
-            throws ResourceNotFoundException {
-                Session session = entityManager.unwrap(Session.class);
-                session.enableFilter("deletedFilter").setParameter("isDeleted", false);
-                Employers employer = employerRepository.findById(employerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
-        return ResponseEntity.ok().body(employer);
-    }
-    @GetMapping("/employers/{id}/jobs")
-public List<Job> getJobsByEmployerId(@PathVariable(value = "id") Long employerId)
-        throws ResourceNotFoundException {
-    Employers employer = employerRepository.findById(employerId)
-    
-            .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
-
-    List<Job> jobs = employer.getJobs();
    
-    return jobs;
-}
-
-@DeleteMapping("/employers/{id}")
-public ResponseEntity<?> deleteEmployerById(@PathVariable(value = "id") Long employerId)
-        throws ResourceNotFoundException {
-    Employers employer = employerRepository.findById(employerId)
-            .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
-
-    Users user = employer.getUser();
-    if (user != null) {
-        employer.setUser(null);
-        employerRepository.save(employer); 
-        userRepository.delete(user); 
+    @GetMapping("/tasks")
+    public ResponseEntity<List<Task>> getAllTasks() {
+        List<Task> tasks = taskRepository.findAll();
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
-    employer.setDeleted(true);
-    employerRepository.save(employer);
-
-    List<Job> jobs = employer.getJobs();
-    for (Job job : jobs) {
-        job.setDeleted(true);
-        jobRepository.save(job);
+  
+    @PostMapping("/tasks")
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        Task createdTask = taskRepository.save(task);
+        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
 
-    return ResponseEntity.ok().build();
+ 
+    @DeleteMapping("/tasks/{id}")
+    public ResponseEntity<Void> markTaskAsCompleted(@PathVariable Long id) {
+        Optional<Task> taskOptional = taskRepository.findById(id);
+        if (taskOptional.isPresent()) {
+            taskRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+  
+    @PostMapping("/cms/upload")
+public ResponseEntity<String> uploadFile(@RequestParam("image") MultipartFile file,
+                                         @RequestParam("title") String title,
+                                         @RequestParam("content") String content) throws IOException {
+    if (file.isEmpty()) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("File is empty");
+    }
+
+    String originalFileName = file.getOriginalFilename();
+    String fileName = StringUtils.cleanPath(originalFileName);
+    System.out.println("Received file: " + fileName);
+    String fileExtension = getFileExtension(originalFileName);
+
+    Cms postEntity = new Cms();
+    postEntity.setFileName(fileName);
+    postEntity.setFileExtension(fileExtension);
+    postEntity.setImageData(file.getBytes());
+    postEntity.setTitle(title);
+    postEntity.setContent(content);
+
+    postEntity = cmsRepository.save(postEntity);
+
+    return ResponseEntity.ok("File uploaded successfully");
 }
 
+@GetMapping("/cms/posts")
+public ResponseEntity<List<Cms>> getPosts() {
+    List<Cms> posts = cmsRepository.findAll();
+    if (!posts.isEmpty()) {
+        return ResponseEntity.ok(posts);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
+@PutMapping("/cms/posts/{postId}")
+public ResponseEntity<String> updatePost(@PathVariable Long postId,
+                                         @RequestParam(value = "image", required = false) MultipartFile file,
+                                         @RequestParam("title") String title,
+                                         @RequestParam("content") String content) throws IOException {
+    Optional<Cms> postOptional = cmsRepository.findById(postId);
+    if (postOptional.isPresent()) {
+        Cms post = postOptional.get();
+
+        if (file != null && !file.isEmpty()) {
+            String originalFileName = file.getOriginalFilename();
+            String fileName = StringUtils.cleanPath(originalFileName);
+            String fileExtension = getFileExtension(originalFileName);
+
+            post.setFileName(fileName);
+            post.setFileExtension(fileExtension);
+            post.setImageData(file.getBytes());
+        }
+
+        post.setTitle(title);
+        post.setContent(content);
+
+        cmsRepository.save(post);
+
+        return ResponseEntity.ok("Post updated successfully");
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
+private String getFileExtension(String fileName) {
+    int dotIndex = fileName.lastIndexOf(".");
+    if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
+        return fileName.substring(dotIndex + 1);
+    } else {
+        return "";
+    }
+}
 
     @PutMapping(value = "/employers/{id}", consumes = "application/json")
     public ResponseEntity<Employers> updateEmployer(@PathVariable(value = "id") Long employerId, @RequestBody Employers updatedEmployer)
@@ -269,59 +247,6 @@ public ResponseEntity<?> deleteEmployerById(@PathVariable(value = "id") Long emp
     }
     
     
-
-    @GetMapping("/job-seekers/{id}")
-    public ResponseEntity<JobSeeker> getJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
-            throws ResourceNotFoundException {
-                Session session = entityManager.unwrap(Session.class);
-                session.enableFilter("deletedFilter").setParameter("isDeleted", false);
-        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
-        return ResponseEntity.ok().body(jobSeeker);
-    }
-    @DeleteMapping("/job-seekers/{id}")
-    public ResponseEntity<?> deleteJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
-            throws ResourceNotFoundException {
-    
-        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
-      Users user = jobSeeker.getUser();
-                if (user != null) {
-        jobSeeker.setUser(null);
-       jobSeekerRepository.save(jobSeeker); 
-   userRepository.delete(user); 
-    }
-        jobSeeker.setDeleted(true); 
-        jobSeekerRepository.save(jobSeeker);
-    
-        return ResponseEntity.ok().build();
- 
-}
-
-    
-    
-    @PutMapping("/job-seekers/{id}")
-    public ResponseEntity<JobSeeker> updateJobSeeker(@PathVariable(value = "id") Long jobSeekerId, @RequestBody JobSeeker updatedJobSeeker)
-            throws ResourceNotFoundException {
-        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
-    
-        BeanUtils.copyProperties(updatedJobSeeker, jobSeeker, "id");
-    
-        final JobSeeker updatedJobSeekerEntity = jobSeekerRepository.save(jobSeeker);
-        return ResponseEntity.ok(updatedJobSeekerEntity);
- 
-}
-    
-    
-    @GetMapping("/job-seekers/deleted")
-    public List<JobSeeker> getAllDeletedJobSeekers() {
-        Session session = entityManager.unwrap(Session.class);
-        session.enableFilter("deletedFilter").setParameter("isDeleted", true);
-        return jobSeekerRepository.findAll();
-    }
-   
-
 
     @PostMapping("/jobs/report/{id}")
     public ResponseEntity<String> reportJob(@PathVariable Long id ) {
@@ -446,61 +371,6 @@ public ResponseEntity<List<Job>> sortJobs(@RequestParam("sortBy") String sortBy)
   
   return ResponseEntity.ok(sortedJobs);
 }
-@GetMapping("/faq")
-public List<Faq> getAllFAQs() {
-  return faqRepository.findAll();
-}
-@PostMapping("/faq/add")
-public Faq addFAQ(@RequestBody Faq faq) {
-  return faqRepository.save(faq);
-}
-@PutMapping("/faq/{id}")
-public Faq updateFAQ(@PathVariable Long id, @RequestBody Faq updatedFaq) {
-  return faqRepository.findById(id)
-    .map(faq -> {
-      faq.setQuestion(updatedFaq.getQuestion());
-      faq.setAnswer(updatedFaq.getAnswer());
-  
-      return faqRepository.save(faq);
-    })
-    .orElseThrow(() -> new ResourceNotFoundException("FAQ entry not found with id: " + id));
-}
-@DeleteMapping("/faq/{id}")
-public ResponseEntity<?> deleteFAQ(@PathVariable Long id) {
-  return faqRepository.findById(id)
-    .map(faq -> {
-      faqRepository.delete(faq);
-      return ResponseEntity.ok().build();
-    })
-    .orElseThrow(() -> new ResourceNotFoundException("FAQ entry not found with id: " + id));
-}
-
-   
-    @GetMapping("/tasks")
-    public ResponseEntity<List<Task>> getAllTasks() {
-        List<Task> tasks = taskRepository.findAll();
-        return new ResponseEntity<>(tasks, HttpStatus.OK);
-    }
-
-  
-    @PostMapping("/tasks")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        Task createdTask = taskRepository.save(task);
-        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
-    }
-
- 
-    @DeleteMapping("/tasks/{id}")
-    public ResponseEntity<Void> markTaskAsCompleted(@PathVariable Long id) {
-        Optional<Task> taskOptional = taskRepository.findById(id);
-        if (taskOptional.isPresent()) {
-            taskRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
     
     @GetMapping("/reported/employers")
     public ResponseEntity<List<Job>> getReportedJobs() {
@@ -513,6 +383,59 @@ public ResponseEntity<?> deleteFAQ(@PathVariable Long id) {
         List<JobSeeker> reportedJobSeekers = jobSeekerRepository.findByReported(true);
         return ResponseEntity.ok(reportedJobSeekers);
     }
+
+
+    @GetMapping("/job-seekers/{id}")
+    public ResponseEntity<JobSeeker> getJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
+            throws ResourceNotFoundException {
+                Session session = entityManager.unwrap(Session.class);
+                session.enableFilter("deletedFilter").setParameter("isDeleted", false);
+        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
+        return ResponseEntity.ok().body(jobSeeker);
+    }
+    @DeleteMapping("/job-seekers/{id}")
+    public ResponseEntity<?> deleteJobSeekerById(@PathVariable(value = "id") Long jobSeekerId)
+            throws ResourceNotFoundException {
+    
+        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
+      Users user = jobSeeker.getUser();
+                if (user != null) {
+        jobSeeker.setUser(null);
+       jobSeekerRepository.save(jobSeeker); 
+   userRepository.delete(user); 
+    }
+        jobSeeker.setDeleted(true); 
+        jobSeekerRepository.save(jobSeeker);
+    
+        return ResponseEntity.ok().build();
+ 
+}
+
+    
+    
+    @PutMapping("/job-seekers/{id}")
+    public ResponseEntity<JobSeeker> updateJobSeeker(@PathVariable(value = "id") Long jobSeekerId, @RequestBody JobSeeker updatedJobSeeker)
+            throws ResourceNotFoundException {
+        JobSeeker jobSeeker = jobSeekerRepository.findById(jobSeekerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job seeker not found for this id :: " + jobSeekerId));
+    
+        BeanUtils.copyProperties(updatedJobSeeker, jobSeeker, "id");
+    
+        final JobSeeker updatedJobSeekerEntity = jobSeekerRepository.save(jobSeeker);
+        return ResponseEntity.ok(updatedJobSeekerEntity);
+ 
+}
+    
+    
+    @GetMapping("/job-seekers/deleted")
+    public List<JobSeeker> getAllDeletedJobSeekers() {
+        Session session = entityManager.unwrap(Session.class);
+        session.enableFilter("deletedFilter").setParameter("isDeleted", true);
+        return jobSeekerRepository.findAll();
+    }
+   
 
 @PostMapping("/apply")
 public ResponseEntity<String> applyForJob(@RequestBody JobApplicationRequest request) {
@@ -656,93 +579,155 @@ public ResponseEntity<?> getJobApplicationsByJobSeekerId(@PathVariable Long jobS
         return ResponseEntity.notFound().build();
     }
 
-}@PostMapping("/cms/upload")
-public ResponseEntity<String> uploadFile(@RequestParam("image") MultipartFile file,
-                                         @RequestParam("title") String title,
-                                         @RequestParam("content") String content) throws IOException {
-    if (file.isEmpty()) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("File is empty");
+}    @GetMapping("/jobs")
+public ResponseEntity<List<JobDTO>> getAllJobs() {
+   
+    try {
+        List<Job> jobs = jobRepository.findAll();
+        List<JobDTO> jobDTOs = jobs.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
+   
+
+        return ResponseEntity.ok(jobDTOs);
+   
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    
+}private JobDTO convertToDTO(Job job) {
+    JobDTO jobDTO = new JobDTO();
+    jobDTO.setId(job.getId());
+    jobDTO.setTitle(job.getTitle());
+    jobDTO.setDescription(job.getDescription());
+    jobDTO.setLocation(job.getLocation());
+    jobDTO.setSalary(job.getSalary());
+    jobDTO.setRequirements(job.getRequirements());
+    jobDTO.setJobType(job.getJobType());
+
+    if (job.getEmployer() != null) {
+        EmployerDTO employerDTO = new EmployerDTO();
+        employerDTO.setId(job.getEmployer().getId());
+        employerDTO.setName(job.getEmployer().getName());
+        employerDTO.setDescription(job.getEmployer().getDescription());
+        employerDTO.setLocation(job.getEmployer().getLocation());
+        jobDTO.setEmployer(employerDTO);
     }
 
-    String originalFileName = file.getOriginalFilename();
-    String fileName = StringUtils.cleanPath(originalFileName);
-    System.out.println("Received file: " + fileName);
-    String fileExtension = getFileExtension(originalFileName);
-
-    Cms postEntity = new Cms();
-    postEntity.setFileName(fileName);
-    postEntity.setFileExtension(fileExtension);
-    postEntity.setImageData(file.getBytes());
-    postEntity.setTitle(title);
-    postEntity.setContent(content);
-
-    postEntity = cmsRepository.save(postEntity);
-
-    return ResponseEntity.ok("File uploaded successfully");
+    return jobDTO;
 }
 
-@GetMapping("/cms/posts")
-public ResponseEntity<List<Cms>> getPosts() {
-    List<Cms> posts = cmsRepository.findAll();
-    if (!posts.isEmpty()) {
-        return ResponseEntity.ok(posts);
+
+    @GetMapping("/jobs/chart")
+    public  ResponseEntity<List<Job>> getAllJobsevendeleted() {
+        try {
+         
+            List<Job> job = jobRepository.findAll();
+            return ResponseEntity.ok(job);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    
+    @GetMapping("/jobs/{id}")
+    public ResponseEntity<Job> getJobById(@PathVariable(value = "id") Long jobId)
+            throws ResourceNotFoundException {
+              
+        Job job = jobRepository.findById(jobId)
+                .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
+        return ResponseEntity.ok().body(job);
+    }
+
+    
+@PutMapping("/jobs/{id}")
+public ResponseEntity<Job> updateJob(@PathVariable(value = "id") Long jobId, @RequestBody Job updatedJob)
+    throws ResourceNotFoundException {
+    Job job = jobRepository.findById(jobId)
+        .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
+    
+    BeanUtils.copyProperties(updatedJob, job, "id");
+    
+    final Job updatedJobEntity = jobRepository.save(job);
+    return ResponseEntity.ok(updatedJobEntity);
+}
+
+   
+    @DeleteMapping("/jobs/{id}")
+    public ResponseEntity<?> deleteJobById(@PathVariable(value = "id") Long jobId)
+            throws ResourceNotFoundException {
+         
+               Job job= jobRepository.findById(jobId)
+               .orElseThrow(() -> new ResourceNotFoundException("Job not found for this id :: " + jobId));
+                job.setDeleted(true); 
+                jobRepository.save(job);
+                        
+                return ResponseEntity.ok().build();
+    }
+
+@PostMapping("/jobs")
+public ResponseEntity<Job> addJob(@RequestBody Job newJob) {
+    Long employerId = newJob.getEmployer().getId();
+    Employers existingEmployer = employerRepository.findById(employerId).orElse(null);
+
+    if (existingEmployer != null) {
+        newJob.setEmployer(existingEmployer);
+        final Job addedJob = jobRepository.save(newJob);
+        return ResponseEntity.ok(addedJob);
     } else {
         return ResponseEntity.notFound().build();
     }
 }
 
-@PutMapping("/cms/posts/{postId}")
-public ResponseEntity<String> updatePost(@PathVariable Long postId,
-                                         @RequestParam(value = "image", required = false) MultipartFile file,
-                                         @RequestParam("title") String title,
-                                         @RequestParam("content") String content) throws IOException {
-    Optional<Cms> postOptional = cmsRepository.findById(postId);
-    if (postOptional.isPresent()) {
-        Cms post = postOptional.get();
 
-        if (file != null && !file.isEmpty()) {
-            String originalFileName = file.getOriginalFilename();
-            String fileName = StringUtils.cleanPath(originalFileName);
-            String fileExtension = getFileExtension(originalFileName);
+@GetMapping("/employers/{id}")
+public ResponseEntity<Employers> getEmployerById(@PathVariable(value = "id") Long employerId)
+        throws ResourceNotFoundException {
+            Session session = entityManager.unwrap(Session.class);
+            session.enableFilter("deletedFilter").setParameter("isDeleted", false);
+            Employers employer = employerRepository.findById(employerId)
+            .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
+    return ResponseEntity.ok().body(employer);
+}
+@GetMapping("/employers/{id}/jobs")
+public List<Job> getJobsByEmployerId(@PathVariable(value = "id") Long employerId)
+    throws ResourceNotFoundException {
+Employers employer = employerRepository.findById(employerId)
 
-            post.setFileName(fileName);
-            post.setFileExtension(fileExtension);
-            post.setImageData(file.getBytes());
-        }
+        .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
 
-        post.setTitle(title);
-        post.setContent(content);
+List<Job> jobs = employer.getJobs();
 
-        cmsRepository.save(post);
-
-        return ResponseEntity.ok("Post updated successfully");
-    } else {
-        return ResponseEntity.notFound().build();
-    }
+return jobs;
 }
 
-private String getFileExtension(String fileName) {
-    int dotIndex = fileName.lastIndexOf(".");
-    if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
-        return fileName.substring(dotIndex + 1);
-    } else {
-        return "";
-    }
+@DeleteMapping("/employers/{id}")
+public ResponseEntity<?> deleteEmployerById(@PathVariable(value = "id") Long employerId)
+    throws ResourceNotFoundException {
+Employers employer = employerRepository.findById(employerId)
+        .orElseThrow(() -> new ResourceNotFoundException("Employer not found for this id :: " + employerId));
+
+Users user = employer.getUser();
+if (user != null) {
+    employer.setUser(null);
+    employerRepository.save(employer); 
+    userRepository.delete(user); 
 }
- @PostMapping("/selectApplicant")
-    public ResponseEntity<String> selectApplicant(@RequestBody Long applicationId) {
-      
-        Optional<JobApplication> optionalJobApplication = jobApplicationRepository.findById(applicationId);
 
-        if (optionalJobApplication.isPresent()) {
-      
-            JobApplication jobApplication = optionalJobApplication.get();
-            jobApplication.setSelected(true);
-            jobApplicationRepository.save(jobApplication);
+employer.setDeleted(true);
+employerRepository.save(employer);
 
-            return ResponseEntity.ok("Applicant selected successfully");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+List<Job> jobs = employer.getJobs();
+for (Job job : jobs) {
+    job.setDeleted(true);
+    jobRepository.save(job);
+}
+
+return ResponseEntity.ok().build();
+}
+
+
 }

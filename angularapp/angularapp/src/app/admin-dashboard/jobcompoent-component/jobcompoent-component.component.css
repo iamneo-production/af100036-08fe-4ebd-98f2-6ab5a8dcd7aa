@@ -50,8 +50,7 @@ margin-top: 30px;
 }
 
 .job-details-container {
-  display: flex;
-  justify-content: center;
+width:700px;
   margin-top: 20px;
 }
 
