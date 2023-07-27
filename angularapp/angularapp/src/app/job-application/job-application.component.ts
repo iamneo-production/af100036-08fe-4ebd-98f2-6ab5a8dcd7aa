@@ -22,8 +22,6 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
   }
   PersonalInfoFormComponent !: FormGroup;
  
-
- 
    countryList=[
      {"countryname":"India"},
      {"countryname":"USA"},
@@ -56,9 +54,7 @@ console.log(this.jobSeekerId)
  successMessage: string = '';
   applyForJob():void
   {
- 
-
-   
+    
      const formData = this.PersonalInfoFormComponent.value;
 console.log(formData);
      this.http.post(`${this.baseURL}/api/job-applications/apply`, formData, { responseType: 'text' }).subscribe(
