@@ -1,5 +1,5 @@
 .container{
-    background-image: linear-gradient(to bottom, #abc8e1, #3b3b8a);
+    background-image: linear-gradient(to bottom, #abc8e1, #9d9dc7);
     width: 100%;
     max-width: 1500px;
     height: 100vh;
@@ -31,8 +31,8 @@
 }
 
 .card {
-    width: 50%;
-    margin-left: 25%;
+    width: 80%;
+    margin-left: 8%;
     height: 500px;
     margin-top: 20px;
   }
