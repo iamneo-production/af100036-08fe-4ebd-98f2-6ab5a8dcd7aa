@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
+<div class="container">
 <div class="navbar">
  
   <a class="navbar-link" [routerLink]="['/signin']">Sign Out</a>
@@ -9,15 +9,12 @@
   <h1>Job Search Page</h1>
 
 </div>
-
-
-
 <div  class="searchbox">
   <label for="title">Title:</label>
   <input id="title" type="text" [(ngModel)]="title">
-  <label for="location">Location:</label>
+  <label for="location" >Location:</label>
   <input id="location" type="text" [(ngModel)]="location">
-  <label for="sortBy">Sort By:</label>
+  <label for="sortBy" >Sort By:</label>
   <select id="sortBy" [(ngModel)]="sortBy">
     <option value="salary">Salary</option>
     <option value="live">Live Jobs</option>
@@ -83,4 +80,5 @@
     <app-job-details [jobId]="job.id" [jobSeekerId]="jobSeekerId"></app-job-details>
     
   </div>
+</div>
 </div>
