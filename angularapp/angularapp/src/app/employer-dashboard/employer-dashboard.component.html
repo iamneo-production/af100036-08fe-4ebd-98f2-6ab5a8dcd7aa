@@ -18,7 +18,7 @@
               <th>Title</th>
               <th>Description</th>
               <th>Applications</th>
-         
+              <th>Delete Job</th>
              
               
             </tr>
@@ -30,6 +30,14 @@
               <td>{{ job.title }}</td>
               <td>{{job.description}}</td>
               <td><button (click)="getApplications(job.id)">Show Job Applications</button></td>
+              <td *ngIf="job.deleted; else notDeletedJob">
+              
+                <div class="deleted-job">Expired Job</div>
+              </td>
+              <ng-template #notDeletedJob>
+              
+                <td><button (click)="deleteJob(job.id)">DELETE JOB</button></td>
+              </ng-template>
             </tr>
           </tbody>
         </table>
