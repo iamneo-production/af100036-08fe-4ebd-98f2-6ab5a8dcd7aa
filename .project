@@ -17,12 +17,26 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
+
 			<id>1683272641792</id>
+
+
+			<id>1682929289507</id>
+
+
+			<id>1683027060040</id>
+
+			<id>1682915864054</id>
+
+
+
 			<name></name>
 			<type>30</type>
 			<matcher>
@@ -31,4 +45,8 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+
+
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
 </projectDescription>

@@ -1,0 +1,47 @@
+.container {
+  margin-top: 20px;
+}
+
+.post-container {
+  cursor: pointer;
+  width: 300px;
+  transition: background-color 0.3s ease;
+}
+
+.post-container:hover {
+  background-color: #f8f9fa;
+}
+
+.edit-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Custom styles for content container */
+.content-container {
+  margin-top: 20px;
+  border-top: 1px solid #dee2e6;
+  padding-top: 20px;
+}
+
+.edit-form {
+  margin-top: 20px;
+}
+
+.edit-form h3 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+

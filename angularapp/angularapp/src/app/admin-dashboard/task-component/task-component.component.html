@@ -1,0 +1,41 @@
+<div class="task-management text-right">
+  <h3>Tasks</h3>
+  <p>This table lists the tasks with their titles, descriptions, and available actions.</p>
+  <table class="table">
+    <caption>List of tasks and their details</caption>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>
+          <button (click)="deleteTask(task.id)" class="btn btn-danger"> 
+            <em >&#10003; mark as completed</em>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="toggleFormVisibility()" class="btn btn-primary toggle-button">
+    <div >{{ showForm ? 'Close' : 'Add Task' }}</div>
+  </button>
+
+  <div *ngIf="showForm" class="task-form">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" [(ngModel)]="newTask.title" class="form-control" id="title" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea [(ngModel)]="newTask.description" class="form-control" id="description"></textarea>
+    </div>
+    <button (click)="createTask()" class="btn btn-primary">Create Task</button>
+  </div>
+

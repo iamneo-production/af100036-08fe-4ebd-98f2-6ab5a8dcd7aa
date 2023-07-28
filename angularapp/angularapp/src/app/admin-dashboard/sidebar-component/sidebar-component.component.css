@@ -1,0 +1,179 @@
+.sidebar {
+  position: fixed;
+  top:70px;
+  left: 0;
+  bottom: 0;
+  width:310px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 100; 
+}
+
+
+.side-panel-heading {
+
+  cursor: pointer;
+}
+
+.sub-options.active {
+  display: block; 
+}
+
+.sub-options {
+  display: none; 
+}
+
+
+
+.arrow {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+
+.side-panel {
+  margin-bottom: 20px;
+}
+
+.side-panel-heading {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 40px;
+  font-size: 25px;
+  background-color: #ffecff;
+  color: #78a3f8;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.side-panel-heading:hover {
+  background-color: #353674;
+  color: #faeaff;
+}
+
+.side-panel-heading.active {
+  background-color: #186FAF;
+  color: #fff;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-item,
+.employer-item,
+.job-seeker-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  height: 50%;
+  width: 50%;
+  background-color: #eeee;
+}
+
+.job-item:hover,
+.employer-item:hover,
+.job-seeker-item:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.job-actions,
+.employer-actions,
+.job-seeker-actions {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.section-heading {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.job-field,
+.employer-field,
+.job-seeker-field {
+  margin-bottom: 10px;
+}
+
+.field-label {
+  font-weight: bold;
+  color: #186FAF;
+}
+
+.field-value {
+  margin-left: 10px;
+  color: #495057;
+}
+
+button {
+  background-color: #1bb5cc;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #138496;
+}
+
+.arrow {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+.sub-options.active {
+  display: block;
+}
+
+.sub-options {
+  display: none;
+}
+
+.sub-option {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  color: #186FAF;
+}
+
+.sub-option:hover {
+  color: #138496;
+}

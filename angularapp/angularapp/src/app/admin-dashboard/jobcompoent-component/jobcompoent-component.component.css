@@ -1,0 +1,187 @@
+
+.job-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+
+}
+.job-wrapper {
+  display: flex;
+margin-top: 30px;
+}
+
+.expired-label {
+  background-color: #ffcccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff0000;
+}
+.report-icon{
+  margin-left:90%;
+}
+
+
+.report-button {
+
+  background: none;
+  
+}
+
+.report-button i {
+  color: red;
+  font-size: 1.5em;
+  margin-right: 0px;
+}
+
+.job-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.job-actions {
+  display: flex;
+}
+
+.job-actions button {
+  margin-right: 5px;
+}
+
+.job-details-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.job-field {
+  margin-bottom: 5px;
+}
+
+.field-label {
+  margin-right: 5px;
+}
+
+.field-value {
+  font-weight: bold;
+}
+
+.searchbox {
+  margin-top: 20px;
+}
+.searchbox button {
+  margin-top: 10px;
+}
+
+
+.alert-info {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.job-update-form {
+  margin-top: 20px;
+}
+
+.section-content {
+  display: flex;
+  justify-content: center;
+}
+
+.job-wrapper {
+  display: flex;
+}
+
+.job-item {
+  margin-bottom: 20px;
+  padding: 10px;
+ width: 500px;
+
+  margin-right: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px rgba(83, 81, 81, 0.984);
+}
+
+.accessed-from-employer {
+  margin-left: 0px;
+}
+
+.job-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.field-label {
+  margin-right: 10px;
+  width: 80px;
+  font-weight: bold;
+  color: #f0f9ff;
+}
+
+.field-value {
+  flex: 1;
+  color: #495057;
+}
+
+.fa-building,
+.fa-file-alt,
+.fa-map-marker-alt,
+.fa-dollar-sign,
+.fa-clipboard-list,
+.fa-briefcase {
+  color: #7a7c7d;
+  margin-right: 5px;
+}
+
+
+.apply-button {
+  background-color: #a8b8a9;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.apply-button:hover {
+  background-color: #cedfcf;
+}
+
+
+.job-actions .btn-danger {
+  color: #333;
+}
+
+.job-actions .btn-danger:hover {
+  color: #ff5722;
+}
+
+.job-actions .btn-primary {
+  color: #333;
+}
+
+.job-actions .btn-primary:hover {
+  color: #ff5722;
+}
+.searchbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.searchbox label {
+  margin-right: 5px;
+  margin-left : 20px;
+}
+.searchbox input,
+.searchbox select,
+.searchbox button {
+
+margin-left : 40px;
+}

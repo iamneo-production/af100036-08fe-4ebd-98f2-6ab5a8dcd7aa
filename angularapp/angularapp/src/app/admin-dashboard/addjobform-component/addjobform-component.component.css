@@ -1,0 +1,16 @@
+
+  
+.job-add-form {
+ 
+  justify-content: center;
+margin-left: 400px;
+margin-right: 100px;
+}
+
+.job-add-form {
+  max-width: 500px;
+}
+button[type="submit"] {
+  margin-top: 20px;
+
+}

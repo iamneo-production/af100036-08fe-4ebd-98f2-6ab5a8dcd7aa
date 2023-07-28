@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div class="bootstrap-wrapper">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="form-box">
+                    <h1>Signin</h1>
+                      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                        <div class="input-group">
+                        <div class="form-group">
+                          <div class="input-field">
+                          <i class="fa fa-envelope"></i>
+                          <!-- <label for="email">Email:</label> -->
+                          <input type="email" class="form-control" id="email" name="username" placeholder="Email" formControlName="email">
+                          <!-- Error message for email validation -->
+                          <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error-message">
+                            Please enter a valid email address.
+                          </div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-field">
+                            <i class="fa fa-lock"></i>
+                          <!-- <label for="password">Password:</label> -->
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password">
+                          <!-- Error message for password validation -->
+                          <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error-message">
+                            Please enter a valid password.
+                          </div>
+                        </div>
+                        </div>
+
+                      </div>
+
+
+                      
+
+                        <div class="btn-field">
+                          <button type="submit">Signin</button>
+                          <button routerLink="/signup">Signup</button>
+                        </div>
+                      
+                      </form>
+                      
+                  </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+
+

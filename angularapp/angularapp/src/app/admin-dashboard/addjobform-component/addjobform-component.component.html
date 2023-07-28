@@ -1,0 +1,35 @@
+<form (submit)="addJob()" class="job-add-form">
+  <div class="form-group">
+    <label for="jobEmployer">Employer:</label>
+    <select id="jobEmployer" class="form-control" [(ngModel)]="newJob.employer" name="employer" required [disabled]="newJob.employer">
+      <option value="">Select an employer</option>
+      <option *ngFor="let employer of existingEmployers" [ngValue]="employer">{{ employer?.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="jobTitle">Title:</label>
+    <input type="text" id="jobTitle" class="form-control" [(ngModel)]="newJob.title" name="title" required>
+  </div>
+  <div class="form-group">
+    <label for="jobDescription">Description:</label>
+    <textarea id="jobDescription" class="form-control" [(ngModel)]="newJob.description" name="description" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="jobLocation">Location:</label>
+    <input type="text" id="jobLocation" class="form-control" [(ngModel)]="newJob.location" name="location" required>
+  </div>
+  <div class="form-group">
+    <label for="jobSalary">Salary:</label>
+    <input type="number" id="jobSalary" class="form-control" [(ngModel)]="newJob.salary" name="salary" required>
+  </div>
+  <div class="form-group">
+    <label for="jobRequirements">Requirements:</label>
+    <textarea id="jobRequirements" class="form-control" [(ngModel)]="newJob.requirements" name="requirements" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="jobType">Job Type:</label>
+    <input type="text" id="jobType" class="form-control" [(ngModel)]="newJob.jobType" name="jobType" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>

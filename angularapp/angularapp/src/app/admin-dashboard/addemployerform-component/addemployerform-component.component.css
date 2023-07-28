@@ -1,0 +1,15 @@
+
+.employer-add-form {
+ 
+  justify-content: center;
+margin-left: 400px;
+margin-right: 100px;
+}
+
+.employer-add-form {
+  max-width: 600px;
+}
+button[type="submit"] {
+  margin-top: 20px;
+
+}
