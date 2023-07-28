@@ -4,11 +4,42 @@ body {
     padding: 0;
   }
   
+  .navbar {
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar a {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  .navbar h1 {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    margin-right: 30px;
+    cursor: pointer;
+  }
   
   header a {
     color: #fff;
     text-decoration: none;
     margin-right: 20px;
+  }
+
+  .navbar .admin-buttons {
+    margin-right: 10px;
+    cursor: default;
+   
+  }
+
+  .navbar .admin-buttons a{
+    cursor: default;
   }
   
   .employer-wrapper {
@@ -111,49 +142,4 @@ body {
     flex: 1;
     color: #495057;
   }
-  .navbar {
-    margin-bottom: 50px; 
-  margin-right: 40%;
-  }
   
-  .navbar-link {
-    text-decoration: none;
-    border-radius: 4px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  
-  .navbar h1 {
-    color: #333;
-    font-size: 40px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-link.active {
-    background-color: #ddd;
-    font-weight: bold;
-  }
-  
-  
-  .navbar-link:hover {
-    background-color: #f2f2f2;
-  }
-  
-  .navbar-link.active {
-    background-color: #ddd;
-    font-weight: bold;
-  }
-  
-  .expired {
-    border: 1px solid red;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .expired-label {
-    color: red;
-    font-weight: bold;
-  }

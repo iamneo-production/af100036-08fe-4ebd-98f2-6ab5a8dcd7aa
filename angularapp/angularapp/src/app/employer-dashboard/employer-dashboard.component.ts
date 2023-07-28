@@ -83,8 +83,20 @@ this.baseURL = `https://8080-${this.branch}.project.examly.io`;
     );
   }
   
-   
-    
+  deleteJob(jobId: number) :void{
+    const url = `${this.baseURL}/dashboard/jobs/${jobId}`;
+  
+    this.http.delete(url).subscribe(
+      () => {
+        console.log(`Job with ID ${jobId} deleted successfully.`);
+        
+        this.getJobsByEmployer();
+      },
+      (error) => {
+        console.error(`Error deleting job with ID ${jobId}:`, error);
+      }
+    );
+  }
     getJobsByEmployer() {
 
       this.http.get<Job[]>(`${this.baseURL}/dashboard/employers/${this.employerId}/jobs`).subscribe(
